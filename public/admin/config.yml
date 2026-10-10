@@ -1,0 +1,40 @@
+# Decap CMS 配置（网页后台发文章用）
+# 上线前请把下面的 repo 改成你自己的 GitHub 仓库，例如 yourname/china-culture-site
+backend:
+  name: github
+  repo: AI-E518/china-culture-site
+  branch: main
+
+# 媒体文件存放位置（图片上传后自动放到这里）
+media_folder: "public/media/uploads"
+public_folder: "/media/uploads"
+
+# 编辑界面语言
+locale: "zh"
+
+collections:
+  - name: "posts"
+    label: "文章"
+    folder: "src/content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: title, label: "标题", widget: string }
+      - { name: lang, label: "语言", widget: select, options: [{ label: "英文 EN", value: "en" }, { label: "中文 ZH", value: "zh" }, { label: "日文 JA", value: "ja" }, { label: "韩文 KO", value: "ko" }], default: "en" }
+      - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
+      - { name: summary, label: "摘要", widget: text }
+      - { name: cover, label: "封面图", widget: image, required: false }
+      - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
+      - { name: location, label: "地点", widget: string, required: false }
+      - name: faq
+        label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
+        widget: list
+        required: false
+        field:
+          name: item
+          widget: object
+          fields:
+            - { name: q, label: "问题", widget: string }
+            - { name: a, label: "答案", widget: text }
+      - { name: pubDate, label: "发布日期", widget: datetime }
+      - { name: body, label: "正文", widget: markdown }

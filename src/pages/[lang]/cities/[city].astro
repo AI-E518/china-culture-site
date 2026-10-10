@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import ChinaMap from '../../../components/ChinaMap.astro';
+import { cities } from '../../../data/china';
+import { LANGS, t } from '../../../i18n';
+
+export function getStaticPaths() {
+  return cities.flatMap((c) => LANGS.map((lang) => ({ params: { lang, city: c.slug } })));
+}
+const { lang, city } = Astro.params;
+const ui = t(lang);
+const meta = cities.find((c) => c.slug === city)!;
+const name = lang === 'zh' ? meta.zh : meta.en;
+
+const posts = (await getCollection('posts'))
+  .filter((p) => p.data.lang === lang && p.data.location === meta.zh)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const sub = ui.city.sub.replace('{name}', name);
+---
+<BaseLayout title={`${name} · China Living`} lang={lang}>
+  <section class="city-hero">
+    <div class="hero-text">
+      <p class="crumb"><a href={`/${lang}/cities`}>{ui.city.crumb}</a> / {name}</p>
+      <h1>{name}</h1>
+      <p class="sub">{sub}</p>
+    </div>
+    <div class="hero-map">
+      <ChinaMap lang={lang} active={[meta.slug]} showLabels={false} />
+    </div>
+  </section>
+
+  {posts.length > 0 ? (
+    <div class="grid">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  ) : (
+    <p class="empty">{lang === 'zh' ? '更多推荐正在路上，敬请期待。' : (lang === 'ja' ? 'さらに準備中です。お楽しみに。' : (lang === 'ko' ? '더 많은 추천이 준비 중입니다. 기대해 주세요.' : 'More picks on the way — stay tuned.'))}</p>
+  )}
+</BaseLayout>
+
+<style>
+  .city-hero {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem 0;
+  }
+  .crumb {
+    font-size: 0.85rem;
+    color: #c98a5e;
+    margin: 0 0 0.4rem;
+  }
+  .crumb a {
+    color: #c98a5e;
+    text-decoration: none;
+  }
+  .city-hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: #d2492a;
+    margin: 0 0 0.5rem;
+  }
+  .sub {
+    color: #6b6b6b;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 32ch;
+  }
+  .hero-map {
+    max-width: 280px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+    margin: 2rem 0;
+  }
+  .empty {
+    color: #9a9a9a;
+    padding: 2rem 0;
+  }
+  @media (max-width: 640px) {
+    .city-hero {
+      grid-template-columns: 1fr;
+    }
+    .hero-map {
+      max-width: 240px;
+      margin: 0 auto;
+    }
+  }
+</style>

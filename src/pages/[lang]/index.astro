@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PostCard from '../../components/PostCard.astro';
+import { LANGS, t } from '../../i18n';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params;
+const ui = t(lang);
+const posts = (await getCollection('posts'))
+  .filter((p) => p.data.lang === lang)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+<BaseLayout title="China Living · Food & Heritage" lang={lang}>
+  <section class="hero">
+    <h1>{ui.home.heroTitle}</h1>
+    <p>{ui.home.heroSub}</p>
+  </section>
+  <h2 class="section-title">{ui.home.latest}</h2>
+  <div class="grid">
+    {posts.map((post) => <PostCard post={post} />)}
+  </div>
+</BaseLayout>

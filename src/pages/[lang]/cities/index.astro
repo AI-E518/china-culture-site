@@ -1,0 +1,127 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import ChinaMap from '../../../components/ChinaMap.astro';
+import { cities } from '../../../data/china';
+import { LANGS, t } from '../../../i18n';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params;
+const ui = t(lang);
+
+const posts = (await getCollection('posts')).filter((p) => p.data.lang === lang);
+
+// 按 location 聚合文章
+const byLoc: Record<string, any[]> = {};
+for (const p of posts) {
+  const loc = p.data.location;
+  if (!loc) continue;
+  (byLoc[loc] ||= []).push(p);
+}
+
+const activeSlugs = cities.filter((c) => (byLoc[c.zh]?.length ?? 0) > 0).map((c) => c.slug);
+
+const taglines: Record<string, { zh: string; en: string }> = {
+  beijing: { zh: '红墙、烤鸭与深夜里那锅羊蝎子', en: 'Red walls, roast duck & late-night mutton spine' },
+  shanghai: { zh: '三十年上海日子，含一颗梨膏糖的甜', en: 'Thirty years of Shanghai, in one pear candy' },
+  guangzhou: { zh: '早茶与老城，慢下来的广府生活', en: 'Dim sum & old town — the Canton slow life' },
+  shenzhen: { zh: '没有老字号的城市，长出的新非遗', en: "A city with no old brands, growing new heritage" },
+  chongqing: { zh: '火锅、山城与两江交汇的辣', en: 'Hotpot, hills & the spice of two rivers' },
+};
+---
+<BaseLayout title={`${ui.cities.hero} · China Living`} lang={lang}>
+  <section class="cities-hero">
+    <h1>{ui.cities.hero}</h1>
+    <p>{ui.cities.sub}</p>
+    <ChinaMap lang={lang} active={activeSlugs} />
+  </section>
+
+  <section class="city-cards">
+    {cities.map((c) => {
+      const count = byLoc[c.zh]?.length ?? 0;
+      const tt = lang === 'zh' ? taglines[c.slug]?.zh : taglines[c.slug]?.en;
+      return (
+        <a
+          href={`/${lang}/cities/${c.slug}`}
+          class:list={['city-card', { dim: count === 0 }]}
+        >
+          <div class="city-head">
+            <h3>{lang === 'zh' ? c.zh : c.en}</h3>
+            <span class="count">{count > 0 ? `${count} ${ui.cities.stories}` : ui.cities.soon}</span>
+          </div>
+          <p>{tt}</p>
+        </a>
+      );
+    })}
+  </section>
+</BaseLayout>
+
+<style>
+  .cities-hero {
+    text-align: center;
+    padding: 1rem 0 0.5rem;
+  }
+  .cities-hero h1 {
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    color: #2b2b2b;
+    margin-bottom: 0.4rem;
+  }
+  .cities-hero p {
+    color: #7a7a7a;
+    margin-bottom: 1.2rem;
+  }
+  .city-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .city-card {
+    display: block;
+    background: #fff;
+    border: 1px solid #f0e6d8;
+    border-radius: 18px;
+    padding: 1.1rem 1.2rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 4px 14px rgba(255, 150, 90, 0.06);
+  }
+  .city-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(255, 120, 80, 0.16);
+  }
+  .city-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+  .city-head h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #d2492a;
+  }
+  .count {
+    font-size: 0.8rem;
+    color: #c98a5e;
+    background: #fdeede;
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+    white-space: nowrap;
+  }
+  .city-card p {
+    margin: 0.6rem 0 0;
+    color: #6b6b6b;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .city-card.dim {
+    opacity: 0.55;
+  }
+  .city-card.dim .city-head h3 {
+    color: #9a9a9a;
+  }
+</style>

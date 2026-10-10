@@ -1,0 +1,72 @@
+---
+import { t } from '../i18n';
+import { SITE } from '../site.config';
+interface Props {
+  lang: string;
+  compact?: boolean; // 页脚用紧凑版
+}
+const { lang, compact = false } = Astro.props;
+const n = t(lang).newsletter;
+---
+<form class:list={['newsletter', { compact }]} data-form="newsletter" data-ok={n.success} data-err={n.error} data-setup={t(lang).contact.setupNote}>
+  <input type="hidden" name="access_key" value={SITE.formAccessKey} />
+  <input type="hidden" name="subject" value="China Living · 新订阅 / New newsletter subscriber" />
+  <input type="hidden" name="from_name" value="China Living Newsletter" />
+  <input type="hidden" name="list" value="newsletter" />
+  <input type="hidden" name="botcheck" style="display:none" />
+
+  {!compact && <h3 class="nl-title">{n.title}</h3>}
+  <div class="nl-row">
+    <input type="email" name="email" placeholder={n.placeholder} required aria-label={n.placeholder} />
+    <button type="submit" class="btn-primary">{n.button}</button>
+  </div>
+  <p class="form-status" data-status hidden></p>
+</form>
+
+<script>
+  // 通用 Web3Forms 提交处理（去重守卫，确保全站只绑定一次）
+  if (!(window as any).__clFormsBound) {
+    (window as any).__clFormsBound = true;
+    document.addEventListener('submit', async (e) => {
+      const form = e.target as HTMLFormElement;
+      if (!form.matches('form[data-form]')) return;
+      e.preventDefault();
+      const status = form.querySelector('[data-status]') as HTMLElement;
+      const key = (form.querySelector('input[name=access_key]') as HTMLInputElement)?.value || '';
+      if (!key || key.startsWith('YOUR_')) {
+        status.textContent = form.dataset.setup || 'Form not configured.';
+        status.hidden = false;
+        status.className = 'form-status error';
+        return;
+      }
+      const data: Record<string, any> = {};
+      new FormData(form).forEach((v, k) => {
+        if (k in data) {
+          data[k] = Array.isArray(data[k]) ? [...data[k], v] : [data[k], v];
+        } else {
+          data[k] = v;
+        }
+      });
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json();
+        if (json.success) {
+          form.reset();
+          status.textContent = form.dataset.ok || 'Thank you!';
+          status.hidden = false;
+          status.className = 'form-status success';
+        } else {
+          throw new Error(json.message || 'failed');
+        }
+      } catch {
+        status.textContent = form.dataset.err || 'Something went wrong.';
+        status.hidden = false;
+        status.className = 'form-status error';
+      }
+    });
+  }
+</script>

@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ConsultForm from '../../components/ConsultForm.astro';
+import { LANGS, t } from '../../i18n';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params;
+const c = t(lang).contact;
+---
+<BaseLayout title={`${c.title} · China Living`} lang={lang} description={c.intro}>
+  <section class="contact">
+    <h1>{c.heading}</h1>
+    <p class="contact-intro">{c.intro}</p>
+    <ConsultForm lang={lang} />
+  </section>
+</BaseLayout>
+
+<style>
+  .contact {
+    max-width: 680px;
+    margin: 2rem auto 4rem;
+  }
+  .contact h1 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    color: #d2492a;
+  }
+  .contact-intro {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+</style>

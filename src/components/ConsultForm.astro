@@ -1,0 +1,49 @@
+---
+import { t } from '../i18n';
+import { SITE } from '../site.config';
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+const f = t(lang).contact;
+---
+<form class="consult-form" data-form="consult" data-ok={f.success} data-err={f.error} data-setup={f.setupNote}>
+  <input type="hidden" name="access_key" value={SITE.formAccessKey} />
+  <input type="hidden" name="subject" value="China Living · 新咨询请求 / New consultation request" />
+  <input type="hidden" name="from_name" value="China Living" />
+  <input type="hidden" name="botcheck" style="display:none" />
+
+  <div class="field">
+    <label for="cf-name">{f.nameLabel}</label>
+    <input id="cf-name" type="text" name="name" required />
+  </div>
+
+  <div class="field">
+    <label for="cf-email">{f.emailLabel}</label>
+    <input id="cf-email" type="email" name="email" required />
+  </div>
+
+  <div class="field">
+    <label for="cf-dates">{f.datesLabel}</label>
+    <input id="cf-dates" type="text" name="travel_dates" placeholder={f.datesPlaceholder} />
+  </div>
+
+  <div class="field">
+    <label>{f.interestLabel}</label>
+    <div class="checks">
+      <label class="check"><input type="checkbox" name="interest" value="visa" /> {f.interestVisa}</label>
+      <label class="check"><input type="checkbox" name="interest" value="itinerary" /> {f.interestItinerary}</label>
+      <label class="check"><input type="checkbox" name="interest" value="food" /> {f.interestFood}</label>
+      <label class="check"><input type="checkbox" name="interest" value="culture" /> {f.interestCulture}</label>
+      <label class="check"><input type="checkbox" name="interest" value="other" /> {f.interestOther}</label>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="cf-msg">{f.msgLabel}</label>
+    <textarea id="cf-msg" name="message" rows="4" placeholder={f.msgPlaceholder} required></textarea>
+  </div>
+
+  <button type="submit" class="btn-primary">{f.submit}</button>
+  <p class="form-status" data-status hidden></p>
+</form>

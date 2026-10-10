@@ -1,0 +1,95 @@
+---
+// 合规中国地图：底图用 DataV 标准数据（含台湾省、港澳、南海九段线），城市为可点击热点。
+import { provincePaths, mapViewBox, cities } from '../data/china';
+
+interface Props {
+  lang: string;
+  active?: string[]; // 已有内容的城市 slug
+  showLabels?: boolean;
+}
+const { lang, active = [], showLabels = true } = Astro.props;
+const label = (c: (typeof cities)[number]) => (lang === 'zh' ? c.zh : c.en);
+---
+
+<div class="map-wrap">
+  <svg
+    viewBox={`0 0 ${mapViewBox.w} ${mapViewBox.h}`}
+    class="china-map"
+    role="img"
+    aria-label={lang === 'zh' ? '中国地图，点亮你走过的城市' : 'Map of China — click a lit city to explore'}
+  >
+    <g class="provinces">
+      {provincePaths.map((d) => <path d={d} fill-rule="evenodd" />)}
+    </g>
+    {cities.map((c) => {
+      const isActive = active.includes(c.slug);
+      return (
+        <a
+          href={`/${lang}/cities/${c.slug}`}
+          class:list={['city-dot', { active: isActive, dim: !isActive }]}
+          aria-label={label(c)}
+        >
+          <circle cx={c.x} cy={c.y} r={isActive ? 7 : 4} />
+          {showLabels && <text x={c.x} y={c.y - 12} text-anchor="middle">{label(c)}</text>}
+        </a>
+      );
+    })}
+  </svg>
+</div>
+
+<style>
+  .map-wrap {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .china-map {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .provinces path {
+    fill: #fdeede;
+    stroke: #f3cda3;
+    stroke-width: 0.8;
+    transition: fill 0.2s ease;
+  }
+  .city-dot {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .city-dot circle {
+    fill: #cfcfcf;
+    stroke: #ffffff;
+    stroke-width: 1.5;
+    transition: all 0.2s ease;
+  }
+  .city-dot text {
+    font-size: 15px;
+    font-weight: 600;
+    fill: #9a9a9a;
+    paint-order: stroke;
+    stroke: #fffaf2;
+    stroke-width: 3px;
+    pointer-events: none;
+  }
+  .city-dot.active circle {
+    fill: #ff7a59;
+    stroke: #fff;
+    stroke-width: 2;
+  }
+  .city-dot.active text {
+    fill: #d2492a;
+  }
+  .city-dot.active:hover circle {
+    r: 9;
+    fill: #ff5e36;
+  }
+  .city-dot.active:hover text {
+    fill: #b53c20;
+  }
+  .city-dot.dim {
+    cursor: default;
+    pointer-events: none;
+  }
+</style>

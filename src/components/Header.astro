@@ -1,0 +1,35 @@
+---
+import { LANGS, LOCALE_LABELS, t } from '../i18n';
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+const nav = t(lang).nav;
+---
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href={`/${lang}`}>{t(lang).brand}</a>
+    <nav class="nav">
+      <a href={`/${lang}`}>{nav.home}</a>
+      <a href={`/${lang}/heritage`}>{nav.heritage}</a>
+      <a href={`/${lang}/food`}>{nav.food}</a>
+      <a href={`/${lang}/travel`}>{nav.travel}</a>
+      <a href={`/${lang}/cities`}>{nav.cities}</a>
+      <a href={`/${lang}/about`}>{nav.about}</a>
+      <a href={`/${lang}/contact`}>{nav.contact}</a>
+      <span class="lang-switch" role="group" aria-label="Language">
+        {LANGS.map((l, i) => (
+          <>
+            {i > 0 && <span class="lang-sep">·</span>}
+            <a
+              href={`/${l}`}
+              class:list={['lang-link', { active: l === lang }]}
+              hreflang={l}
+              aria-current={l === lang ? 'true' : undefined}
+            >{LOCALE_LABELS[l]}</a>
+          </>
+        ))}
+      </span>
+    </nav>
+  </div>
+</header>

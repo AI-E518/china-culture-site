@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import { LANGS, t } from '../../../i18n';
+
+export function getStaticPaths() {
+  return LANGS.map((lang) => ({ params: { lang } }));
+}
+const { lang } = Astro.params;
+const ui = t(lang);
+const posts = (await getCollection('posts'))
+  .filter((p) => p.data.lang === lang && p.data.category === 'food')
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+<BaseLayout title={`${ui.food.title} · China Living`} lang={lang}>
+  <section class="hero">
+    <h1>{ui.food.title}</h1>
+    <p>{ui.food.sub}</p>
+  </section>
+  <div class="grid">
+    {posts.map((post) => <PostCard post={post} />)}
+  </div>
+</BaseLayout>
