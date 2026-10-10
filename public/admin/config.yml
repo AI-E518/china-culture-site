@@ -4,6 +4,7 @@ backend:
   name: github
   repo: AI-E518/china-culture-site
   branch: main
+  base_url: https://askoldai.com   # 指向本站，由 functions/auth.js + functions/callback.js 完成 GitHub OAuth
 
 # 媒体文件存放位置（图片上传后自动放到这里）
 media_folder: "public/media/uploads"
