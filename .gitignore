@@ -2,6 +2,8 @@
 dist/
 # dependencies
 node_modules/
+# lockfile 不入库：避免 Windows 平台包被锁死，导致 Cloudflare(Linux) 构建失败
+package-lock.json
 # astro cache
 .astro/
 # env
