@@ -2,7 +2,7 @@
 // 访问 /auth 时，重定向到 GitHub 授权页。
 // 环境变量 GITHUB_CLIENT_ID / GITHUB_CLIENT_SECRET 在 Cloudflare 项目 Settings → Variables and Secrets 里配置。
 export async function onRequestGet({ request, env }) {
-  const clientId = env.GITHUB_CLIENT_ID;
+  const clientId = (env.GITHUB_CLIENT_ID || '').trim();
   const url = new URL(request.url);
 
   if (!clientId) {

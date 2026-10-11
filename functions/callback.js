@@ -14,8 +14,8 @@ export async function onRequestGet({ request, env }) {
     return new Response('Invalid OAuth state or missing code.', { status: 400 });
   }
 
-  const clientId = env.GITHUB_CLIENT_ID;
-  const clientSecret = env.GITHUB_CLIENT_SECRET;
+  const clientId = (env.GITHUB_CLIENT_ID || '').trim();
+  const clientSecret = (env.GITHUB_CLIENT_SECRET || '').trim();
 
   if (!clientId || !clientSecret) {
     return new Response(
