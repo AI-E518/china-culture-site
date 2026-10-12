@@ -1,0 +1,50 @@
+name: translate-posts
+
+# 中文文章一提交就自动生成 en/ja/ko 草稿（draft:true），人工审校后发布
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/posts/**'
+
+permissions:
+  contents: write
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 找出本次变更的中文文章并翻译
+        env:
+          QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
+        run: |
+          files=$(git diff --name-only "${{ github.event.before }}" "${{ github.event.after }}" | grep 'src/content/posts/.*\.md$' || true)
+          if [ -z "$files" ]; then
+            echo "无中文文章变更，跳过"
+            exit 0
+          fi
+          echo "待翻译：$files"
+          # 转成相对仓库根的路径（脚本内部已拼 POSTS_DIR，这里传文件名）
+          names=""
+          for f in $files; do names="$names $(basename "$f")"; done
+          node scripts/translate.mjs $names
+
+      - name: 提交生成的草稿（[skip ci] 避免触发自身）
+        run: |
+          if git diff --quiet; then
+            echo "无新草稿生成"
+            exit 0
+          fi
+          git config user.name "translate-bot"
+          git config user.email "bot@askoldai.com"
+          git add src/content/posts/
+          git commit -m "chore: 自动翻译中文文章生成 en/ja/ko 草稿 [skip ci]"
+          git push

@@ -10,7 +10,7 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const ui = t(lang);
 const posts = (await getCollection('posts'))
-  .filter((p) => p.data.lang === lang)
+  .filter((p) => p.data.lang === lang && !p.data.draft)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 <BaseLayout title="China Living · Food & Heritage" lang={lang}>

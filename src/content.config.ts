@@ -14,6 +14,7 @@ const posts = defineCollection({
     author: z.string().optional(),
     location: z.string().optional(),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(), // 旅游/实用指南的 FAQ，用于 GEO 结构化数据（AI 搜索可引用）
+    draft: z.boolean().optional().default(false), // 草稿标记：true 时后台可编辑但不构建发布，供审校后发布
   }),
 });
 

@@ -4,7 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { t } from '../../../i18n';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+  const posts = (await getCollection('posts')).filter((p) => !p.data.draft);
   return posts.map((post) => ({
     params: { lang: post.data.lang, slug: post.slug },
     props: { post },

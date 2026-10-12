@@ -11,7 +11,7 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const ui = t(lang);
 
-const posts = (await getCollection('posts')).filter((p) => p.data.lang === lang);
+const posts = (await getCollection('posts')).filter((p) => p.data.lang === lang && !p.data.draft);
 
 // 按 location 聚合文章
 const byLoc: Record<string, any[]> = {};

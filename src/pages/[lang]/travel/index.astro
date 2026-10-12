@@ -10,7 +10,7 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const ui = t(lang);
 const posts = (await getCollection('posts'))
-  .filter((p) => p.data.lang === lang && p.data.category === 'travel')
+  .filter((p) => p.data.lang === lang && p.data.category === 'travel' && !p.data.draft)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 <BaseLayout title={`${ui.travel.title} · China Living`} lang={lang} description={ui.travel.sub}>
