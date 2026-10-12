@@ -42,21 +42,26 @@ export async function onRequestGet({ request, env }) {
     return new Response('GitHub 授权失败：未获取到 access_token（请检查 Client Secret 是否正确）。', { status: 500 });
   }
 
-  // Decap 后台会读取 localStorage 里的 decap-cms-github-auth，然后通知父窗口完成登录
-  const authInfo = { token, provider: 'github' };
+  // Decap CMS 的 GitHub OAuth 需要双向握手：
+  // 1) 弹窗先向父窗发 "authorizing:github"
+  // 2) 父窗回 ack 后，弹窗再发 "authorization:github:success:{token,provider}"
+  const content = JSON.stringify({ token, provider: 'github' });
+  const successMessage = `authorization:github:success:${content}`;
   const html = `<!doctype html>
 <html>
 <head><meta charset="utf-8"><script>
   (function () {
-    try {
-      localStorage.setItem('decap-cms-github-auth', ${JSON.stringify(JSON.stringify(authInfo))});
-    } catch (e) {}
-    if (window.opener) {
-      window.opener.postMessage('authorization:success', window.location.origin);
-      window.close();
-    } else {
-      window.location.replace('/admin/');
+    if (!window.opener) {
+      document.body.textContent = '无法与 Decap 后台通信：弹窗被浏览器隔离。请关闭此窗口并允许 askoldai.com 的弹窗。';
+      return;
     }
+    function receiveMessage(e) {
+      window.opener.postMessage(${JSON.stringify(successMessage)}, e.origin);
+      window.removeEventListener('message', receiveMessage, false);
+      window.close();
+    }
+    window.addEventListener('message', receiveMessage, false);
+    window.opener.postMessage('authorizing:github', '*');
   })();
 </script></head>
 <body>Signing in…</body>
