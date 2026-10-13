@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PostCard from '../../components/PostCard.astro';
+import ChinaMap from '../../components/ChinaMap.astro';
+import { cities } from '../../data/china';
 import { LANGS, t } from '../../i18n';
 
 export function getStaticPaths() {
@@ -12,6 +14,11 @@ const ui = t(lang);
 const posts = (await getCollection('posts'))
   .filter((p) => p.data.lang === lang && !p.data.draft)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+// 首页地图：把「有文章的城市」在地图上点亮
+const activeSlugs = cities
+  .filter((c) => posts.some((p) => p.data.location === c.zh))
+  .map((c) => c.slug);
 ---
 <BaseLayout title="China Living · Food & Heritage" lang={lang}>
   <section class="hero">
@@ -23,8 +30,48 @@ const posts = (await getCollection('posts'))
     {ui.home.intro.map((p) => <p class="intro-p">{p}</p>)}
     <p class="intro-sign">— {ui.about.sign}</p>
   </section>
+  <section class="home-map">
+    <h2 class="map-title">{ui.home.mapTitle}</h2>
+    <p class="map-sub">{ui.home.mapSub}</p>
+    <ChinaMap lang={lang} active={activeSlugs} />
+    <a class="map-link" href={`/${lang}/cities`}>{ui.home.mapLink} →</a>
+  </section>
   <h2 class="section-title">{ui.home.latest}</h2>
   <div class="grid">
     {posts.map((post) => <PostCard post={post} />)}
   </div>
 </BaseLayout>
+
+<style>
+  .home-map {
+    max-width: 760px;
+    margin: 0 auto 2.5rem;
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+  .map-title {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    color: #2b2b2b;
+    margin: 0 0 0.4rem;
+  }
+  .map-sub {
+    color: #7a7a7a;
+    margin: 0 auto 1rem;
+    max-width: 46ch;
+  }
+  .map-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #d2492a;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .map-link:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    .home-map {
+      padding: 1rem 0;
+    }
+  }
+</style>

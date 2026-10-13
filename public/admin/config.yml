@@ -28,7 +28,9 @@ collections:
       - { name: summary, label: "摘要", widget: text }
       - { name: cover, label: "封面图", widget: image, required: false }
       - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
-      - { name: location, label: "地点", widget: string, required: false }
+      # 地点：下拉选择，选项 = src/data/china.ts 里 cities 的中文名（zh）。匹配按中文名，故选项文字必须与 china.ts 一致。
+      # 新增城市：① 在 scripts/gen-china-map.mjs 的 rawCities 加一行并重跑脚本；② 在此 options 同步加一项（两者中文名一致即可）。
+      - { name: location, label: "地点（城市）", widget: select, required: false, options: [北京, 天津, 哈尔滨, 沈阳, 济南, 青岛, 南京, 苏州, 上海, 杭州, 厦门, 武汉, 长沙, 成都, 重庆, 西安, 敦煌, 乌鲁木齐, 拉萨, 昆明, 大理, 丽江, 桂林, 广州, 深圳, 香港, 三亚, 台北] }
       - name: faq
         label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
         widget: list

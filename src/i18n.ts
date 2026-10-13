@@ -16,7 +16,7 @@ interface UIStrings {
   brand: string;
   nav: { home: string; heritage: string; food: string; travel: string; cities: string; about: string; contact: string };
   footer: string;
-  home: { heroTitle: string; heroSub: string; latest: string; introTitle: string; intro: string[] };
+  home: { heroTitle: string; heroSub: string; latest: string; introTitle: string; intro: string[]; mapTitle: string; mapSub: string; mapLink: string };
   heritage: { title: string; sub: string };
   food: { title: string; sub: string };
   travel: { title: string; sub: string };
@@ -63,6 +63,9 @@ export const ui: Record<Lang, UIStrings> = {
         'For over two decades, work has taken me to nearly every corner of China — except Tibet. I live in Shanghai, and I watch China change fast, meeting more international friends every day.',
         'This blog is where I share what I have seen and learned, to show you a China you will not find in ordinary travel guides.',
       ],
+      mapTitle: 'Across China',
+      mapSub: 'Lit cities are the places I have real recommendations for. Tap one to step inside.',
+      mapLink: 'See all cities',
     },
     heritage: { title: 'Intangible Cultural Heritage', sub: 'Centuries-old crafts, alive in Chinese hands today.' },
     food: { title: 'Chinese Food', sub: 'From street snacks to banquet craft, every bowl tells a story.' },
@@ -126,6 +129,9 @@ export const ui: Record<Lang, UIStrings> = {
         '二十多年来，工作带我走遍中国几乎每一处，除了西藏。我住在上海，亲眼看见中国快速变化，每天都能结识更多国际友人。',
         '这个博客用来分享我的所见所学，带你看见普通旅游攻略里找不到的中国。',
       ],
+      mapTitle: '走过中国',
+      mapSub: '点亮的城市，都是我真心推荐的地方。点一下，跟我走进那座城。',
+      mapLink: '查看全部城市',
     },
     heritage: { title: '非物质文化遗产', sub: '千年手艺，活在当下的中国人手里。' },
     food: { title: '地道美食', sub: '从街边小吃到宴席功夫，一碗一筷都是中国。' },
@@ -189,6 +195,9 @@ export const ui: Record<Lang, UIStrings> = {
         '20年以上、仕事で中国のほとんど隅々まで足を運びました（チベットだけはまだ）。私は上海に住み、中国の急速な変化をこの目で見て、毎日のように多くの外国人の友だちと出会っています。',
         'このブログは、私が見て学んだことを共有し、普通の旅行ガイドには載らない中国をお見せするための場所です。',
       ],
+      mapTitle: '中国を巡る',
+      mapSub: '点灯した都市は、私が本当に勧められる場所です。タップして中へ。',
+      mapLink: 'すべての都市を見る',
     },
     heritage: { title: '無形文化遺産', sub: '数百年の技が、今も中国人の手の中で生きている。' },
     food: { title: '中国料理', sub: '屋台の軽食から宴会の技まで、一碗一箸に中国が宿る。' },
@@ -252,6 +261,9 @@ export const ui: Record<Lang, UIStrings> = {
         '20여 년간, 일 때문에 티베트를 뺀 중국 거의 모든 곳을 누볐습니다. 저는 상하이에 살며 중국의 빠른 변화를 눈앞에서 보고, 매일 더 많은 외국인 친구를 만납니다.',
         '이 블로그는 제가 보고 배운 것을 나누어, 일반적인 여행 가이드에서는 찾을 수 없는 중국을 보여주려 합니다.',
       ],
+      mapTitle: '중국을 걷다',
+      mapSub: '불이 켜진 도시는 제가 진짜 추천하는 곳입니다. 눌러 안으로 들어가 보세요.',
+      mapLink: '모든 도시 보기',
     },
     heritage: { title: '무형문화유산', sub: '수백 년 된 기술이 지금도 중국인의 손끝에서 살아있습니다.' },
     food: { title: '중국 음식', sub: '길거리 간식부터 연회 요리까지, 한 그릇 한 젓가락에 중국이 담깁니다.' },
