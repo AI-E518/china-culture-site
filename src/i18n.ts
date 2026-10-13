@@ -16,7 +16,7 @@ interface UIStrings {
   brand: string;
   nav: { home: string; heritage: string; food: string; travel: string; cities: string; about: string; contact: string };
   footer: string;
-  home: { heroTitle: string; heroSub: string; latest: string };
+  home: { heroTitle: string; heroSub: string; latest: string; introTitle: string; intro: string[] };
   heritage: { title: string; sub: string };
   food: { title: string; sub: string };
   travel: { title: string; sub: string };
@@ -57,6 +57,12 @@ export const ui: Record<Lang, UIStrings> = {
       heroTitle: 'Real China, one dish and one craft at a time',
       heroSub: 'We share authentic Chinese food and living heritage, so the world can see China as it really is.',
       latest: 'Latest stories',
+      introTitle: 'About this blog',
+      intro: [
+        'It is hard to grasp just how vast China is. Its 9.6 million square kilometers are roughly the size of all of Europe, and many of its provinces are the scale of an entire European country.',
+        'For over two decades, work has taken me to nearly every corner of China — except Tibet. I live in Shanghai, and I watch China change fast, meeting more international friends every day.',
+        'This blog is where I share what I have seen and learned, to show you a China you will not find in ordinary travel guides.',
+      ],
     },
     heritage: { title: 'Intangible Cultural Heritage', sub: 'Centuries-old crafts, alive in Chinese hands today.' },
     food: { title: 'Chinese Food', sub: 'From street snacks to banquet craft, every bowl tells a story.' },
@@ -114,6 +120,12 @@ export const ui: Record<Lang, UIStrings> = {
       heroTitle: '真实的中国，从一碗饭、一门手艺开始',
       heroSub: '我们分享中国的地道美食与非物质文化遗产，让世界看见有温度的中国生活。',
       latest: '最新内容',
+      introTitle: '关于这个博客',
+      intro: [
+        '很难想象中国究竟有多大。960 万平方公里国土，和整个欧洲面积大致相当，很多省份的规模堪比一个欧洲国家。',
+        '二十多年来，工作带我走遍中国几乎每一处，除了西藏。我住在上海，亲眼看见中国快速变化，每天都能结识更多国际友人。',
+        '这个博客用来分享我的所见所学，带你看见普通旅游攻略里找不到的中国。',
+      ],
     },
     heritage: { title: '非物质文化遗产', sub: '千年手艺，活在当下的中国人手里。' },
     food: { title: '地道美食', sub: '从街边小吃到宴席功夫，一碗一筷都是中国。' },
@@ -171,6 +183,12 @@ export const ui: Record<Lang, UIStrings> = {
       heroTitle: '本当の中国を、一皿の料理と一つの技から',
       heroSub: '本物の中国料理と生きた無形文化遺産をお届けし、世界に中国の真の姿を見てもらいます。',
       latest: '最新記事',
+      introTitle: 'このブログについて',
+      intro: [
+        '中国がいかに広いか、なかなか実感できません。960万平方キロの国土は、ヨーロッパ全体とほぼ同じ大きさで、多くの省は一つのヨーロッパの国ほどの規模です。',
+        '20年以上、仕事で中国のほとんど隅々まで足を運びました（チベットだけはまだ）。私は上海に住み、中国の急速な変化をこの目で見て、毎日のように多くの外国人の友だちと出会っています。',
+        'このブログは、私が見て学んだことを共有し、普通の旅行ガイドには載らない中国をお見せするための場所です。',
+      ],
     },
     heritage: { title: '無形文化遺産', sub: '数百年の技が、今も中国人の手の中で生きている。' },
     food: { title: '中国料理', sub: '屋台の軽食から宴会の技まで、一碗一箸に中国が宿る。' },
@@ -228,6 +246,12 @@ export const ui: Record<Lang, UIStrings> = {
       heroTitle: '진짜 중국을, 한 그릇의 요리와 하나의 기술로',
       heroSub: '진짜 중국 음식과 살아있는 무형문화유산을 공유해, 세상이 진짜 중국을 보게 합니다.',
       latest: '최신 글',
+      introTitle: '이 블로그에 대하여',
+      intro: [
+        '중국이 얼마나 큰지 가늠하기 쉽지 않습니다. 960만 제곱킬로미터의 국토는 유럽 전체와 비슷한 크기이고, 많은 성(省)은 하나의 유럽 국가만큼 됩니다.',
+        '20여 년간, 일 때문에 티베트를 뺀 중국 거의 모든 곳을 누볐습니다. 저는 상하이에 살며 중국의 빠른 변화를 눈앞에서 보고, 매일 더 많은 외국인 친구를 만납니다.',
+        '이 블로그는 제가 보고 배운 것을 나누어, 일반적인 여행 가이드에서는 찾을 수 없는 중국을 보여주려 합니다.',
+      ],
     },
     heritage: { title: '무형문화유산', sub: '수백 년 된 기술이 지금도 중국인의 손끝에서 살아있습니다.' },
     food: { title: '중국 음식', sub: '길거리 간식부터 연회 요리까지, 한 그릇 한 젓가락에 중국이 담깁니다.' },

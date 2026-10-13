@@ -18,6 +18,11 @@ const posts = (await getCollection('posts'))
     <h1>{ui.home.heroTitle}</h1>
     <p>{ui.home.heroSub}</p>
   </section>
+  <section class="intro-card">
+    <p class="intro-eyebrow">{ui.home.introTitle}</p>
+    {ui.home.intro.map((p) => <p class="intro-p">{p}</p>)}
+    <p class="intro-sign">— {ui.about.sign}</p>
+  </section>
   <h2 class="section-title">{ui.home.latest}</h2>
   <div class="grid">
     {posts.map((post) => <PostCard post={post} />)}
