@@ -15,8 +15,9 @@ const TARGET_LANGS = [
   { code: 'ko', name: 'Korean' },
 ];
 
-// 优先使用 qwen-mt-flash（机器翻译专用），失败则回退到通用模型
-const FALLBACK_MODELS = ['qwen-mt-flash', 'qwen-plus', 'qwen-turbo'];
+// qwen-mt-flash 在百炼控制台默认「未开通」，放最后；
+// 先试默认可用的 qwen-turbo / qwen-plus，命中即用，避免无谓失败
+const FALLBACK_MODELS = ['qwen-turbo', 'qwen-plus', 'qwen-mt-flash'];
 
 const API_KEY = process.env.QWEN_API_KEY;
 if (!API_KEY) {
@@ -80,12 +81,20 @@ async function translateWithModel(text, targetName, model) {
   );
   if (!res.ok) {
     const err = await res.text();
-    throw new Error(`API 失败 ${res.status}: ${err.slice(0, 500)}`);
+    throw new Error(`API HTTP ${res.status}: ${err.slice(0, 600)}`);
   }
-  const data = await res.json();
+  const data = await res.json().catch(() => ({}));
+  // 百炼有时返回 HTTP 200 但 body 里带 error（如模型未开通）
+  if (data?.error) {
+    const msg =
+      typeof data.error === 'string'
+        ? data.error
+        : JSON.stringify(data.error);
+    throw new Error(`API 业务错误：${msg.slice(0, 600)}`);
+  }
   const content = data?.choices?.[0]?.message?.content;
   if (!content || typeof content !== 'string') {
-    throw new Error(`API 返回异常：${JSON.stringify(data).slice(0, 500)}`);
+    throw new Error(`API 返回结构异常：${JSON.stringify(data).slice(0, 600)}`);
   }
   return content.trim();
 }
@@ -105,7 +114,11 @@ async function translate(text, targetName) {
     }
   }
   throw new Error(
-    `所有模型均失败（目标语言 ${targetName}）：${lastErr?.message || 'unknown'}`
+    `所有模型均失败（目标语言 ${targetName}）。\n` +
+      `  排查：① 去 https://bailian.console.aliyun.com 确认模型已「开通」(qwen-turbo 默认可用)；\n` +
+      `        ② 重新复制 QWEN_API_KEY（尾部别带换行/空格）；\n` +
+      `        ③ 账户额度是否用尽。\n` +
+      `  最后错误：${lastErr?.message || 'unknown'}`
   );
 }
 
