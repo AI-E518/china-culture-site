@@ -16,6 +16,7 @@ faq:
     a: "Person-to-person transfers, red packets, and most financial services are not available to foreign cards. Some government fee portals and a few bank-only services may also reject them. Keep a little cash as backup."
   - q: "Is it safe to link my main credit card?"
     a: "Millions of visitors do it each year. If you prefer extra caution, use a travel card or a virtual card with a limit, and monitor transactions in your banking app."
+draft: false
 ---
 
 China is one of the most cashless societies on earth. Walk into a downtown restaurant, scan a code, and you're done — no wallet, no card swipe. For visitors, the good news is that **since 2023 you no longer need a Chinese bank account**: both Alipay and WeChat Pay now bind international cards directly.

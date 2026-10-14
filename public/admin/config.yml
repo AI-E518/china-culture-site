@@ -33,15 +33,23 @@ collections:
         field: category
       - label: "按城市"
         field: location
+    view_filters:
+      - label: "已发布"
+        field: draft
+        value: false
+      - label: "草稿"
+        field: draft
+        value: true
     fields:
       - { name: title, label: "标题", widget: string }
       - { name: lang, label: "语言", widget: hidden, default: "zh" }
+      - { name: draft, label: "草稿（勾选=仅后台可见，不发布到公开站；取消勾选=发布）", widget: boolean, default: false }
       - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
       - { name: summary, label: "摘要", widget: text }
       - { name: cover, label: "封面图", widget: image, required: false }
       - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
-      # 地点：下拉选择，选项 = src/data/china.ts 里 cities 的中文名（zh）。匹配按中文名，故选项文字必须与 china.ts 一致。
-      # 新增城市：① 在 scripts/gen-china-map.mjs 的 rawCities 加一行并重跑脚本；② 在此 options 同步加一项（两者中文名一致即可）。
+      # 地点：下拉选择。值存中文名（与 china.ts 的 c.zh 一致，地图靠它匹配）；中文栏直接显示中文。
+      # 新增城市：① 在 scripts/gen-china-map.mjs 的 rawCities 加一行并重跑脚本；② 在各语种 options 同步加一项（值用中文名）。
       - { name: location, label: "地点（城市）", widget: select, required: false, options: [北京, 天津, 哈尔滨, 沈阳, 济南, 青岛, 南京, 苏州, 上海, 杭州, 厦门, 武汉, 长沙, 成都, 重庆, 西安, 敦煌, 乌鲁木齐, 拉萨, 昆明, 大理, 丽江, 桂林, 广州, 深圳, 香港, 三亚, 台北] }
       - name: faq
         label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
@@ -56,7 +64,7 @@ collections:
       - { name: pubDate, label: "发布日期", widget: datetime }
       - { name: body, label: "正文", widget: markdown }
 
-  # ===== 英文草稿栏：顺一遍机器翻译的英文，满意了点发布 =====
+  # ===== 英文草稿栏：顺一遍机器翻译的英文，满意了取消「草稿」勾选再发布 =====
   - name: "posts-en"
     label: "文章 · 英文"
     folder: "src/content/posts"
@@ -72,14 +80,22 @@ collections:
         field: category
       - label: "按城市"
         field: location
+    view_filters:
+      - label: "已发布"
+        field: draft
+        value: false
+      - label: "草稿"
+        field: draft
+        value: true
     fields:
       - { name: title, label: "标题", widget: string }
       - { name: lang, label: "语言", widget: hidden, default: "en" }
+      - { name: draft, label: "草稿（勾选=仅后台可见，不发布到公开站；取消勾选=发布）", widget: boolean, default: false }
       - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
       - { name: summary, label: "摘要", widget: text }
       - { name: cover, label: "封面图", widget: image, required: false }
       - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
-      - { name: location, label: "地点（城市）", widget: select, required: false, options: [北京, 天津, 哈尔滨, 沈阳, 济南, 青岛, 南京, 苏州, 上海, 杭州, 厦门, 武汉, 长沙, 成都, 重庆, 西安, 敦煌, 乌鲁木齐, 拉萨, 昆明, 大理, 丽江, 桂林, 广州, 深圳, 香港, 三亚, 台北] }
+      - { name: location, label: "地点（城市）", widget: select, required: false, options: [{ label: "Beijing", value: "北京" }, { label: "Tianjin", value: "天津" }, { label: "Harbin", value: "哈尔滨" }, { label: "Shenyang", value: "沈阳" }, { label: "Jinan", value: "济南" }, { label: "Qingdao", value: "青岛" }, { label: "Nanjing", value: "南京" }, { label: "Suzhou", value: "苏州" }, { label: "Shanghai", value: "上海" }, { label: "Hangzhou", value: "杭州" }, { label: "Xiamen", value: "厦门" }, { label: "Wuhan", value: "武汉" }, { label: "Changsha", value: "长沙" }, { label: "Chengdu", value: "成都" }, { label: "Chongqing", value: "重庆" }, { label: "Xi'an", value: "西安" }, { label: "Dunhuang", value: "敦煌" }, { label: "Urumqi", value: "乌鲁木齐" }, { label: "Lhasa", value: "拉萨" }, { label: "Kunming", value: "昆明" }, { label: "Dali", value: "大理" }, { label: "Lijiang", value: "丽江" }, { label: "Guilin", value: "桂林" }, { label: "Guangzhou", value: "广州" }, { label: "Shenzhen", value: "深圳" }, { label: "Hong Kong", value: "香港" }, { label: "Sanya", value: "三亚" }, { label: "Taipei", value: "台北" }] }
       - name: faq
         label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
         widget: list
@@ -109,14 +125,22 @@ collections:
         field: category
       - label: "按城市"
         field: location
+    view_filters:
+      - label: "已发布"
+        field: draft
+        value: false
+      - label: "草稿"
+        field: draft
+        value: true
     fields:
       - { name: title, label: "标题", widget: string }
       - { name: lang, label: "语言", widget: hidden, default: "ja" }
+      - { name: draft, label: "草稿（チェック=公開サイトに出ない; 外す=公開）", widget: boolean, default: false }
       - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
       - { name: summary, label: "摘要", widget: text }
       - { name: cover, label: "封面图", widget: image, required: false }
       - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
-      - { name: location, label: "地点（城市）", widget: select, required: false, options: [北京, 天津, 哈尔滨, 沈阳, 济南, 青岛, 南京, 苏州, 上海, 杭州, 厦门, 武汉, 长沙, 成都, 重庆, 西安, 敦煌, 乌鲁木齐, 拉萨, 昆明, 大理, 丽江, 桂林, 广州, 深圳, 香港, 三亚, 台北] }
+      - { name: location, label: "地点（都市）", widget: select, required: false, options: [{ label: "北京", value: "北京" }, { label: "天津", value: "天津" }, { label: "ハルビン", value: "哈尔滨" }, { label: "瀋陽", value: "沈阳" }, { label: "済南", value: "济南" }, { label: "青島", value: "青岛" }, { label: "南京", value: "南京" }, { label: "蘇州", value: "苏州" }, { label: "上海", value: "上海" }, { label: "杭州", value: "杭州" }, { label: "アモイ", value: "厦门" }, { label: "武漢", value: "武汉" }, { label: "長沙", value: "长沙" }, { label: "成都", value: "成都" }, { label: "重慶", value: "重庆" }, { label: "西安", value: "西安" }, { label: "敦煌", value: "敦煌" }, { label: "ウルムチ", value: "乌鲁木齐" }, { label: "ラサ", value: "拉萨" }, { label: "昆明", value: "昆明" }, { label: "大理", value: "大理" }, { label: "麗江", value: "丽江" }, { label: "桂林", value: "桂林" }, { label: "広州", value: "广州" }, { label: "深セン", value: "深圳" }, { label: "香港", value: "香港" }, { label: "三亜", value: "三亚" }, { label: "台北", value: "台北" }] }
       - name: faq
         label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
         widget: list
@@ -146,14 +170,22 @@ collections:
         field: category
       - label: "按城市"
         field: location
+    view_filters:
+      - label: "已发布"
+        field: draft
+        value: false
+      - label: "草稿"
+        field: draft
+        value: true
     fields:
       - { name: title, label: "标题", widget: string }
       - { name: lang, label: "语言", widget: hidden, default: "ko" }
+      - { name: draft, label: "초안(체크=공개되지 않음; 해제=공개)", widget: boolean, default: false }
       - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
       - { name: summary, label: "摘要", widget: text }
       - { name: cover, label: "封面图", widget: image, required: false }
       - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
-      - { name: location, label: "地点（城市）", widget: select, required: false, options: [北京, 天津, 哈尔滨, 沈阳, 济南, 青岛, 南京, 苏州, 上海, 杭州, 厦门, 武汉, 长沙, 成都, 重庆, 西安, 敦煌, 乌鲁木齐, 拉萨, 昆明, 大理, 丽江, 桂林, 广州, 深圳, 香港, 三亚, 台北] }
+      - { name: location, label: "地点（도시）", widget: select, required: false, options: [{ label: "베이징", value: "北京" }, { label: "톈진", value: "天津" }, { label: "하얼빈", value: "哈尔滨" }, { label: "선양", value: "沈阳" }, { label: "지난", value: "济南" }, { label: "칭다오", value: "青岛" }, { label: "난징", value: "南京" }, { label: "쑤저우", value: "苏州" }, { label: "상하이", value: "上海" }, { label: "항저우", value: "杭州" }, { label: "샤먼", value: "厦门" }, { label: "우한", value: "武汉" }, { label: "창사", value: "长沙" }, { label: "청두", value: "成都" }, { label: "충칭", value: "重庆" }, { label: "시안", value: "西安" }, { label: "둔황", value: "敦煌" }, { label: "우루무치", value: "乌鲁木齐" }, { label: "라사", value: "拉萨" }, { label: "쿤밍", value: "昆明" }, { label: "다리", value: "大理" }, { label: "리장", value: "丽江" }, { label: "구이린", value: "桂林" }, { label: "광저우", value: "广州" }, { label: "선전", value: "深圳" }, { label: "홍콩", value: "香港" }, { label: "싼야", value: "三亚" }, { label: "타이베이", value: "台北" }] }
       - name: faq
         label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
         widget: list

@@ -14,6 +14,7 @@ faq:
     a: "Most work with an international number, but some features (certain mini-programs, ride-hailing in small cities) are smoother with a local SIM. A travel eSIM still lets the core apps work."
   - q: "Which Western apps should I not rely on?"
     a: "Google, Gmail, WhatsApp, Instagram, Facebook, and YouTube are blocked without a workaround. Don't plan your daily logistics around them while in mainland China."
+draft: false
 ---
 
 Walk into China with the right eight apps and the country feels effortless. Walk in relying on the Western stack you use at home, and you'll hit a wall on day one. Here's the shortlist that actually matters — and what to stop depending on.

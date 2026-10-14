@@ -16,6 +16,7 @@ faq:
     a: "City centers, older districts, and riverside areas are great on foot. Use Amap for walking routes and watch for scooters in bike lanes."
   - q: "How do I get from the airport to the city?"
     a: "Most major airports connect via metro (e.g., Beijing's Airport Express, Shanghai's Metro Line 2 / Maglev) or Didi. Use the official taxi queue and insist on the meter; avoid unlicensed touts."
+draft: false
 ---
 
 Chinese cities are built for moving — dense metro networks, cheap rides, and walkable cores. Once you know the three moves below, getting around feels like any other big city, just faster and cheaper.

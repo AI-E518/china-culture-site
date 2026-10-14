@@ -14,6 +14,7 @@ faq:
     a: "Not usually, but carry a screenshot of the official notice for your country and your onward ticket confirmation. Policies changed rapidly in 2024–2026, so verify close to your travel date on the National Immigration Administration site or at a Chinese embassy."
   - q: "Can I travel to multiple Chinese cities under the transit policy?"
     a: "Yes, the 240-hour policy permits cross-region travel within the allowed areas, which now cover most of the country via the 65 open ports. Confirm the specific scope for your entry port if you plan a multi-city route."
+draft: false
 ---
 
 China's entry rules changed more in 2024–2026 than in the previous decade combined. The headline: **for most short-term visitors, a visa is no longer the first thing you should worry about.** Three separate routes now let foreign passport holders in without a traditional embassy visa — and together they cover the large majority of leisure and business trips.

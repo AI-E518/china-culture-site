@@ -15,9 +15,9 @@ const TARGET_LANGS = [
   { code: 'ko', name: 'Korean' },
 ];
 
-// 实测 qwen-turbo 频繁 429 限流；qwen-plus 实测可用且稳定 → 放第一位。
-// qwen-mt-flash 在百炼控制台默认「未开通」，放最后兜底。
-const FALLBACK_MODELS = ['qwen-plus', 'qwen-turbo', 'qwen-mt-flash'];
+// qwen-mt-flash 是阿里专门的机器翻译模型，翻译质量最佳 → 优先使用。
+// 若百炼控制台未「开通」该模型，首调用会快速失败，自动回退 qwen-plus / qwen-turbo（兜底，保证出稿）。
+const FALLBACK_MODELS = ['qwen-mt-flash', 'qwen-plus', 'qwen-turbo'];
 
 const API_KEY = process.env.QWEN_API_KEY;
 if (!API_KEY) {

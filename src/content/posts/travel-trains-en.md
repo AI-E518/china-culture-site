@@ -16,6 +16,7 @@ faq:
     a: "For holidays and popular routes, yes — seats sell out fast. Off-peak travel is usually easy to book the same day."
   - q: "When do tickets go on sale?"
     a: "Typically 15 days before departure. Plan popular routes (e.g., Beijing–Shanghai) early, especially around Chinese holidays."
+draft: false
 ---
 
 China's high-speed rail is the best way to travel between cities — clean, punctual, and faster than flying once you count airport time. The network spans the country, and **foreign passport holders can book it entirely online**. The only wrinkle is the real-name system, which is easier than it sounds if you set it up right.

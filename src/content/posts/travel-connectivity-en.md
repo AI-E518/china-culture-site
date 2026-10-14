@@ -16,6 +16,7 @@ faq:
     a: "Not if you use an international eSIM that routes your traffic outside China — Google, WhatsApp, Gmail and the rest simply work. A mainland SIM gives a Chinese IP and would need a VPN for those apps."
   - q: "How do I stay in touch with family abroad?"
     a: "WeChat works inside China and messages internationally. For blocked apps, sort out access before you leave rather than after you arrive, when you may already be offline."
+draft: false
 ---
 
 The single biggest "why is my phone broken?" moment for first-time visitors to China is the **Great Firewall**. At the airport you'll find 5G is fast and cheap — but Google, Gmail, WhatsApp, Instagram, Facebook, YouTube, and X/Twitter won't open without a workaround. The fix is simple if you plan it **before you fly**, and a headache if you don't.
