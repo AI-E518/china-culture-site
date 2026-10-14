@@ -44,12 +44,13 @@ jobs:
 
       - name: 提交生成的草稿（[skip ci] 避免触发自身）
         run: |
-          if git diff --quiet; then
+          # 关键：先 add，再用 --cached 判断（含未跟踪的新草稿）
+          git add src/content/posts/
+          if git diff --cached --quiet; then
             echo "无新草稿生成"
             exit 0
           fi
           git config user.name "translate-bot"
           git config user.email "bot@askoldai.com"
-          git add src/content/posts/
           git commit -m "chore: 自动翻译中文文章生成 en/ja/ko 草稿 [skip ci]"
           git push

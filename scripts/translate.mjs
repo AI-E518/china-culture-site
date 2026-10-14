@@ -15,9 +15,9 @@ const TARGET_LANGS = [
   { code: 'ko', name: 'Korean' },
 ];
 
-// qwen-mt-flash 在百炼控制台默认「未开通」，放最后；
-// 先试默认可用的 qwen-turbo / qwen-plus，命中即用，避免无谓失败
-const FALLBACK_MODELS = ['qwen-turbo', 'qwen-plus', 'qwen-mt-flash'];
+// 实测 qwen-turbo 频繁 429 限流；qwen-plus 实测可用且稳定 → 放第一位。
+// qwen-mt-flash 在百炼控制台默认「未开通」，放最后兜底。
+const FALLBACK_MODELS = ['qwen-plus', 'qwen-turbo', 'qwen-mt-flash'];
 
 const API_KEY = process.env.QWEN_API_KEY;
 if (!API_KEY) {
