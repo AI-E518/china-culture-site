@@ -15,21 +15,144 @@ public_folder: "/media/uploads"
 # 编辑界面语言
 locale: "zh"
 
+# 同一组字段复用到 4 个语言栏（后台分栏整理，文件仍放同一目录，翻译脚本不动）
 collections:
-  - name: "posts"
-    label: "文章"
+  # ===== 中文主笔栏：在这里写新文章，英文/日文/韩文草稿由系统自动生成 =====
+  - name: "posts-zh"
+    label: "文章 · 中文（主笔）"
     folder: "src/content/posts"
     create: true
     slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: [pubDate, title, category]
+    filter:
+      field: lang
+      value: zh
+    view_groups:
+      - label: "按分类"
+        field: { name: category }
+      - label: "按城市"
+        field: { name: location }
     fields:
       - { name: title, label: "标题", widget: string }
-      - { name: lang, label: "语言", widget: select, options: [{ label: "英文 EN", value: "en" }, { label: "中文 ZH", value: "zh" }, { label: "日文 JA", value: "ja" }, { label: "韩文 KO", value: "ko" }], default: "en" }
+      - { name: lang, label: "语言", widget: hidden, default: "zh" }
       - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
       - { name: summary, label: "摘要", widget: text }
       - { name: cover, label: "封面图", widget: image, required: false }
       - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
       # 地点：下拉选择，选项 = src/data/china.ts 里 cities 的中文名（zh）。匹配按中文名，故选项文字必须与 china.ts 一致。
       # 新增城市：① 在 scripts/gen-china-map.mjs 的 rawCities 加一行并重跑脚本；② 在此 options 同步加一项（两者中文名一致即可）。
+      - { name: location, label: "地点（城市）", widget: select, required: false, options: [北京, 天津, 哈尔滨, 沈阳, 济南, 青岛, 南京, 苏州, 上海, 杭州, 厦门, 武汉, 长沙, 成都, 重庆, 西安, 敦煌, 乌鲁木齐, 拉萨, 昆明, 大理, 丽江, 桂林, 广州, 深圳, 香港, 三亚, 台北] }
+      - name: faq
+        label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
+        widget: list
+        required: false
+        field:
+          name: item
+          widget: object
+          fields:
+            - { name: q, label: "问题", widget: string }
+            - { name: a, label: "答案", widget: text }
+      - { name: pubDate, label: "发布日期", widget: datetime }
+      - { name: body, label: "正文", widget: markdown }
+
+  # ===== 英文草稿栏：顺一遍机器翻译的英文，满意了点发布 =====
+  - name: "posts-en"
+    label: "文章 · 英文"
+    folder: "src/content/posts"
+    create: false
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: [pubDate, title, category]
+    filter:
+      field: lang
+      value: en
+    view_groups:
+      - label: "按分类"
+        field: { name: category }
+      - label: "按城市"
+        field: { name: location }
+    fields:
+      - { name: title, label: "标题", widget: string }
+      - { name: lang, label: "语言", widget: hidden, default: "en" }
+      - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
+      - { name: summary, label: "摘要", widget: text }
+      - { name: cover, label: "封面图", widget: image, required: false }
+      - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
+      - { name: location, label: "地点（城市）", widget: select, required: false, options: [北京, 天津, 哈尔滨, 沈阳, 济南, 青岛, 南京, 苏州, 上海, 杭州, 厦门, 武汉, 长沙, 成都, 重庆, 西安, 敦煌, 乌鲁木齐, 拉萨, 昆明, 大理, 丽江, 桂林, 广州, 深圳, 香港, 三亚, 台北] }
+      - name: faq
+        label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
+        widget: list
+        required: false
+        field:
+          name: item
+          widget: object
+          fields:
+            - { name: q, label: "问题", widget: string }
+            - { name: a, label: "答案", widget: text }
+      - { name: pubDate, label: "发布日期", widget: datetime }
+      - { name: body, label: "正文", widget: markdown }
+
+  # ===== 日文草稿栏 =====
+  - name: "posts-ja"
+    label: "文章 · 日文"
+    folder: "src/content/posts"
+    create: false
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: [pubDate, title, category]
+    filter:
+      field: lang
+      value: ja
+    view_groups:
+      - label: "按分类"
+        field: { name: category }
+      - label: "按城市"
+        field: { name: location }
+    fields:
+      - { name: title, label: "标题", widget: string }
+      - { name: lang, label: "语言", widget: hidden, default: "ja" }
+      - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
+      - { name: summary, label: "摘要", widget: text }
+      - { name: cover, label: "封面图", widget: image, required: false }
+      - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
+      - { name: location, label: "地点（城市）", widget: select, required: false, options: [北京, 天津, 哈尔滨, 沈阳, 济南, 青岛, 南京, 苏州, 上海, 杭州, 厦门, 武汉, 长沙, 成都, 重庆, 西安, 敦煌, 乌鲁木齐, 拉萨, 昆明, 大理, 丽江, 桂林, 广州, 深圳, 香港, 三亚, 台北] }
+      - name: faq
+        label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
+        widget: list
+        required: false
+        field:
+          name: item
+          widget: object
+          fields:
+            - { name: q, label: "问题", widget: string }
+            - { name: a, label: "答案", widget: text }
+      - { name: pubDate, label: "发布日期", widget: datetime }
+      - { name: body, label: "正文", widget: markdown }
+
+  # ===== 韩文草稿栏 =====
+  - name: "posts-ko"
+    label: "文章 · 韩文"
+    folder: "src/content/posts"
+    create: false
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: [pubDate, title, category]
+    filter:
+      field: lang
+      value: ko
+    view_groups:
+      - label: "按分类"
+        field: { name: category }
+      - label: "按城市"
+        field: { name: location }
+    fields:
+      - { name: title, label: "标题", widget: string }
+      - { name: lang, label: "语言", widget: hidden, default: "ko" }
+      - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
+      - { name: summary, label: "摘要", widget: text }
+      - { name: cover, label: "封面图", widget: image, required: false }
+      - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
       - { name: location, label: "地点（城市）", widget: select, required: false, options: [北京, 天津, 哈尔滨, 沈阳, 济南, 青岛, 南京, 苏州, 上海, 杭州, 厦门, 武汉, 长沙, 成都, 重庆, 西安, 敦煌, 乌鲁木齐, 拉萨, 昆明, 大理, 丽江, 桂林, 广州, 深圳, 香港, 三亚, 台北] }
       - name: faq
         label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
