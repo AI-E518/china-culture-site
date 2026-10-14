@@ -30,9 +30,9 @@ collections:
       value: zh
     view_groups:
       - label: "按分类"
-        field: { name: category }
+        field: category
       - label: "按城市"
-        field: { name: location }
+        field: location
     fields:
       - { name: title, label: "标题", widget: string }
       - { name: lang, label: "语言", widget: hidden, default: "zh" }
@@ -69,9 +69,9 @@ collections:
       value: en
     view_groups:
       - label: "按分类"
-        field: { name: category }
+        field: category
       - label: "按城市"
-        field: { name: location }
+        field: location
     fields:
       - { name: title, label: "标题", widget: string }
       - { name: lang, label: "语言", widget: hidden, default: "en" }
@@ -106,9 +106,9 @@ collections:
       value: ja
     view_groups:
       - label: "按分类"
-        field: { name: category }
+        field: category
       - label: "按城市"
-        field: { name: location }
+        field: location
     fields:
       - { name: title, label: "标题", widget: string }
       - { name: lang, label: "语言", widget: hidden, default: "ja" }
@@ -143,9 +143,9 @@ collections:
       value: ko
     view_groups:
       - label: "按分类"
-        field: { name: category }
+        field: category
       - label: "按城市"
-        field: { name: location }
+        field: location
     fields:
       - { name: title, label: "标题", widget: string }
       - { name: lang, label: "语言", widget: hidden, default: "ko" }
