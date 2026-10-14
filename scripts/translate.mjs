@@ -1,6 +1,6 @@
 // 自动翻译脚本：把中文文章（*-zh.md）翻译成 en/ja/ko 草稿
 // 运行：node scripts/translate.mjs <中文文件1> <中文文件2> ...
-// 依赖：环境变量 QWEN_API_KEY（百炼 API Key），调用 qwen-mt-flash
+// 依赖：环境变量 QWEN_API_KEY（百炼 API Key）
 // 护栏：仅当目标语言文件【不存在】时生成草稿（draft:true），避免覆盖已发布/已润色内容
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
@@ -14,6 +14,9 @@ const TARGET_LANGS = [
   { code: 'ja', name: 'Japanese' },
   { code: 'ko', name: 'Korean' },
 ];
+
+// 优先使用 qwen-mt-flash（机器翻译专用），失败则回退到通用模型
+const FALLBACK_MODELS = ['qwen-mt-flash', 'qwen-plus', 'qwen-turbo'];
 
 const API_KEY = process.env.QWEN_API_KEY;
 if (!API_KEY) {
@@ -54,8 +57,8 @@ function buildMarkdown(fm, body) {
   return out;
 }
 
-// ---- 调用 qwen-mt-flash 翻译 ----
-async function translate(text, targetName) {
+// ---- 调用百炼 API 翻译（带模型回退）----
+async function translateWithModel(text, targetName, model) {
   const sys = `You are a professional translator for a China culture/food/heritage website. Translate the following Chinese text into ${targetName}. Preserve ALL markdown syntax exactly: headings (#, ##), bold/italic, lists (-, 1.), links [text](url), and line breaks. Keep place names and proper nouns natural. Output ONLY the translated text, no commentary, no code fences.`;
   const res = await fetch(
     'https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions',
@@ -66,7 +69,7 @@ async function translate(text, targetName) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'qwen-mt-flash',
+        model,
         messages: [
           { role: 'system', content: sys },
           { role: 'user', content: text },
@@ -77,10 +80,33 @@ async function translate(text, targetName) {
   );
   if (!res.ok) {
     const err = await res.text();
-    throw new Error(`翻译 API 失败 ${res.status}: ${err.slice(0, 200)}`);
+    throw new Error(`API 失败 ${res.status}: ${err.slice(0, 500)}`);
   }
   const data = await res.json();
-  return data.choices[0].message.content.trim();
+  const content = data?.choices?.[0]?.message?.content;
+  if (!content || typeof content !== 'string') {
+    throw new Error(`API 返回异常：${JSON.stringify(data).slice(0, 500)}`);
+  }
+  return content.trim();
+}
+
+async function translate(text, targetName) {
+  if (!text || !text.trim()) return '';
+  let lastErr;
+  for (const model of FALLBACK_MODELS) {
+    try {
+      console.log(`  → 尝试模型 ${model}`);
+      const result = await translateWithModel(text, targetName, model);
+      console.log(`  ✅ 模型 ${model} 成功`);
+      return result;
+    } catch (e) {
+      lastErr = e;
+      console.error(`  ⚠️ 模型 ${model} 失败：${e.message}`);
+    }
+  }
+  throw new Error(
+    `所有模型均失败（目标语言 ${targetName}）：${lastErr?.message || 'unknown'}`
+  );
 }
 
 // 单篇文章：生成三种语言草稿
@@ -88,21 +114,22 @@ async function translatePost(zhFile) {
   const abs = join(POSTS_DIR, zhFile);
   if (!existsSync(abs)) {
     console.log(`⚠️ 文件不存在，跳过：${zhFile}`);
-    return;
+    return { skipped: true };
   }
   const raw = readFileSync(abs, 'utf8');
   const parsed = parseFrontmatter(raw);
   if (!parsed) {
     console.log(`⚠️ 无法解析 frontmatter，跳过：${zhFile}`);
-    return;
+    return { skipped: true };
   }
   const { fm, body } = parsed;
   if (fm.lang !== 'zh') {
     console.log(`↪️ 非中文源，跳过：${zhFile}`);
-    return;
+    return { skipped: true };
   }
   // base slug：去掉 .md 及末尾语言后缀(-zh/-en/-ja/-ko)
   const base = zhFile.replace(/\.md$/, '').replace(/-(en|ja|ko|zh)$/, '');
+  let generated = 0;
 
   for (const { code, name } of TARGET_LANGS) {
     const targetFile = `${base}-${code}.md`;
@@ -115,27 +142,27 @@ async function translatePost(zhFile) {
         continue;
       }
     }
-    try {
-      console.log(`🔄 翻译 ${zhFile} → ${targetFile}`);
-      const [tTitle, tSummary, tBody] = await Promise.all([
-        translate(fm.title || '', name),
-        translate(fm.summary || '', name),
-        translate(body || '', name),
-      ]);
-      const outFm = {
-        ...fm,
-        title: tTitle,
-        summary: tSummary,
-        lang: code,
-        draft: true, // 草稿：后台可编辑，构建时不发布
-      };
-      // tags/location/category/pubDate/cover/faq 保留原值（待人工顺稿时调整）
-      writeFileSync(targetAbs, buildMarkdown(outFm, tBody), 'utf8');
-      console.log(`✅ 生成草稿：${targetFile}`);
-    } catch (e) {
-      console.error(`❌ ${targetFile} 失败：${e.message}`);
-    }
+
+    console.log(`🔄 翻译 ${zhFile} → ${targetFile}`);
+    const [tTitle, tSummary, tBody] = await Promise.all([
+      translate(fm.title || '', name),
+      translate(fm.summary || '', name),
+      translate(body || '', name),
+    ]);
+    const outFm = {
+      ...fm,
+      title: tTitle,
+      summary: tSummary,
+      lang: code,
+      draft: true, // 草稿：后台可编辑，构建时不发布
+    };
+    // tags/location/category/pubDate/cover/faq 保留原值（待人工顺稿时调整）
+    writeFileSync(targetAbs, buildMarkdown(outFm, tBody), 'utf8');
+    console.log(`✅ 生成草稿：${targetFile}`);
+    generated += 1;
   }
+
+  return { generated };
 }
 
 // ---- 主流程 ----
@@ -144,7 +171,22 @@ if (files.length === 0) {
   console.log('无中文文章传入，退出');
   process.exit(0);
 }
+
+let hasError = false;
+let totalGenerated = 0;
 for (const f of files) {
-  await translatePost(f);
+  try {
+    const { generated = 0 } = (await translatePost(f)) || {};
+    totalGenerated += generated;
+  } catch (e) {
+    console.error(`❌ ${f} 翻译失败：${e.message}`);
+    hasError = true;
+  }
 }
-console.log('🎉 翻译完成');
+
+if (hasError) {
+  console.error('⚠️ 部分翻译失败，请查看上方日志');
+  process.exit(1);
+}
+
+console.log(`🎉 翻译完成，共生成 ${totalGenerated} 篇草稿`);
