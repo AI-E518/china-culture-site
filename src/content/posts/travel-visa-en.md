@@ -20,7 +20,7 @@ summary: A plain-English rundown of China's 2026 visa-free and 240-hour transit 
   — the three ways in, what to prepare, and the mistakes that still get people turned
   away at the gate.
 lang: en
-draft: true
+draft: false
 ---
 
 China's entry rules changed more in 2024–2026 than in the previous decade combined. The headline: **for most short-term visitors, a visa is no longer the first thing you should worry about.** Three separate routes now let foreign passport holders in without a traditional embassy visa — and together they cover the large majority of leisure and business trips.

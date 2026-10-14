@@ -22,7 +22,7 @@ title: '중국에서 인터넷 연결 유지하기: eSIM, 현지 SIM 카드 및 
 summary: 인터넷에 즉시 접속하는 방법, Google/WhatsApp/Instagram 등이 왜 별도 도구 없이는 사용할 수 없는지, 그리고
   연락을 유지하기 위한 현실적인 해결책.
 lang: ko
-draft: true
+draft: false
 ---
 처음 중국을 방문하는 여행객들이 가장 자주 겪는 “내 휴대폰이 고장 난 건가?” 하는 순간은 바로 **‘방화장성**(Great Firewall)입니다. 공항에 도착하면 5G가 빠르고 저렴하다는 걸 금세 알게 되지만—Google, Gmail, WhatsApp, Instagram, Facebook, YouTube, X/Twitter 등은 별도의 도구 없이는 전혀 열리지 않습니다. 해결법은 매우 간단합니다. 단, **출발 전에 미리 계획을 세워야** 합니다. 그렇지 않으면 공항에 도착하자마자 머리가 지끈거릴 수밖에 없습니다.
 

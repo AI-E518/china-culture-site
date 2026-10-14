@@ -22,7 +22,7 @@ title: 'Staying Online in China: eSIM, Local SIM & the Apps That Get Blocked'
 summary: How to get data the moment you land, why Google/WhatsApp/Instagram don't
   work without a workaround, and a realistic plan for staying reachable.
 lang: en
-draft: true
+draft: false
 ---
 
 The single biggest "why is my phone broken?" moment for first-time visitors to China is the **Great Firewall**. At the airport you'll find 5G is fast and cheap — but Google, Gmail, WhatsApp, Instagram, Facebook, YouTube, and X/Twitter won't open without a workaround. The fix is simple if you plan it **before you fly**, and a headache if you don't.

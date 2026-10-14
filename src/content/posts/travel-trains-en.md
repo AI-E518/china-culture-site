@@ -22,7 +22,7 @@ summary: How to buy bullet-train tickets as a foreigner — the official 12306 a
   the easier Trip.com route, passport verification, and what to do when a name won't
   match.
 lang: en
-draft: true
+draft: false
 ---
 
 China's high-speed rail is the best way to travel between cities — clean, punctual, and faster than flying once you count airport time. The network spans the country, and **foreign passport holders can book it entirely online**. The only wrinkle is the real-name system, which is easier than it sounds if you set it up right.

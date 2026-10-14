@@ -19,7 +19,7 @@ title: The
 summary: "A no-nonsense app shortlist for first-time visitors: payments, maps, rides,\n\
   \  translation, and bookings — plus the Western apps to stop relying on."
 lang: en
-draft: true
+draft: false
 ---
 
 Walk into China with the right eight apps and the country feels effortless. Walk in relying on the Western stack you use at home, and you'll hit a wall on day one. Here's the shortlist that actually matters — and what to stop depending on.

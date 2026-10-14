@@ -11,7 +11,7 @@ summary: "A 600-year-old tradition: hung-oven roast duck—slicing the duck is a
   \  and the dipping sauce follows strict rules. It’s the most universally understandable\n\
   \  “Chinese refinement” for foreigners."
 lang: en
-draft: true
+draft: false
 ---
 The first time I took a foreign friend for roast duck, he froze while watching the chef carve the bird: “Wait—this requires over 100 precise cuts?”  
 —Yes. The meticulous art of Beijing roast duck begins long before the duck reaches your table—with its very origin.

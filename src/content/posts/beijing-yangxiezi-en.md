@@ -11,7 +11,7 @@ title: "Lamb Spine Stew: The Endlessly Savory Lamb Vertebrae Pot That Beijing Re
   \  Savor Late into the Night"
 summary: Roast
 lang: en
-draft: true
+draft: false
 ---
 If you ask a Beijinger, “What do you eat in winter?” eight out of ten won’t say *Peking duck*—they’ll say: *yang xie zi* (lamb spine hotpot). Peking duck is for show—impressing guests. *Yang xie zi* is what insiders share late at night: a steaming, soul-warming pot.
 

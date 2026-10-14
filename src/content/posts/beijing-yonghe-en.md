@@ -10,7 +10,7 @@ tags:
 title: 'Yonghe Temple: A Temple in Beijing That Brings Calm'
 summary: Lao
 lang: en
-draft: true
+draft: false
 ---
 During the years I worked in Beijing, I visited countless “must-check-in” spots. Yet the place I truly want to return to isn’t the Forbidden City or the Great Wall—it’s Yonghe Temple: a Tibetan Buddhist monastery nestled right inside Beijing’s 2nd Ring Road.
 

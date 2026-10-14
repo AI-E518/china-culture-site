@@ -22,7 +22,7 @@ summary: How to bind an international card to Alipay and WeChat Pay, where QR pa
   works, what the limits and fees are, and the fallback options when a foreign card
   won't bind.
 lang: en
-draft: true
+draft: false
 ---
 
 China is one of the most cashless societies on earth. Walk into a downtown restaurant, scan a code, and you're done — no wallet, no card swipe. For visitors, the good news is that **since 2023 you no longer need a Chinese bank account**: both Alipay and WeChat Pay now bind international cards directly.

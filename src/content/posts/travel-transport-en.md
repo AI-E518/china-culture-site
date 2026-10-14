@@ -21,7 +21,7 @@ title: 'Getting Around Chinese Cities: Metro, Didi, Bikes & Walking'
 summary: A first-timer's map to urban transport in China — metro QR codes, ride-hailing
   with DiDi, shared bikes, and the small habits that save time and money.
 lang: en
-draft: true
+draft: false
 ---
 
 Chinese cities are built for moving — dense metro networks, cheap rides, and walkable cores. Once you know the three moves below, getting around feels like any other big city, just faster and cheaper.
