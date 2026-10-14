@@ -1,14 +1,14 @@
 ---
-category: travel
-location: 北京
-pubDate: 2026-10-14 10:49:00+08:00
-cover: /media/uploads/01-gugong-pano.jpg
-tags:
-- 北京故宫
-title: Lao
-summary: A
+title: Lao Ai Explores the Forbidden City
 lang: en
 draft: false
+category: travel
+summary: A
+cover: /media/uploads/01-gugong-pano.jpg
+tags:
+  - 北京故宫
+location: 北京
+pubDate: 2026-10-14 10:49:00+08:00
 ---
 *A Chinese Traveler Who’s Been Everywhere in China Teaches You How to Experience It*
 
