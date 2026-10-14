@@ -14,7 +14,7 @@ pubDate: 2026-10-14T14:01:00.000+08:00
 ---
 *A Chinese Traveler Who’s Been Everywhere in China Teaches You How to Experience It*
 
-> Hi, I’m Lao Ai. Sounds a bit humblebraggy—but over the years, I’ve crisscrossed China from north to south and east to west. Nearly every major and minor city in the country? I’ve been there. Beijing alone—I’ve visited over ten times, and the Forbidden City? I’ve walked its halls again and again. So today, you’ve come to the right person: Don’t treat it as just another photo-op spot. Let this “seasoned veteran” tell you—*how to truly experience the Forbidden City.*
+> Hi, I’m Lao Ai. Sounds a bit humblebraggy—but over the years, I’ve crisscrossed China from north to south and east to west. Nearly every major and minor city in the country? I’ve been there. Beijing alone—I’ve visited over ten times, and the Forbidden City? I’ve walked its halls again and again. So today, you’ve come to the right person: Don’t treat it as just another photo-op spot. Let this “seasoned veteran” tell you—*how to truly experience the Forbidden City..*
 
 ![Panoramic View of the Forbidden City (from Jingshan Park)](/media/uploads/01-gugong-pano.jpg)
 
@@ -67,9 +67,9 @@ As you wander, you’ll surely notice them—crows wheeling overhead in large, d
 
 First, the tradition. During the Qing Dynasty, the Manchu people revered crows as “divine birds.” Legend tells of Nurhaci—founder of the Qing—being pursued by enemies. In desperation, he feigned death and lay motionless on the ground—until crows suddenly descended and settled upon him. From afar, his pursuers mistook the scene for an ordinary corpse and passed by. To repay this life-saving intervention, the Qing imperial family erected a special “Solen Pole” inside the Forbidden City—a tall wooden pillar used for sky worship, topped with offerings of pork offal and broken rice—exclusively for feeding crows. This official feeding program lasted for hundreds of years, and crows gradually established their home here.
 
-Then, modern ecology took over. Though the Qing Dynasty ended long ago, crows stayed—because the Forbidden City remains an ideal habitat.  
-**First, safety:** Its towering palaces and dense, interlocking roof brackets offer countless hidden, dry nooks perfect for nesting. At night, after closing time, the compound becomes quiet and secluded—and those high vermilion walls keep out natural predators like stray cats and weasels.  
-**Second, warmth:** Beijing’s urban core is significantly warmer than its suburbs due to the “urban heat island” effect—often several degrees higher. For crows, the Forbidden City—right in the city center—is a winter refuge. They fly to suburban areas by day to forage, then return en masse at dusk to roost.  
+Then, modern ecology took over. Though the Qing Dynasty ended long ago, crows stayed—because the Forbidden City remains an ideal habitat.\
+**First, safety:** Its towering palaces and dense, interlocking roof brackets offer countless hidden, dry nooks perfect for nesting. At night, after closing time, the compound becomes quiet and secluded—and those high vermilion walls keep out natural predators like stray cats and weasels.\
+**Second, warmth:** Beijing’s urban core is significantly warmer than its suburbs due to the “urban heat island” effect—often several degrees higher. For crows, the Forbidden City—right in the city center—is a winter refuge. They fly to suburban areas by day to forage, then return en masse at dusk to roost.\
 **Third, food security:** Ancient trees abound—pine, cypress, ginkgo—their seeds and fruits provide steady nourishment. And surrounding neighborhoods offer abundant food sources too.
 
 So next time you see a flock of crows soaring overhead, don’t spook yourself. They chose the Forbidden City simply because it’s comfortable, safe—and the optimal living solution forged by centuries of history *and* this unique ecosystem. Today, these crows have become a living part of the Palace Museum’s landscape—guarding history while coexisting peacefully with nature.
