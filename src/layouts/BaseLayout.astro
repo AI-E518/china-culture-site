@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FormHandler from '../components/FormHandler.astro';
 import { SITE } from '../site.config';
 
 interface Props {
@@ -46,5 +47,6 @@ const siteUrl = SITE.url; // 上线时在 src/site.config.ts 改成你的真实�
       <slot />
     </main>
     <Footer lang={lang} />
+    <FormHandler />
   </body>
 </html>

@@ -13,7 +13,7 @@ const ui = t(lang);
 
 const posts = (await getCollection('posts')).filter((p) => p.data.lang === lang && !p.data.draft);
 
-// 按 location 聚合文章
+// 按 location 聚合当前语言文章（用于卡片计数与点击后展示）
 const byLoc: Record<string, any[]> = {};
 for (const p of posts) {
   const loc = p.data.location;
@@ -21,7 +21,12 @@ for (const p of posts) {
   (byLoc[loc] ||= []).push(p);
 }
 
-const activeSlugs = cities.filter((c) => (byLoc[c.zh]?.length ?? 0) > 0).map((c) => c.slug);
+// 点亮规则：跨语言——只要某城市有「任意语言」的已发布文章，就在所有语言界面点亮
+// （与首页一致：中文主稿存在即亮，地图常亮，不再出现英文界面全暗）
+const publishedAll = (await getCollection('posts')).filter((p) => !p.data.draft);
+const activeSlugs = cities
+  .filter((c) => publishedAll.some((p) => p.data.location === c.zh))
+  .map((c) => c.slug);
 
 const taglines: Record<string, { zh: string; en: string }> = {
   beijing: { zh: '红墙、烤鸭与深夜里那锅羊蝎子', en: 'Red walls, roast duck & late-night mutton spine' },

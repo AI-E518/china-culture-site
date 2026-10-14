@@ -15,22 +15,29 @@ public_folder: "/media/uploads"
 # 编辑界面语言
 locale: "zh"
 
-# 同一组字段复用到 8 个栏目（4 语言 × 已发布/草稿），文件仍放同一目录，翻译脚本不动
+# 后台按「语言」分成 4 个栏目（集合），文件仍放同一目录 src/content/posts
+# 每个集合用单对象 filter 按 lang 隔离（Decap 只认单对象，列表格式会被忽略）
+# - 中文栏：可新建、可写稿（你主笔处）
+# - 英/日/韩栏：只顺稿、发布（翻译草稿自动生成于此）
+# 草稿：每篇文章用「草稿」布尔开关控制（勾选=仅后台可见不发布；取消勾选=发布到公开站），
+#       不单独开栏目，避免列表混乱
 collections:
-  # ===== 中文 · 已发布（主笔在这里写新文章；新文默认即已发布状态） =====
+  # ===== 中文（主笔） =====
   - name: "posts-zh"
-    label: "文章 · 中文 · 已发布"
+    label: "文章 · 中文"
     folder: "src/content/posts"
     create: true
     slug: "{{slug}}"
     summary: "{{title}}"
     sortable_fields: [pubDate, title, category]
     filter:
-      - { field: lang, value: zh }
-      - { field: draft, value: false }
+      field: lang
+      value: zh
     view_groups:
-      - { label: "按分类", field: category }
-      - { label: "按城市", field: location }
+      - label: "按分类"
+        field: category
+      - label: "按城市"
+        field: location
     fields:
       - { name: title, label: "标题", widget: string }
       - { name: lang, label: "语言", widget: hidden, default: "zh" }
@@ -54,92 +61,22 @@ collections:
       - { name: pubDate, label: "发布日期", widget: datetime }
       - { name: body, label: "正文", widget: markdown }
 
-  # ===== 中文 · 草稿（机器翻译前/人工存草稿；取消草稿勾选即转入「已发布」栏） =====
-  - name: "posts-zh-draft"
-    label: "文章 · 中文 · 草稿"
-    folder: "src/content/posts"
-    create: false
-    slug: "{{slug}}"
-    summary: "{{title}}"
-    sortable_fields: [pubDate, title, category]
-    filter:
-      - { field: lang, value: zh }
-      - { field: draft, value: true }
-    view_groups:
-      - { label: "按分类", field: category }
-      - { label: "按城市", field: location }
-    fields:
-      - { name: title, label: "标题", widget: string }
-      - { name: lang, label: "语言", widget: hidden, default: "zh" }
-      - { name: draft, label: "草稿（勾选=仅后台可见不发布；取消勾选=发布到公开站）", widget: boolean, default: true }
-      - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
-      - { name: summary, label: "摘要", widget: text }
-      - { name: cover, label: "封面图", widget: image, required: false }
-      - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
-      - { name: location, label: "地点（城市）", widget: select, required: false, options: [北京, 天津, 哈尔滨, 沈阳, 济南, 青岛, 南京, 苏州, 上海, 杭州, 厦门, 武汉, 长沙, 成都, 重庆, 西安, 敦煌, 乌鲁木齐, 拉萨, 昆明, 大理, 丽江, 桂林, 广州, 深圳, 香港, 三亚, 台北] }
-      - name: faq
-        label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
-        widget: list
-        required: false
-        field:
-          name: item
-          widget: object
-          fields:
-            - { name: q, label: "问题", widget: string }
-            - { name: a, label: "答案", widget: text }
-      - { name: pubDate, label: "发布日期", widget: datetime }
-      - { name: body, label: "正文", widget: markdown }
-
-  # ===== 英文 · 已发布 =====
+  # ===== 英文（翻译草稿在此顺稿） =====
   - name: "posts-en"
-    label: "文章 · 英文 · 已发布"
+    label: "文章 · English"
     folder: "src/content/posts"
     create: false
     slug: "{{slug}}"
     summary: "{{title}}"
     sortable_fields: [pubDate, title, category]
     filter:
-      - { field: lang, value: en }
-      - { field: draft, value: false }
+      field: lang
+      value: en
     view_groups:
-      - { label: "按分类", field: category }
-      - { label: "按城市", field: location }
-    fields:
-      - { name: title, label: "Title", widget: string }
-      - { name: lang, label: "Language", widget: hidden, default: "en" }
-      - { name: draft, label: "Draft (check=hide from site; uncheck=publish)", widget: boolean, default: false }
-      - { name: category, label: "Category", widget: select, options: [{ label: "Heritage", value: "heritage" }, { label: "Food", value: "food" }, { label: "Travel", value: "travel" }], default: "heritage" }
-      - { name: summary, label: "Summary", widget: text }
-      - { name: cover, label: "Cover image", widget: image, required: false }
-      - { name: tags, label: "Tags", widget: list, field: { name: tag, widget: string } }
-      - { name: location, label: "Location (city)", widget: select, required: false, options: [{ label: "Beijing", value: "北京" }, { label: "Tianjin", value: "天津" }, { label: "Harbin", value: "哈尔滨" }, { label: "Shenyang", value: "沈阳" }, { label: "Jinan", value: "济南" }, { label: "Qingdao", value: "青岛" }, { label: "Nanjing", value: "南京" }, { label: "Suzhou", value: "苏州" }, { label: "Shanghai", value: "上海" }, { label: "Hangzhou", value: "杭州" }, { label: "Xiamen", value: "厦门" }, { label: "Wuhan", value: "武汉" }, { label: "Changsha", value: "长沙" }, { label: "Chengdu", value: "成都" }, { label: "Chongqing", value: "重庆" }, { label: "Xi'an", value: "西安" }, { label: "Dunhuang", value: "敦煌" }, { label: "Urumqi", value: "乌鲁木齐" }, { label: "Lhasa", value: "拉萨" }, { label: "Kunming", value: "昆明" }, { label: "Dali", value: "大理" }, { label: "Lijiang", value: "丽江" }, { label: "Guilin", value: "桂林" }, { label: "Guangzhou", value: "广州" }, { label: "Shenzhen", value: "深圳" }, { label: "Hong Kong", value: "香港" }, { label: "Sanya", value: "三亚" }, { label: "Taipei", value: "台北" }] }
-      - name: faq
-        label: "FAQ (optional, for AI search)"
-        widget: list
-        required: false
-        field:
-          name: item
-          widget: object
-          fields:
-            - { name: q, label: "Question", widget: string }
-            - { name: a, label: "Answer", widget: text }
-      - { name: pubDate, label: "Publish date", widget: datetime }
-      - { name: body, label: "Body", widget: markdown }
-
-  # ===== 英文 · 草稿（机器翻译自动生成，在此顺稿后取消草稿勾选即发布） =====
-  - name: "posts-en-draft"
-    label: "文章 · 英文 · 草稿"
-    folder: "src/content/posts"
-    create: false
-    slug: "{{slug}}"
-    summary: "{{title}}"
-    sortable_fields: [pubDate, title, category]
-    filter:
-      - { field: lang, value: en }
-      - { field: draft, value: true }
-    view_groups:
-      - { label: "按分类", field: category }
-      - { label: "按城市", field: location }
+      - label: "按分类"
+        field: category
+      - label: "按城市"
+        field: location
     fields:
       - { name: title, label: "Title", widget: string }
       - { name: lang, label: "Language", widget: hidden, default: "en" }
@@ -162,56 +99,22 @@ collections:
       - { name: pubDate, label: "Publish date", widget: datetime }
       - { name: body, label: "Body", widget: markdown }
 
-  # ===== 日文 · 已发布 =====
+  # ===== 日文（翻译草稿在此顺稿） =====
   - name: "posts-ja"
-    label: "文章 · 日文 · 已发布"
+    label: "文章 · 日本語"
     folder: "src/content/posts"
     create: false
     slug: "{{slug}}"
     summary: "{{title}}"
     sortable_fields: [pubDate, title, category]
     filter:
-      - { field: lang, value: ja }
-      - { field: draft, value: false }
+      field: lang
+      value: ja
     view_groups:
-      - { label: "按分类", field: category }
-      - { label: "按城市", field: location }
-    fields:
-      - { name: title, label: "タイトル", widget: string }
-      - { name: lang, label: "言語", widget: hidden, default: "ja" }
-      - { name: draft, label: "草稿（チェック=公開しない; 外す=公開）", widget: boolean, default: false }
-      - { name: category, label: "分類", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
-      - { name: summary, label: "概要", widget: text }
-      - { name: cover, label: "カバー画像", widget: image, required: false }
-      - { name: tags, label: "タグ", widget: list, field: { name: tag, widget: string } }
-      - { name: location, label: "地点（都市）", widget: select, required: false, options: [{ label: "北京", value: "北京" }, { label: "天津", value: "天津" }, { label: "ハルビン", value: "哈尔滨" }, { label: "瀋陽", value: "沈阳" }, { label: "済南", value: "济南" }, { label: "青島", value: "青岛" }, { label: "南京", value: "南京" }, { label: "蘇州", value: "苏州" }, { label: "上海", value: "上海" }, { label: "杭州", value: "杭州" }, { label: "アモイ", value: "厦门" }, { label: "武漢", value: "武汉" }, { label: "長沙", value: "长沙" }, { label: "成都", value: "成都" }, { label: "重慶", value: "重庆" }, { label: "西安", value: "西安" }, { label: "敦煌", value: "敦煌" }, { label: "ウルムチ", value: "乌鲁木齐" }, { label: "ラサ", value: "拉萨" }, { label: "昆明", value: "昆明" }, { label: "大理", value: "大理" }, { label: "麗江", value: "丽江" }, { label: "桂林", value: "桂林" }, { label: "広州", value: "广州" }, { label: "深セン", value: "深圳" }, { label: "香港", value: "香港" }, { label: "三亜", value: "三亚" }, { label: "台北", value: "台北" }] }
-      - name: faq
-        label: "FAQ（任意、AI検索用）"
-        widget: list
-        required: false
-        field:
-          name: item
-          widget: object
-          fields:
-            - { name: q, label: "質問", widget: string }
-            - { name: a, label: "回答", widget: text }
-      - { name: pubDate, label: "公開日", widget: datetime }
-      - { name: body, label: "本文", widget: markdown }
-
-  # ===== 日文 · 草稿 =====
-  - name: "posts-ja-draft"
-    label: "文章 · 日文 · 草稿"
-    folder: "src/content/posts"
-    create: false
-    slug: "{{slug}}"
-    summary: "{{title}}"
-    sortable_fields: [pubDate, title, category]
-    filter:
-      - { field: lang, value: ja }
-      - { field: draft, value: true }
-    view_groups:
-      - { label: "按分类", field: category }
-      - { label: "按城市", field: location }
+      - label: "按分类"
+        field: category
+      - label: "按城市"
+        field: location
     fields:
       - { name: title, label: "タイトル", widget: string }
       - { name: lang, label: "言語", widget: hidden, default: "ja" }
@@ -234,56 +137,22 @@ collections:
       - { name: pubDate, label: "公開日", widget: datetime }
       - { name: body, label: "本文", widget: markdown }
 
-  # ===== 韩文 · 已发布 =====
+  # ===== 韩文（翻译草稿在此顺稿） =====
   - name: "posts-ko"
-    label: "文章 · 韩文 · 已发布"
+    label: "文章 · 한국어"
     folder: "src/content/posts"
     create: false
     slug: "{{slug}}"
     summary: "{{title}}"
     sortable_fields: [pubDate, title, category]
     filter:
-      - { field: lang, value: ko }
-      - { field: draft, value: false }
+      field: lang
+      value: ko
     view_groups:
-      - { label: "按分类", field: category }
-      - { label: "按城市", field: location }
-    fields:
-      - { name: title, label: "제목", widget: string }
-      - { name: lang, label: "언어", widget: hidden, default: "ko" }
-      - { name: draft, label: "초안(체크=공개되지 않음; 해제=공개)", widget: boolean, default: false }
-      - { name: category, label: "분류", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
-      - { name: summary, label: "요약", widget: text }
-      - { name: cover, label: "표지 이미지", widget: image, required: false }
-      - { name: tags, label: "태그", widget: list, field: { name: tag, widget: string } }
-      - { name: location, label: "地点（도시）", widget: select, required: false, options: [{ label: "베이징", value: "北京" }, { label: "톈진", value: "天津" }, { label: "하얼빈", value: "哈尔滨" }, { label: "선양", value: "沈阳" }, { label: "지난", value: "济南" }, { label: "칭다오", value: "青岛" }, { label: "난징", value: "南京" }, { label: "쑤저우", value: "苏州" }, { label: "상하이", value: "上海" }, { label: "항저우", value: "杭州" }, { label: "샤먼", value: "厦门" }, { label: "우한", value: "武汉" }, { label: "창사", value: "长沙" }, { label: "청두", value: "成都" }, { label: "충칭", value: "重庆" }, { label: "시안", value: "西安" }, { label: "둔황", value: "敦煌" }, { label: "우루무치", value: "乌鲁木齐" }, { label: "라사", value: "拉萨" }, { label: "쿤밍", value: "昆明" }, { label: "다리", value: "大理" }, { label: "리장", value: "丽江" }, { label: "구이린", value: "桂林" }, { label: "광저우", value: "广州" }, { label: "선전", value: "深圳" }, { label: "홍콩", value: "香港" }, { label: "싼야", value: "三亚" }, { label: "타이베이", value: "台北" }] }
-      - name: faq
-        label: "FAQ (선택, AI 검색용)"
-        widget: list
-        required: false
-        field:
-          name: item
-          widget: object
-          fields:
-            - { name: q, label: "질문", widget: string }
-            - { name: a, label: "답변", widget: text }
-      - { name: pubDate, label: "공개일", widget: datetime }
-      - { name: body, label: "본문", widget: markdown }
-
-  # ===== 韩文 · 草稿 =====
-  - name: "posts-ko-draft"
-    label: "文章 · 韩文 · 草稿"
-    folder: "src/content/posts"
-    create: false
-    slug: "{{slug}}"
-    summary: "{{title}}"
-    sortable_fields: [pubDate, title, category]
-    filter:
-      - { field: lang, value: ko }
-      - { field: draft, value: true }
-    view_groups:
-      - { label: "按分类", field: category }
-      - { label: "按城市", field: location }
+      - label: "按分类"
+        field: category
+      - label: "按城市"
+        field: location
     fields:
       - { name: title, label: "제목", widget: string }
       - { name: lang, label: "언어", widget: hidden, default: "ko" }
