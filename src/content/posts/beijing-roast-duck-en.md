@@ -1,11 +1,16 @@
 ---
-title: "Beijing Roast Duck: Not Just a Dish—A City’s Ritual"
-lang: "en"
-category: "food"
-summary: "A 600-year-old tradition: hung-oven roast duck—slicing the duck is a performance, and the dipping sauce follows strict rules. It’s the most universally understandable “Chinese refinement” for foreigners."
-tags: ""
-location: "北京"
-pubDate: "2026-09-10"
+category: food
+location: 北京
+pubDate: 2026-09-10
+tags:
+- 北京
+- 烤鸭
+- 美食
+title: 'Beijing Roast Duck: Not Just a Dish—A City’s Ritual'
+summary: "A 600-year-old tradition: hung-oven roast duck—slicing the duck is a performance,\n\
+  \  and the dipping sauce follows strict rules. It’s the most universally understandable\n\
+  \  “Chinese refinement” for foreigners."
+lang: en
 draft: true
 ---
 The first time I took a foreign friend for roast duck, he froze while watching the chef carve the bird: “Wait—this requires over 100 precise cuts?”  

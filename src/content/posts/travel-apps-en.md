@@ -1,20 +1,25 @@
 ---
-title: "The 8 Apps You Actually Need in China (and What to Skip)"
-summary: "A no-nonsense app shortlist for first-time visitors: payments, maps, rides, translation, and bookings — plus the Western apps to stop relying on."
-lang: "en"
-category: "travel"
-tags: ["App", "应用", "必备", "工具"]
+category: travel
 pubDate: 2026-10-10
+tags:
+- App
+- 应用
+- 必备
+- 工具
 faq:
-  - q: "Which apps are essential for a first trip to China?"
-    a: "Alipay (pay + transit), WeChat (chat + mini-programs), Amap or Baidu Maps (navigation), DiDi (rides), Trip.com (hotels/trains/flights), and a translator like Pleco or your phone's offline pack."
-  - q: "Why not just use Google Maps?"
-    a: "Google Maps is unreliable inside China. Amap (高德) or Baidu Maps give accurate local routing, metro lines, and walking directions. Download before you fly."
-  - q: "Do I need a Chinese phone number to use these apps?"
-    a: "Most work with an international number, but some features (certain mini-programs, ride-hailing in small cities) are smoother with a local SIM. A travel eSIM still lets the core apps work."
-  - q: "Which Western apps should I not rely on?"
-    a: "Google, Gmail, WhatsApp, Instagram, Facebook, and YouTube are blocked without a workaround. Don't plan your daily logistics around them while in mainland China."
-draft: false
+- q: 第一次来中国哪些 App 是必装的？
+  a: 支付宝（付款+交通）、微信（聊天+小程序）、高德或百度地图（导航）、滴滴（打车）、Trip.com（酒店/火车/机票），再加 Pleco 或离线翻译包。
+- q: 为什么不能直接用 Google 地图？
+  a: Google 地图在中国大陆并不可靠。高德（或百度）地图的路线、地铁、步行导航都更准确，出发前先下载好。
+- q: 用这些 App 需要中国手机号吗？
+  a: 多数用国际号即可，但部分功能（某些小程序、小城市的打车）有本地卡更顺。旅行 eSIM 也能让核心 App 正常使用。
+- q: 哪些西方 App 别太依赖？
+  a: Google、Gmail、WhatsApp、Instagram、Facebook、YouTube 在大陆没有工具时无法访问，别拿它们安排日常行程。
+title: The
+summary: "A no-nonsense app shortlist for first-time visitors: payments, maps, rides,\n\
+  \  translation, and bookings — plus the Western apps to stop relying on."
+lang: en
+draft: true
 ---
 
 Walk into China with the right eight apps and the country feels effortless. Walk in relying on the Western stack you use at home, and you'll hit a wall on day one. Here's the shortlist that actually matters — and what to stop depending on.

@@ -1,20 +1,26 @@
 ---
-title: "China Visa-Free & 240-Hour Transit: Who Can Enter Without a Visa (2026)"
-summary: "A plain-English rundown of China's 2026 visa-free and 240-hour transit policies — the three ways in, what to prepare, and the mistakes that still get people turned away at the gate."
-lang: "en"
-category: "travel"
-tags: ["visa", "免签", "入境", "transit"]
+category: travel
 pubDate: 2026-10-10
+tags:
+- 签证
+- 免签
+- 入境
+- 过境
 faq:
-  - q: "Do I need a visa to visit China as a tourist?"
-    a: "Often not. As of 2026, more than 75% of inbound foreign visitors entered China without applying for a visa in advance — through unilateral visa-free entry, mutual visa exemptions, or the 240-hour transit program. Check which route fits your passport before you book."
-  - q: "What is the 240-hour transit visa-free policy?"
-    a: "If you hold a confirmed onward ticket to a third country or region within 240 hours (10 days) and enter via one of 65 designated ports, you can stay visa-free while in transit. Activities like tourism, business meetings, and family visits are allowed; work, study, and journalism are not."
-  - q: "Do I need a printout of the policy at the airport?"
-    a: "Not usually, but carry a screenshot of the official notice for your country and your onward ticket confirmation. Policies changed rapidly in 2024–2026, so verify close to your travel date on the National Immigration Administration site or at a Chinese embassy."
-  - q: "Can I travel to multiple Chinese cities under the transit policy?"
-    a: "Yes, the 240-hour policy permits cross-region travel within the allowed areas, which now cover most of the country via the 65 open ports. Confirm the specific scope for your entry port if you plan a multi-city route."
-draft: false
+- q: 我以旅游身份来中国需要办签证吗？
+  a: 多半不用。到 2026 年，超过 75% 的入境外国游客是免签进来的——通过单方面免签、互免签证协定，或 240 小时过境政策。订票前先对照你的护照看走哪条路。
+- q: 240 小时过境免签到底是什么？
+  a: 如果你持有 240 小时（10 天）内前往第三国或地区的已确认联程机票，并从 65 个对外开放口岸入境，就可以免签过境停留。旅游、商务、交流、探亲都允许；工作、留学、记者采访不行。
+- q: 到了机场需要打印政策条文吗？
+  a: 通常不需要，但建议存一张你所在国的官方通告截图，以及联程机票确认单。2024—2026 年政策变动很快，出发前最好在出入境管理局官网或中国使领馆页面再核一次。
+- q: 过境期间能去多个中国城市吗？
+  a: 可以。240 小时政策允许在开放区域内跨地区活动，目前经 65 个口岸已覆盖全国大部分地区。如果你规划多城路线，建议确认入境口岸的具体范围。
+title: 'China Visa-Free & 240-Hour Transit: Who Can Enter Without a Visa (2026)'
+summary: A plain-English rundown of China's 2026 visa-free and 240-hour transit policies
+  — the three ways in, what to prepare, and the mistakes that still get people turned
+  away at the gate.
+lang: en
+draft: true
 ---
 
 China's entry rules changed more in 2024–2026 than in the previous decade combined. The headline: **for most short-term visitors, a visa is no longer the first thing you should worry about.** Three separate routes now let foreign passport holders in without a traditional embassy visa — and together they cover the large majority of leisure and business trips.

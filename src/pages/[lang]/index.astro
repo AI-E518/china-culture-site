@@ -15,9 +15,11 @@ const posts = (await getCollection('posts'))
   .filter((p) => p.data.lang === lang && !p.data.draft)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
-// 首页地图：把「有文章的城市」在地图上点亮
+// 首页地图：跨语言点亮——只要某城市有「任意语言」的已发布文章，就在所有语言界面点亮
+// （城市是地理概念，不应因界面语言而消失；中文已发布的北京/上海会立刻让各语言地图亮起）
+const publishedAll = (await getCollection('posts')).filter((p) => !p.data.draft);
 const activeSlugs = cities
-  .filter((c) => posts.some((p) => p.data.location === c.zh))
+  .filter((c) => publishedAll.some((p) => p.data.location === c.zh))
   .map((c) => c.slug);
 ---
 <BaseLayout title="China Living · Food & Heritage" lang={lang}>

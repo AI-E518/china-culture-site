@@ -1,22 +1,28 @@
 ---
-title: "Staying Online in China: eSIM, Local SIM & the Apps That Get Blocked"
-summary: "How to get data the moment you land, why Google/WhatsApp/Instagram don't work without a workaround, and a realistic plan for staying reachable."
-lang: "en"
-category: "travel"
-tags: ["上网", "eSIM", "VPN", "connectivity"]
+category: travel
 pubDate: 2026-10-10
+tags:
+- 上网
+- eSIM
+- 漫游
+- VPN
 faq:
-  - q: "Will my regular SIM card work in China?"
-    a: "Roaming usually works for calls and data, but it can be slow and pricey. Most travelers buy an international eSIM or a local data SIM before or on arrival for cheaper, faster data."
-  - q: "Why can't I open Google, Gmail, WhatsApp, or Instagram?"
-    a: "These services are blocked in mainland China without a workaround. Plan to use local equivalents (WeChat for chat, Amap for maps) and arrange access before you depart if you need them."
-  - q: "What's the easiest way to get data on arrival?"
-    a: "An eSIM that you buy and install at home means you're online the second you land — no kiosk, no passport photocopy. Airport kiosks and convenience stores also sell local SIMs."
-  - q: "Do I need a VPN?"
-    a: "Not if you use an international eSIM that routes your traffic outside China — Google, WhatsApp, Gmail and the rest simply work. A mainland SIM gives a Chinese IP and would need a VPN for those apps."
-  - q: "How do I stay in touch with family abroad?"
-    a: "WeChat works inside China and messages internationally. For blocked apps, sort out access before you leave rather than after you arrive, when you may already be offline."
-draft: false
+- q: 我平时的手机卡在中国能用吗？
+  a: 漫游通常可以打电话和上网，但可能又慢又贵。多数旅客会在出发前或落地后买国际 eSIM 或本地流量卡，更便宜也更快。
+- q: 为什么打不开 Google、Gmail、WhatsApp、Instagram？
+  a: 这些服务在中国大陆没有相应工具时无法访问。建议改用本地同类应用（微信聊天、高德地图导航），如需使用请提前安排。
+- q: 落地后最省事的上网方式是什么？
+  a: 在家买好并装好的 eSIM，落地瞬间就能联网——不用找柜台、不用复印护照。机场柜台和便利店也卖本地卡。
+- q: 我需要 VPN 吗？
+  a: 如果你用的是把流量路由到中国境外的国际 eSIM，就不需要 VPN——Google、WhatsApp、Gmail 等直接能用。本地 SIM 拿到的是中国
+    IP，要用法务外的应用才需要 VPN。
+- q: 怎么和国外的家人保持联系？
+  a: 微信在中国大陆可用，也能国际收发消息。若要用被限制的应用，最好在出发前而不是落地后再解决——那时你可能已经断网了。
+title: 'Staying Online in China: eSIM, Local SIM & the Apps That Get Blocked'
+summary: How to get data the moment you land, why Google/WhatsApp/Instagram don't
+  work without a workaround, and a realistic plan for staying reachable.
+lang: en
+draft: true
 ---
 
 The single biggest "why is my phone broken?" moment for first-time visitors to China is the **Great Firewall**. At the airport you'll find 5G is fast and cheap — but Google, Gmail, WhatsApp, Instagram, Facebook, YouTube, and X/Twitter won't open without a workaround. The fix is simple if you plan it **before you fly**, and a headache if you don't.

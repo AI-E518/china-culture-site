@@ -1,12 +1,14 @@
 ---
-title: "라오아이가 당신을 자격문으로 안내합니다"
-lang: "ko"
-category: "travel"
-summary: "중국 전역을 누빈 중국인의 안내로, 자금성 관람법을 단계별로 익혀보세요—중축선을 따라 걷는 법, 동서 양로에서 꼭 봐야 할 명소, 보물관과 가구관은 절대 놓치지 말 것, 그리고 자금성 까마귀에 얽힌 재미있는 일화까지!"
-cover: "/media/uploads/01-gugong-pano.jpg"
-tags: ""
-location: "北京"
-pubDate: "2026-10-14T10:49:00.000+08:00"
+category: travel
+location: 北京
+pubDate: 2026-10-14 10:49:00+08:00
+cover: /media/uploads/01-gugong-pano.jpg
+tags:
+- 北京故宫
+title: 라오아이가 당신을 자격문으로 안내합니다
+summary: 중국 전역을 누빈 중국인의 안내로, 자금성 관람법을 단계별로 익혀보세요—중축선을 따라 걷는 법, 동서 양로에서 꼭 봐야 할 명소,
+  보물관과 가구관은 절대 놓치지 말 것, 그리고 자금성 까마귀에 얽힌 재미있는 일화까지!
+lang: ko
 draft: true
 ---
 *중국 전역을 누빈 한 중국인, 당신에게 진정한 즐기법을 알려드립니다*

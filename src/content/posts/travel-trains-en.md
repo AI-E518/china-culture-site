@@ -1,22 +1,28 @@
 ---
-title: "Booking China's High-Speed Trains: 12306, Trip.com & Foreign Passport Tips"
-summary: "How to buy bullet-train tickets as a foreigner — the official 12306 app, the easier Trip.com route, passport verification, and what to do when a name won't match."
-lang: "en"
-category: "travel"
-tags: ["高铁", "12306", "trains", "交通"]
+category: travel
 pubDate: 2026-10-10
+tags:
+- 高铁
+- '12306'
+- 火车
+- 交通
 faq:
-  - q: "Can foreigners buy train tickets in China?"
-    a: "Yes. Use the official 12306 app/website (passport verification required) or book through Trip.com, which supports foreign cards and an English interface and is often simpler for visitors."
-  - q: "Do I need my passport to board?"
-    a: "Always. Tickets are tied to your passport number, and staff may check it at entry and on the train. Carry the same passport you used at booking."
-  - q: "Why does 12306 reject my name?"
-    a: "Names must match your passport exactly, sometimes in a specific order (surname vs given name). If it keeps failing, Trip.com or a station window is the reliable fallback."
-  - q: "Should I book ahead?"
-    a: "For holidays and popular routes, yes — seats sell out fast. Off-peak travel is usually easy to book the same day."
-  - q: "When do tickets go on sale?"
-    a: "Typically 15 days before departure. Plan popular routes (e.g., Beijing–Shanghai) early, especially around Chinese holidays."
-draft: false
+- q: 外国人能在中国买火车票吗？
+  a: 可以。可用官方 12306 App/网站（需护照验证），也可通过 Trip.com 预订——它支持外卡和英文界面，对游客通常更简单。
+- q: 上车要带护照吗？
+  a: 一定要。车票与护照号绑定，进站和车上都可能查。请携带购票时使用的同一本护照。
+- q: 为什么 12306 总说我的名字不对？
+  a: 姓名必须与护照完全一致，有时对姓/名的顺序有要求。若反复失败，Trip.com 或车站窗口是最稳的备选。
+- q: 需要提前买吗？
+  a: 节假日和热门线路要提前买，票很快售罄；平峰期通常当天也能买到。
+- q: 车票提前多久开售？
+  a: 通常为开车前 15 天。热门线路（如北京—上海）要尽早规划，尤其中国法定假期前后。
+title: 'Booking China''s High-Speed Trains: 12306, Trip.com & Foreign Passport Tips'
+summary: How to buy bullet-train tickets as a foreigner — the official 12306 app,
+  the easier Trip.com route, passport verification, and what to do when a name won't
+  match.
+lang: en
+draft: true
 ---
 
 China's high-speed rail is the best way to travel between cities — clean, punctual, and faster than flying once you count airport time. The network spans the country, and **foreign passport holders can book it entirely online**. The only wrinkle is the real-name system, which is easier than it sounds if you set it up right.

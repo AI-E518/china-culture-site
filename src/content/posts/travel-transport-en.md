@@ -1,22 +1,27 @@
 ---
-title: "Getting Around Chinese Cities: Metro, Didi, Bikes & Walking"
-summary: "A first-timer's map to urban transport in China — metro QR codes, ride-hailing with DiDi, shared bikes, and the small habits that save time and money."
-lang: "en"
-category: "travel"
-tags: ["交通", "地铁", "打车", "出行"]
+category: travel
 pubDate: 2026-10-10
+tags:
+- 交通
+- 地铁
+- 打车
+- 出行
 faq:
-  - q: "What's the easiest way to ride the metro in China?"
-    a: "Use the QR code inside Alipay or WeChat (city transit mini-program) — no paper ticket needed. Scan to enter and exit. Have your passport ready if asked."
-  - q: "Is DiDi safe and foreigner-friendly?"
-    a: "Yes. DiDi is the local ride-hailing app, works with Alipay/WeChat pay, and has an English interface. Input destinations by pinning the map or pasting the Chinese name from your hotel."
-  - q: "Can I use foreign cards for transport apps?"
-    a: "The metro/bus QR via Alipay or WeChat works with a bound international card. Standalone bike apps may need a Chinese phone number, so bikes are optional."
-  - q: "Is it walkable?"
-    a: "City centers, older districts, and riverside areas are great on foot. Use Amap for walking routes and watch for scooters in bike lanes."
-  - q: "How do I get from the airport to the city?"
-    a: "Most major airports connect via metro (e.g., Beijing's Airport Express, Shanghai's Metro Line 2 / Maglev) or Didi. Use the official taxi queue and insist on the meter; avoid unlicensed touts."
-draft: false
+- q: 在中国坐地铁最简单的方式是什么？
+  a: 用支付宝或微信里的乘车码（城市交通小程序）扫码进出，不用买纸质票。必要时出示护照。
+- q: 滴滴安全吗？对外国人友好吗？
+  a: 安全且友好。滴滴是本地版 Uber，可用支付宝/微信支付，有英文界面。目的地可在地图上标点，或从酒店复制中文名称粘贴。
+- q: 交通类 App 能用外卡吗？
+  a: 支付宝/微信的乘车码绑定外卡即可用。单独的共享单车 App 可能需要中国手机号，所以单车是可选项。
+- q: 适合走路吗？
+  a: 市中心、老城区、滨水地带很适合步行。用高德看步行路线，注意非机动车道里的电动车。
+- q: 从机场怎么到市区？
+  a: 多数大机场有地铁接驳（如北京机场快轨、上海地铁 2 号线 / 磁悬浮），也可打滴滴。打车请走官方排队区、坚持打表，别理非法拉客。
+title: 'Getting Around Chinese Cities: Metro, Didi, Bikes & Walking'
+summary: A first-timer's map to urban transport in China — metro QR codes, ride-hailing
+  with DiDi, shared bikes, and the small habits that save time and money.
+lang: en
+draft: true
 ---
 
 Chinese cities are built for moving — dense metro networks, cheap rides, and walkable cores. Once you know the three moves below, getting around feels like any other big city, just faster and cheaper.

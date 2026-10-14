@@ -1,11 +1,16 @@
 ---
-title: "Lihua Tang (Pear Syrup Candy): A Throat-Soother Sweet That Shanghainese Have Sucked on Since Childhood—Hard to Find Outside the City"
-summary: "The century-old Lihua Tang (pear syrup candy) from the Old City God Temple is made by simmering pear juice with herbal ingredients—it’s the soothing throat candy cherished in Shanghai residents’ memories. Authentic versions are almost impossible to find overseas."
-lang: "en"
-category: "food"
-tags: "[\"上海\", \"梨膏糖\", \"零食\", \"好物\"]"
-pubDate: "2026-09-10"
-location: "上海"
+category: food
+location: 上海
+pubDate: 2026-09-10
+tags:
+- 上海
+- 梨膏糖
+- 零食
+- 好物
+title: "Lihua Tang (Pear Syrup Candy): A Throat-Soother Sweet That Shanghainese Have\n\
+  \  Sucked on Since Childhood—Hard to Find Outside the City"
+summary: The
+lang: en
 draft: true
 ---
 Many foreigners know Shanghai’s xiaolongbao (soup dumplings) and shengjian bao (pan-fried buns), but few realize: when Shanghainese children had sore throats, they didn’t suck Western lozenges—they dissolved a sweet piece of *Ligao Tang* (pear-syrup candy).

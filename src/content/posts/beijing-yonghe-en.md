@@ -1,11 +1,15 @@
 ---
-title: "Yonghe Temple: A Temple in Beijing That Brings Calm"
-summary: "Lao Ai’s favorite place in Beijing. Not a tourist attraction, but a living faith—incense smoke, prayer wheels, red walls, and the folk saying, “They say it’s very efficacious.”"
-lang: "en"
-category: "heritage"
-tags: "[\"北京\", \"雍和宫\", \"文化\", \"信仰\"]"
-pubDate: "2026-09-10"
-location: "北京"
+category: heritage
+location: 北京
+pubDate: 2026-09-10
+tags:
+- 北京
+- 雍和宫
+- 文化
+- 信仰
+title: 'Yonghe Temple: A Temple in Beijing That Brings Calm'
+summary: Lao
+lang: en
 draft: true
 ---
 During the years I worked in Beijing, I visited countless “must-check-in” spots. Yet the place I truly want to return to isn’t the Forbidden City or the Great Wall—it’s Yonghe Temple: a Tibetan Buddhist monastery nestled right inside Beijing’s 2nd Ring Road.

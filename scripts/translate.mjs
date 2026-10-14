@@ -4,6 +4,7 @@
 // 护栏：仅当目标语言文件【不存在】时生成草稿（draft:true），避免覆盖已发布/已润色内容
 
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
+import YAML from 'yaml';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -25,37 +26,25 @@ if (!API_KEY) {
   process.exit(1);
 }
 
-// ---- 解析 / 生成 frontmatter（零依赖，手写简单 YAML）----
+// ---- 解析 / 生成 frontmatter（用真正的 yaml 库，正确保留 tags 数组、faq 对象等）----
 function parseFrontmatter(raw) {
   const m = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!m) return null;
   const fmText = m[1];
   const body = m[2];
-  const fm = {};
-  for (const line of fmText.split('\n')) {
-    const idx = line.indexOf(':');
-    if (idx === -1) continue;
-    const key = line.slice(0, idx).trim();
-    let val = line.slice(idx + 1).trim();
-    if (
-      (val.startsWith('"') && val.endsWith('"')) ||
-      (val.startsWith("'") && val.endsWith("'"))
-    ) {
-      val = val.slice(1, -1);
-    }
-    fm[key] = val;
+  let fm;
+  try {
+    fm = YAML.parse(fmText);
+  } catch {
+    return null;
   }
+  if (!fm || typeof fm !== 'object') return null;
   return { fm, body };
 }
 
 function buildMarkdown(fm, body) {
-  let out = '---\n';
-  for (const [k, v] of Object.entries(fm)) {
-    if (k === 'body') continue;
-    out += `${k}: ${JSON.stringify(v)}\n`;
-  }
-  out += `---\n${body}`;
-  return out;
+  // YAML.stringify 会正确序列化数组(tags)、对象列表(faq) 等嵌套结构
+  return `---\n${YAML.stringify(fm)}---\n${body}`;
 }
 
 // ---- 调用百炼 API 翻译（带模型回退）----

@@ -1,16 +1,14 @@
 ---
-draft: true
-title: Lao Ai Takes You on a Tour of the Forbidden City
-lang: en
 category: travel
-summary: A Chinese traveler who has explored all of China personally guides you
-  through the Forbidden City—how to walk the Central Axis, what to see on the
-  East and West Routes, must-visit highlights like the Treasure Gallery and the
-  Furniture Gallery, plus fun facts about the Forbidden City’s crows.
-cover: /media/uploads/01-gugong-pano.jpg
-tags: ""
 location: 北京
-pubDate: 2026-10-14T14:01:00.000+08:00
+pubDate: 2026-10-14 10:49:00+08:00
+cover: /media/uploads/01-gugong-pano.jpg
+tags:
+- 北京故宫
+title: Lao
+summary: A
+lang: en
+draft: true
 ---
 *A Chinese Traveler Who’s Been Everywhere in China Teaches You How to Experience It*
 

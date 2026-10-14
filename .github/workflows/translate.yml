@@ -24,6 +24,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: 安装翻译脚本依赖（yaml 库）
+        run: npm install yaml
+
       - name: 扫描所有中文文章并生成缺失草稿
         env:
           QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}

@@ -1,11 +1,16 @@
 ---
-title: "Lamb Spine Stew: The Endlessly Savory Lamb Vertebrae Pot That Beijing Residents Savor Late into the Night"
-summary: "Roast duck is a showy dish for tourists, while *yangxiezi* (stewed sheep spine) is Beijing locals’ true late-night canteen. A pot of sheep spinal bones—what you’re really savoring is the marrow, the rich flavor, and that distinct local temperament you can only grasp if you’re truly “addicted to this taste.”"
-lang: "en"
-category: "food"
-tags: "[\"北京\", \"羊蝎子\", \"美食\", \"好物\"]"
-pubDate: "2026-09-10"
-location: "北京"
+category: food
+location: 北京
+pubDate: 2026-09-10
+tags:
+- 北京
+- 羊蝎子
+- 美食
+- 好物
+title: "Lamb Spine Stew: The Endlessly Savory Lamb Vertebrae Pot That Beijing Residents\n\
+  \  Savor Late into the Night"
+summary: Roast
+lang: en
 draft: true
 ---
 If you ask a Beijinger, “What do you eat in winter?” eight out of ten won’t say *Peking duck*—they’ll say: *yang xie zi* (lamb spine hotpot). Peking duck is for show—impressing guests. *Yang xie zi* is what insiders share late at night: a steaming, soul-warming pot.
