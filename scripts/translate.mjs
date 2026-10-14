@@ -134,13 +134,10 @@ async function translatePost(zhFile) {
   for (const { code, name } of TARGET_LANGS) {
     const targetFile = `${base}-${code}.md`;
     const targetAbs = join(POSTS_DIR, targetFile);
-    // 护栏：已存在且非草稿（已发布）→ 跳过，不覆盖人工润色
+    // 护栏：目标草稿已存在则跳过，不覆盖（无论是初稿还是你顺过的稿）
     if (existsSync(targetAbs)) {
-      const existing = parseFrontmatter(readFileSync(targetAbs, 'utf8'));
-      if (existing && existing.fm.draft !== 'true' && existing.fm.draft !== true) {
-        console.log(`↪️ 已发布，跳过：${targetFile}`);
-        continue;
-      }
+      console.log(`↪️ 已存在，跳过（如需重翻请先删除该文件）：${targetFile}`);
+      continue;
     }
 
     console.log(`🔄 翻译 ${zhFile} → ${targetFile}`);

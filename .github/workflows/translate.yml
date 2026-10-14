@@ -6,6 +6,8 @@ on:
     branches: [main]
     paths:
       - 'src/content/posts/**'
+  # 允许在 Actions 标签页手动点「Run workflow」触发，不依赖 Decap push
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -22,19 +24,22 @@ jobs:
         with:
           node-version: 20
 
-      - name: 找出本次变更的中文文章并翻译
+      - name: 扫描所有中文文章并生成缺失草稿
         env:
           QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
         run: |
-          files=$(git diff --name-only "${{ github.event.before }}" "${{ github.event.after }}" | grep 'src/content/posts/.*\.md$' || true)
-          if [ -z "$files" ]; then
-            echo "无中文文章变更，跳过"
+          set -e
+          shopt -s nullglob
+          files=(src/content/posts/*.md)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "posts 目录无文章，跳过"
             exit 0
           fi
-          echo "待翻译：$files"
-          # 转成相对仓库根的路径（脚本内部已拼 POSTS_DIR，这里传文件名）
+          echo "扫描到文章文件："
+          printf '  %s\n' "${files[@]}"
           names=""
-          for f in $files; do names="$names $(basename "$f")"; done
+          for f in "${files[@]}"; do names="$names $(basename "$f")"; done
+          # 未加引号：当前文件名均不含空格；脚本内部按 lang=zh 过滤、按目标文件存在性跳过
           node scripts/translate.mjs $names
 
       - name: 提交生成的草稿（[skip ci] 避免触发自身）
