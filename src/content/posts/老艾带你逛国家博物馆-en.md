@@ -1,6 +1,7 @@
 ---
 title: Lao Ai Takes You on a Tour of the National Museum
 lang: en
+draft: false
 category: travel
 summary: A Chinese traveler who has explored the entire country personally
   guides you through the National Museum of China—head straight to the Ancient
@@ -10,7 +11,6 @@ summary: A Chinese traveler who has explored the entire country personally
 cover: /media/uploads/交换一张你在国博拍到的照片_1_何必认真_来自小红书网页版.jpg
 location: 北京
 pubDate: 2026-10-16T13:29:00.000+08:00
-draft: true
 ---
 *A Chinese traveler who has explored every corner of China teaches you how to experience it right.*
 
