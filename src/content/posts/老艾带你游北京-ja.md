@@ -1,7 +1,7 @@
 ---
 title: 老艾が北京を案内します
 lang: ja
-draft: true
+draft: false
 category: travel
 summary: 中国全土を旅した中国人が、手取り足取り北京の秋を「生活感あふれる」ものに変える方法をお教えします——6日間のゆっくり散策ルート、チケットの入手方法、どの入口から入場するか、おすすめの飲食店、さらに私が実際に経験した失敗談まで。
 cover: /media/uploads/01-gugong-pano.jpg
