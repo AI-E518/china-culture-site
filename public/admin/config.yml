@@ -17,10 +17,8 @@ locale: "zh"
 
 # 后台按「语言」分成 4 个栏目（集合），文件仍放同一目录 src/content/posts
 # 每个集合用单对象 filter 按 lang 隔离（Decap 只认单对象，列表格式会被忽略）
-# - 中文栏：可新建、可写稿（你主笔处）
-# - 英/日/韩栏：只顺稿、发布（翻译草稿自动生成于此）
-# 草稿：每篇文章用「草稿」布尔开关控制（勾选=仅后台可见不发布；取消勾选=发布到公开站），
-#       不单独开栏目，避免列表混乱
+# - 中文栏：可新建、可写稿（你主笔处）。【无草稿开关——保存即公开】，避免误存草稿导致文章不显示
+# - 英/日/韩栏：只顺稿、发布（翻译草稿自动生成于此），保留 draft 开关（默认草稿，审校后手动发布）
 collections:
   # ===== 中文（主笔） =====
   - name: "posts-zh"
@@ -41,7 +39,6 @@ collections:
     fields:
       - { name: title, label: "标题", widget: string }
       - { name: lang, label: "语言", widget: hidden, default: "zh" }
-      - { name: draft, label: "草稿（勾选=仅后台可见不发布；取消勾选=发布到公开站）", widget: boolean, default: false }
       - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
       - { name: summary, label: "摘要", widget: text }
       - { name: cover, label: "封面图", widget: image, required: false }

@@ -184,8 +184,8 @@ for (const f of files) {
 }
 
 if (hasError) {
-  console.error('⚠️ 部分翻译失败，请查看上方日志');
-  process.exit(1);
+  // 不再让整个 workflow 变红：已成功的草稿已写入磁盘，缺失的会在下次推送/重跑时补齐
+  console.error('⚠️ 部分翻译失败，将在下次运行重试（已成功的草稿已写入）');
 }
 
 console.log(`🎉 翻译完成，共生成 ${totalGenerated} 篇草稿`);
