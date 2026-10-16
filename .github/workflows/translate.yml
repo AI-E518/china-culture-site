@@ -56,5 +56,6 @@ jobs:
           git config user.name "translate-bot"
           git config user.email "bot@askoldai.com"
           git commit -m "chore: 自动翻译中文文章生成 en/ja/ko 草稿 [skip ci]"
-          # 显式推当前 HEAD 到 main，不依赖上游分支、不做变基，避免 rebase 在存在未暂存改动时 fatal 退出 128
-          git push origin HEAD:main
+          # 显式推当前 HEAD 到 main；若运行期间用户又在后台发文导致远端领先被拒，
+          # 此刻工作区已干净（翻译已 commit、npm --no-save 不留痕），rebase 安全，变基后重推
+          git push origin HEAD:main || (git fetch origin main && git rebase origin/main && git push origin HEAD:main)
