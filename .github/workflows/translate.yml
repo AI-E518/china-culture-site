@@ -24,8 +24,8 @@ jobs:
         with:
           node-version: 24
 
-      - name: 安装翻译脚本依赖（yaml 库）
-        run: npm install yaml
+      - name: 安装翻译脚本依赖（yaml 库，--no-save 避免污染 package.json）
+        run: npm install --no-save yaml
 
       - name: 扫描所有中文文章并生成缺失草稿
         env:
@@ -56,6 +56,5 @@ jobs:
           git config user.name "translate-bot"
           git config user.email "bot@askoldai.com"
           git commit -m "chore: 自动翻译中文文章生成 en/ja/ko 草稿 [skip ci]"
-          # 若运行期间用户又发了文章（远端领先），先 rebase 再推，避免 push 被拒
-          git pull --rebase origin main
-          git push
+          # 显式推当前 HEAD 到 main，不依赖上游分支、不做变基，避免 rebase 在存在未暂存改动时 fatal 退出 128
+          git push origin HEAD:main
