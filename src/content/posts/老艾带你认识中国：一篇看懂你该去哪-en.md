@@ -2,6 +2,7 @@
 title: "Lao Ai Takes You to Discover China: A One-Stop Guide to Choosing Your
   Next Destination"
 lang: en
+draft: false
 category: travel
 summary: Categorizing All of China by Traveler’s Intent—Where to Go to Witness
   Nature’s Grandeur, Feel the Pulse of Our Times, Trace Millennia of Cultural
@@ -10,7 +11,6 @@ summary: Categorizing All of China by Traveler’s Intent—Where to Go to Witne
 cover: /media/uploads/中国地图_1_樱夢泪._来自小红书网页版.jpg
 location: 北京
 pubDate: 2026-10-21T12:21:00.000+08:00
-draft: true
 ---
 *China is vast—9.6 million square kilometers spanning five climate zones, from tropical islands to the “Roof of the World.” First-time visitors often stand before a map, unsure where to begin. This article won’t decide for you. It will simply help clarify one thing: *Where you go depends on what you want to see.*
 
