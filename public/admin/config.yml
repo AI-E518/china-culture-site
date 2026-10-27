@@ -55,6 +55,8 @@ collections:
           fields:
             - { name: q, label: "问题", widget: string }
             - { name: a, label: "答案", widget: text }
+      - { name: pinned, label: "置顶（勾选=始终排在最前）", widget: boolean, default: false }
+      - { name: order, label: "排序序号（数字越小越靠前，同序号按发布日期）", widget: number, required: false }
       - { name: pubDate, label: "发布日期", widget: datetime }
       - { name: body, label: "正文", widget: markdown }
 

@@ -5,6 +5,7 @@ import PostCard from '../../../components/PostCard.astro';
 import ChinaMap from '../../../components/ChinaMap.astro';
 import { cities } from '../../../data/china';
 import { LANGS, t } from '../../../i18n';
+import { sortPosts } from '../../../utils/sort';
 
 export function getStaticPaths() {
   return cities.flatMap((c) => LANGS.map((lang) => ({ params: { lang, city: c.slug } })));
@@ -15,9 +16,9 @@ const meta = cities.find((c) => c.slug === city)!;
 const name = lang === 'zh' ? meta.zh : meta.en;
 
 // 城市详情页：展示该城市「当前语言」的已发布文章（语言类页面照搬中文规则，避免混语言）
-const posts = (await getCollection('posts'))
-  .filter((p) => p.data.location === meta.zh && p.data.lang === lang && !p.data.draft)
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const posts = sortPosts(
+  (await getCollection('posts')).filter((p) => p.data.location === meta.zh && p.data.lang === lang && !p.data.draft)
+);
 
 const sub = ui.city.sub.replace('{name}', name);
 ---

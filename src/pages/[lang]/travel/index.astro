@@ -3,15 +3,16 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PostCard from '../../../components/PostCard.astro';
 import { LANGS, t } from '../../../i18n';
+import { sortPosts } from '../../../utils/sort';
 
 export function getStaticPaths() {
   return LANGS.map((lang) => ({ params: { lang } }));
 }
 const { lang } = Astro.params;
 const ui = t(lang);
-const posts = (await getCollection('posts'))
-  .filter((p) => p.data.lang === lang && p.data.category === 'travel' && !p.data.draft)
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const posts = sortPosts(
+  (await getCollection('posts')).filter((p) => p.data.lang === lang && p.data.category === 'travel' && !p.data.draft)
+);
 ---
 <BaseLayout title={`${ui.travel.title} · China Living`} lang={lang} description={ui.travel.sub}>
   <section class="hero">

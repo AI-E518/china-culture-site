@@ -15,6 +15,8 @@ const posts = defineCollection({
     location: z.string().optional(),
     faq: z.array(z.object({ q: z.string(), a: z.string() })).optional(), // 旅游/实用指南的 FAQ，用于 GEO 结构化数据（AI 搜索可引用）
     draft: z.boolean().optional().default(false), // 草稿标记：true 时后台可编辑但不构建发布，供审校后发布
+    pinned: z.boolean().optional().default(false), // 置顶：true 时始终排在所有非置顶文章之前
+    order: z.number().optional().default(0), // 手动排序序号：数字越小越靠前（同序号按发布日期兜底）
   }),
 });
 
