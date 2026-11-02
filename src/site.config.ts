@@ -7,4 +7,9 @@ export const SITE = {
   formAccessKey: 'd49445fe-5562-43c8-99f0-f451e56a4347',
   // 接收咨询邮件的邮箱（用于页脚/联系页提示）
   contactEmail: '56861701@qq.com',
+  // Cloudflare Web Analytics 令牌（隐私友好、无需 Cookie 同意）。
+  // 获取路径：Cloudflare 控制台 → 你的站点 askoldai.com → Analytics & Logs → Web Analytics →
+  //   「Add a site / Set up」→ 选 Manual setup → 复制 beacon 里的 token（形如 9xxxxxxx 的一串）填这里。
+  // 留空则不高载分析脚本（不影响网站运行）。
+  analyticsToken: '',
 };
