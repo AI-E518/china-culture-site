@@ -2,15 +2,28 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { t } from '../../../i18n';
+import { SITE } from '../../../site.config';
 
+// 同一篇文章的译文靠 slug 末尾的 -{lang} 后缀归组（如 beijing-roast-duck-zh / -en / -ja / -ko）。
+// 去掉语言后缀得到 base，所有同 base 的已发布文章互为译文。
 export async function getStaticPaths() {
   const posts = (await getCollection('posts')).filter((p) => !p.data.draft);
-  return posts.map((post) => ({
-    params: { lang: post.data.lang, slug: post.slug },
-    props: { post },
-  }));
+  return posts.map((post) => {
+    const base = post.slug.replace(/-(en|ja|ko|zh)$/, '');
+    // 收集同一篇在各语种下的已发布译文，生成 hreflang 备选地址
+    const group = posts.filter((p) => p.slug.replace(/-(en|ja|ko|zh)$/, '') === base);
+    const alternates = group.map((p) => ({
+      lang: p.data.lang,
+      href: new URL(`/${p.data.lang}/posts/${p.slug}`, SITE.url).href,
+    }));
+    const canonical = new URL(`/${post.data.lang}/posts/${post.slug}`, SITE.url).href;
+    return {
+      params: { lang: post.data.lang, slug: post.slug },
+      props: { post, alternates, canonical },
+    };
+  });
 }
-const { post } = Astro.props;
+const { post, alternates, canonical } = Astro.props;
 const { Content } = await render(post);
 const { data } = post;
 
@@ -41,6 +54,8 @@ const catLabel =
   description={data.summary}
   lang={data.lang}
   ogType="article"
+  alternates={alternates}
+  canonical={canonical}
 >
   <article class="post">
     <a class="back" href={`/${data.lang}/${data.category}`}>← {catLabel}</a>

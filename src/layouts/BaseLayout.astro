@@ -4,21 +4,44 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import FormHandler from '../components/FormHandler.astro';
 import { SITE } from '../site.config';
+import { LANGS } from '../i18n';
 
 interface Props {
   title: string;
   description?: string;
   lang?: string;
   ogType?: string;
+  // 文章页显式传入各语种对应地址（文章 slug 各语种不同，无法靠 URL 前缀推导）；
+  // 不传则按当前 URL 前缀自动推导（适用于所有栏目/列表/城市页，四语种路径同构）。
+  alternates?: { lang: string; href: string }[];
+  // 显式规范链接；不传则按当前 URL 推导。
+  canonical?: string;
 }
 const {
   title,
   description = 'Discover authentic Chinese food and intangible cultural heritage.',
   lang = 'en',
   ogType = 'website',
+  alternates,
+  canonical,
 } = Astro.props;
 
 const siteUrl = SITE.url; // 上线时在 src/site.config.ts 改成你的真实域名
+const base = siteUrl.replace(/\/$/, '');
+
+// 计算 hreflang 备选地址：文章页用显式传入，其余页面按 URL 前缀自动推导四语种
+let links: { lang: string; href: string }[];
+if (alternates && alternates.length) {
+  links = alternates;
+} else {
+  const basePath = Astro.url.pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/';
+  links = LANGS.map((l) => ({ lang: l, href: `${base}/${l}${basePath}` }));
+}
+const cano =
+  canonical ??
+  `${base}/${lang}${(Astro.url.pathname.replace(/^\/[a-z]{2}(?=\/|$)/, '') || '/')}`;
+// x-default 指向英文版（默认语种）；若无英文版则取首个可用语种，避免出现孤立页
+const xDefault = links.find((l) => l.lang === 'en')?.href ?? links[0]?.href ?? cano;
 ---
 <!doctype html>
 <html lang={lang}>
@@ -34,6 +57,11 @@ const siteUrl = SITE.url; // 上线时在 src/site.config.ts 改成你的真实�
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
+    {/* 规范链接 + 四语种 hreflang：让 Google 等搜索引擎把各语言版本识别为同一篇内容的不同语言版，
+        避免四语种互相抢权重（SEO 国际化标准做法）。x-default 指向默认语种（英文）。 */}
+    <link rel="canonical" href={cano} />
+    {links.map((l) => <link rel="alternate" hreflang={l.lang} href={l.href} />)}
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'WebSite',
