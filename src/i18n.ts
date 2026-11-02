@@ -14,7 +14,7 @@ export const LOCALE_LABELS: Record<Lang, string> = {
 
 interface UIStrings {
   brand: string;
-  nav: { home: string; heritage: string; food: string; travel: string; cities: string; about: string; contact: string };
+  nav: { home: string; heritage: string; food: string; travel: string; cities: string; about: string; contact: string; privacy: string };
   footer: string;
   home: { heroTitle: string; heroSub: string; latest: string; introTitle: string; intro: string[]; mapTitle: string; mapSub: string; mapLink: string };
   heritage: { title: string; sub: string };
@@ -46,12 +46,13 @@ interface UIStrings {
     setupNote: string;
   };
   newsletter: { title: string; placeholder: string; button: string; success: string; error: string };
+  privacy: { title: string; heading: string; paragraphs: string[] };
 }
 
 export const ui: Record<Lang, UIStrings> = {
   en: {
     brand: 'China Living · Food & Heritage',
-    nav: { home: 'Home', heritage: 'Heritage', food: 'Food', travel: 'Travel', cities: 'Cities', about: 'About', contact: 'Contact' },
+    nav: { home: 'Home', heritage: 'Heritage', food: 'Food', travel: 'Travel', cities: 'Cities', about: 'About', contact: 'Contact', privacy: 'Privacy' },
     footer: '© 2026 China Living · Sharing real China through food and craft.',
     home: {
       heroTitle: 'Real China, one dish and one craft at a time',
@@ -113,11 +114,23 @@ export const ui: Record<Lang, UIStrings> = {
       success: 'You’re in! Check your inbox to confirm.',
       error: 'Couldn’t subscribe — please try again.',
     },
+    privacy: {
+      title: 'Privacy Policy',
+      heading: 'Your privacy',
+      paragraphs: [
+        'This site is operated by China Living. We collect only what you choose to share, and we never sell or trade it.',
+        '<strong>Contact form.</strong> When you message us, we receive your name, email, travel dates, interests, and message. It is delivered by Web3Forms to our inbox (56861701@qq.com) and used only to reply to you.',
+        '<strong>Newsletter.</strong> If you subscribe, we store your email to send China travel notes. You can unsubscribe anytime from the footer link or by replying to a message.',
+        '<strong>Analytics.</strong> We use Cloudflare Web Analytics — a privacy-first service that does <strong>not</strong> use cookies and does <strong>not</strong> collect personally identifiable information. It shows us only aggregate stats: visitor country, popular pages, and referrers.',
+        'Beyond the processors above (Web3Forms for email delivery), your data is not shared with any third party.',
+        'You may request access to or deletion of your data at any time by emailing 56861701@qq.com.',
+      ],
+    },
   },
 
   zh: {
     brand: '中国生活 · 美食与非遗',
-    nav: { home: '首页', heritage: '非遗', food: '美食', travel: '旅游', cities: '城市', about: '关于', contact: '咨询' },
+    nav: { home: '首页', heritage: '非遗', food: '美食', travel: '旅游', cities: '城市', about: '关于', contact: '咨询', privacy: '隐私' },
     footer: '© 2026 中国生活 · 用美食与手作，让世界看见真实的中国。',
     home: {
       heroTitle: '真实的中国，从一碗饭、一门手艺开始',
@@ -179,11 +192,23 @@ export const ui: Record<Lang, UIStrings> = {
       success: '订阅成功！去邮箱确认一下。',
       error: '订阅失败，请重试。',
     },
+    privacy: {
+      title: '隐私政策',
+      heading: '你的隐私',
+      paragraphs: [
+        '本网站由「中国生活」运营。我们只收集你主动分享的信息，绝不出售或交换。',
+        '<strong>咨询表单。</strong> 当你给我们留言，我们会收到你的姓名、邮箱、预计出行时间、关注方向和留言内容，由 Web3Forms 发到我们的邮箱（56861701@qq.com），仅用于回复你。',
+        '<strong>邮件订阅。</strong> 如果你订阅，我们会保存你的邮箱以发送中国旅行笔记。你可以随时通过页脚链接或回复邮件取消订阅。',
+        '<strong>访问分析。</strong> 我们使用 Cloudflare Web Analytics——这是一款隐私优先的服务，<strong>不使用 Cookie</strong>，也<strong>不收集任何可识别个人身份的信息</strong>。它只向我们展示汇总数据：访客国家、热门页面和来源。',
+        '除上面的处理方（Web3Forms 负责邮件投递）之外，你的数据不会与任何第三方共享。',
+        '你可以随时发邮件到 56861701@qq.com，要求查看或删除你的数据。',
+      ],
+    },
   },
 
   ja: {
     brand: 'チャイナ・リビング｜食と無形文化遺産',
-    nav: { home: 'ホーム', heritage: '無形文化遺産', food: '食', travel: '旅の準備', cities: '都市', about: '紹介', contact: 'お問い合わせ' },
+    nav: { home: 'ホーム', heritage: '無形文化遺産', food: '食', travel: '旅の準備', cities: '都市', about: '紹介', contact: 'お問い合わせ', privacy: 'プライバシー' },
     footer: '© 2026 China Living｜食と工芸を通じて、真の中国を世界へ。',
     home: {
       heroTitle: '本当の中国を、一皿の料理と一つの技から',
@@ -245,11 +270,23 @@ export const ui: Record<Lang, UIStrings> = {
       success: '登録完了！受信箱で確認してください。',
       error: '登録できませんでした。もう一度お試しください。',
     },
+    privacy: {
+      title: 'プライバシーポリシー',
+      heading: 'あなたのプライバシー',
+      paragraphs: [
+        '本サイトは China Living が運営しています。私たちはあなたが自ら共有した情報だけを集め、決して売ったり交換したりすることはありません。',
+        '<strong>お問い合わせフォーム。</strong> メッセージを送ると、お名前・メールアドレス・予定旅行時期・ご関心事・本文を受け取ります。これは Web3Forms 経由で当方の受信箱（56861701@qq.com）に届き、返信のみに使用します。',
+        '<strong>メールマガジン。</strong> 登録いただいた場合、中国旅行の便りを送るためにメールアドレスを保存します。フッターリンクまたは返信でいつでも配信停止できます。',
+        '<strong>アクセス解析。</strong> 当サイトは Cloudflare Web Analytics を使用しています。これはプライバシー優先のサービスで、<strong>Cookie を使わず</strong>、<strong>個人を特定できる情報も収集しません</strong>。表示されるのは国・人気ページ・参照元などの集計データのみです。',
+        '上記の処理者（メール配信の Web3Forms）以外に、あなたのデータを第三者と共有することはありません。',
+        'データの開示や削除をご希望の場合は、56861701@qq.com までメールでいつでもご請求いただけます。',
+      ],
+    },
   },
 
   ko: {
     brand: '차이나 리빙｜음식과 무형문화유산',
-    nav: { home: '홈', heritage: '무형문화유산', food: '음식', travel: '여행 준비', cities: '도시', about: '소개', contact: '문의' },
+    nav: { home: '홈', heritage: '무형문화유산', food: '음식', travel: '여행 준비', cities: '도시', about: '소개', contact: '문의', privacy: '개인정보' },
     footer: '© 2026 차이나 리빙｜음식과 공예로 진짜 중국을 세상에.',
     home: {
       heroTitle: '진짜 중국을, 한 그릇의 요리와 하나의 기술로',
@@ -310,6 +347,18 @@ export const ui: Record<Lang, UIStrings> = {
       button: '구독',
       success: '구독 완료! 받은편지함을 확인하세요.',
       error: '구독에 실패했어요. 다시 시도해 주세요.',
+    },
+    privacy: {
+      title: '개인정보 처리방침',
+      heading: '당신의 개인정보',
+      paragraphs: [
+        '이 사이트는 China Living이 운영합니다. 우리는 여러분이 직접 공유한 정보만 수집하며, 절대 판매하거나 거래하지 않습니다.',
+        '<strong>문의 양식.</strong> 메시지를 보내면 이름·이메일·예상 여행 시기·관심 분야·내용을 받습니다. 이는 Web3Forms를 통해 당사 수신함(56861701@qq.com)으로 전달되며, 답장 목적으로만 사용합니다.',
+        '<strong>뉴스레터.</strong> 구독하시면 중국 여행 편지를 보내기 위해 이메일을 저장합니다. 푸터 링크나 답장으로 언제든 구독을 취소할 수 있습니다.',
+        '<strong>분석.</strong> 우리는 Cloudflare Web Analytics를 사용합니다. 이는 프라이버시 우선 서비스로 <strong>쿠키를 사용하지 않으며</strong>, <strong>개인을 식별할 수 있는 정보도 수집하지 않습니다</strong>. 표시되는 것은 방문 국가·인기 페이지·유입 경로 등 집계 데이터뿐입니다.',
+        '위 처리자(이메일 발송용 Web3Forms) 외에 여러분의 데이터를 제3자와 공유하지 않습니다.',
+        '언제든 이메일(56861701@qq.com)로 요청하시면 데이터 열람이나 삭제를 도와드립니다.',
+      ],
     },
   },
 };
