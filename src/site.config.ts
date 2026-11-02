@@ -11,5 +11,5 @@ export const SITE = {
   // 获取路径：Cloudflare 控制台 → 你的站点 askoldai.com → Analytics & Logs → Web Analytics →
   //   「Add a site / Set up」→ 选 Manual setup → 复制 beacon 里的 token（形如 9xxxxxxx 的一串）填这里。
   // 留空则不高载分析脚本（不影响网站运行）。
-  analyticsToken: '',
+  analyticsToken: 'bbbf6f9d5db134467a5960b41d0081e3e',
 };

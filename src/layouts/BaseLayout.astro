@@ -42,7 +42,7 @@ const siteUrl = SITE.url; // 上线时在 src/site.config.ts 改成你的真实�
     })}></script>
     {/* Cloudflare Web Analytics：隐私友好、无需 Cookie 同意；token 在 src/site.config.ts 填写后自动启用 */}
     {SITE.analyticsToken && (
-      <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={`{"token":"${SITE.analyticsToken}"}`}></script>
+      <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={`{"token":"${SITE.analyticsToken}"}`}></script>
     )}
   </head>
   <body>
