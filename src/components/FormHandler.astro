@@ -1,24 +1,72 @@
 ---
-// 全站表单提交处理（Web3Forms）。
-// 放在 BaseLayout，确保咨询 / 订阅等任意带 data-form 的表单都能提交，
-// 不再依赖页脚订阅组件是否加载（之前咨询表单的提交脚本寄生在 Newsletter 里，删掉订阅就会失效）。
+// 全站表单提交处理（集中绑定一次，避免重复）。
+// - 联系 / 旧订阅：Web3Forms（带 access_key 的表单）。
+// - 锦囊订阅（data-form="kit"）：提交到本站 /api/subscribe（服务端转发到 Kit）。
+// 另含锦囊 CTA 曝光埋点（impression）：滚入视口时打点，供转化率统计。
 ---
 <script>
-  // 通用 Web3Forms 提交处理（去重守卫，确保全站只绑定一次）
   if (!(window as any).__clFormsBound) {
     (window as any).__clFormsBound = true;
-    document.addEventListener('submit', async (e) => {
-      const form = e.target as HTMLFormElement;
-      if (!form.matches('form[data-form]')) return;
-      e.preventDefault();
-      const status = form.querySelector('[data-status]') as HTMLElement;
-      const key = (form.querySelector('input[name=access_key]') as HTMLInputElement)?.value || '';
-      if (!key || key.startsWith('YOUR_')) {
-        status.textContent = form.dataset.setup || 'Form not configured.';
-        status.hidden = false;
-        status.className = 'form-status error';
+
+    function showStatus(form: HTMLFormElement, msg: string, cls: string) {
+      const status = form.querySelector('[data-status]') as HTMLElement | null;
+      if (!status) return;
+      status.textContent = msg;
+      status.hidden = false;
+      status.className = 'form-status ' + cls;
+    }
+
+    // 锦囊订阅：POST 到 /api/subscribe（服务端再转发 Kit，API Key 不落前端）
+    async function handleKit(form: HTMLFormElement) {
+      const status = form.querySelector('[data-status]') as HTMLElement | null;
+      const email = (form.querySelector('input[name="email"]') as HTMLInputElement)?.value?.trim() || '';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showStatus(form, form.dataset.err || 'Invalid email', 'error');
         return;
       }
+      const data: Record<string, any> = {};
+      new FormData(form).forEach((v, k) => (data[k] = v));
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(data),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (res.ok && json.ok) {
+          form.reset();
+          showStatus(form, form.dataset.ok || 'Thank you!', 'success');
+        } else {
+          throw new Error(json.error || 'failed');
+        }
+      } catch {
+        showStatus(form, form.dataset.err || 'Something went wrong.', 'error');
+      }
+    }
+
+    document.addEventListener('submit', async (e) => {
+      const form = e.target as HTMLFormElement;
+ if (!form || !(form instanceof HTMLFormElement)) return;
+      const kind = form.getAttribute('data-form');
+      if (kind === 'kit') {
+        e.preventDefault();
+        await handleKit(form);
+        return;
+      }
+      // 仅处理带 access_key 的 Web3Forms 表单（咨询 / 旧订阅）
+      const key = (form.querySelector('input[name="access_key"]') as HTMLInputElement)?.value || '';
+      if (!key || key.startsWith('YOUR_')) {
+        if (kind === 'newsletter' || kind === 'consult') {
+          const status = form.querySelector('[data-status]') as HTMLElement | null;
+          if (status) {
+            status.textContent = form.dataset.setup || 'Form not configured.';
+            status.hidden = false;
+            status.className = 'form-status error';
+          }
+        }
+        return;
+      }
+      e.preventDefault();
       const data: Record<string, any> = {};
       new FormData(form).forEach((v, k) => {
         if (k in data) {
@@ -36,17 +84,47 @@
         const json = await res.json();
         if (json.success) {
           form.reset();
-          status.textContent = form.dataset.ok || 'Thank you!';
-          status.hidden = false;
-          status.className = 'form-status success';
+          showStatus(form, form.dataset.ok || 'Thank you!', 'success');
         } else {
           throw new Error(json.message || 'failed');
         }
       } catch {
-        status.textContent = form.dataset.err || 'Something went wrong.';
-        status.hidden = false;
-        status.className = 'form-status error';
+        showStatus(form, form.dataset.err || 'Something went wrong.', 'error');
       }
     });
+
+    // 锦囊 CTA 曝光埋点：滚入视口 50% 即打一次点（GET /api/subscribe?imp=1）。
+    // 返回 204，不落库；转化 = 提交数 / 曝光数，可在 Cloudflare 请求分析里统计。
+    function trackKitImpressions() {
+      const els = Array.from(
+        document.querySelectorAll('.kit')
+      ) as HTMLElement[];
+      if (!els.length || !('IntersectionObserver' in window)) return;
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((en) => {
+            const el = en.target as HTMLElement;
+            if (en.isIntersecting && !el.dataset.imp) {
+              el.dataset.imp = '1';
+              const url = '/api/subscribe?imp=1';
+              if (navigator.sendBeacon) navigator.sendBeacon(url);
+              else fetch(url, { method: 'GET', keepalive: true });
+              io.unobserve(el);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+      els.forEach((el) => {
+        if (!el.dataset.imp) io.observe(el);
+      });
+    }
+    (window as any).__clTrackKit = trackKitImpressions;
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', trackKitImpressions);
+    } else {
+      trackKitImpressions();
+    }
   }
 </script>

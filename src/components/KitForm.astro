@@ -1,0 +1,217 @@
+---
+// 《中国旅行锦囊》订阅表单：文章文中段卡(mid) / 文末大卡(end) / 页脚(footer) 三处复用。
+// 提交走 /api/subscribe（服务端转发到 Kit），由 FormHandler 统一处理，本组件不含脚本。
+import { t, LOCALE_LABELS } from '../i18n';
+import type { Lang } from '../i18n';
+
+interface Props {
+  lang: string;
+  variant?: 'mid' | 'end' | 'footer';
+}
+const { lang, variant = 'end' } = Astro.props;
+const k = t(lang).kit;
+const nav = t(lang).nav;
+
+const isEnd = variant === 'end';
+const isFooter = variant === 'footer';
+const showName = !isFooter; // 页脚极简版不收名字
+const privacyLink = `/${lang}/privacy`;
+const langOptions: Lang[] = ['en', 'ja', 'ko', 'zh'];
+---
+<section
+  class:list={['kit', `kit-${variant}`]}
+  id={isEnd ? 'subscribe' : undefined}
+  aria-label={k.endTitle}
+>
+  {isEnd && (
+    <div class="kit-cover" aria-hidden="true">
+      <span>{k.endTitle}</span>
+    </div>
+  )}
+  <div class="kit-body">
+    <h3 class="kit-title">{isEnd || isFooter ? k.endTitle : k.midTitle}</h3>
+    <p class="kit-sub">{isEnd ? k.endSub : isFooter ? k.bar : k.midSub}</p>
+
+    {isEnd && (
+      <ul class="kit-hooks">
+        {k.hooks.map((h) => <li>{h}</li>)}
+      </ul>
+    )}
+
+    <form class="kit-form" data-form="kit" data-ok={k.success} data-err={k.error}>
+      <div class="kit-row">
+        <input
+          type="email"
+          name="email"
+          placeholder={k.emailPlaceholder}
+          required
+          aria-label={k.emailPlaceholder}
+        />
+        {showName && (
+          <input
+            type="text"
+            name="name"
+            placeholder={k.namePlaceholder}
+            aria-label={k.namePlaceholder}
+          />
+        )}
+      </div>
+      <div class="kit-row">
+        <label class="kit-lang">
+          {k.langLabel}
+          <select name="lang" aria-label={k.langLabel}>
+            {langOptions.map((l) => (
+              <option value={l} selected={l === lang}>{LOCALE_LABELS[l]}</option>
+            ))}
+          </select>
+        </label>
+        <button type="submit" class="btn-primary kit-submit">{k.submit}</button>
+      </div>
+      <p class="form-status" data-status hidden></p>
+    </form>
+
+    <p class="kit-privacy">
+      {k.privacyBefore}<a href={privacyLink}>{nav.privacy}</a>{k.privacyAfter}
+    </p>
+  </div>
+</section>
+
+<style>
+  .kit {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: linear-gradient(135deg, #fff7f0, #fdeee2);
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  .kit-body {
+    padding: 20px 18px;
+  }
+  .kit-title {
+    margin: 0 0 6px;
+    font-size: 20px;
+    color: var(--brand, #d2492a);
+  }
+  .kit-sub {
+    margin: 0 0 14px;
+    color: #5b4a3f;
+    line-height: 1.55;
+  }
+  .kit-hooks {
+    margin: 0 0 16px;
+    padding-left: 18px;
+    color: #6b5a4d;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .kit-cover {
+    height: 132px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 16px;
+    background:
+      radial-gradient(120% 120% at 0% 0%, #f6c89a 0%, #e98a4b 60%, #d2492a 100%);
+    color: #fff;
+  }
+  .kit-cover span {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+  }
+  .kit-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+  }
+  .kit-row input[type='email'],
+  .kit-row input[type='text'] {
+    flex: 1 1 200px;
+    min-width: 0;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-size: 15px;
+  }
+  .kit-lang {
+    flex: 1 1 150px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    color: #6b5a4d;
+  }
+  .kit-lang select {
+    flex: 1;
+    padding: 9px 10px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    font-size: 14px;
+    background: #fff;
+  }
+  .kit-submit {
+    flex: 0 0 auto;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: var(--brand, #d2492a);
+    color: #fff;
+  }
+  .kit-submit:hover {
+    filter: brightness(0.95);
+  }
+  .kit-privacy {
+    margin: 6px 0 0;
+    font-size: 12px;
+    color: #8a7a6d;
+  }
+  .kit-privacy a {
+    color: #b5603a;
+  }
+
+  /* 文中段卡：更紧凑、不抢正文 */
+  .kit-mid {
+    background: linear-gradient(135deg, #fff, #f6f0e8);
+  }
+  .kit-mid .kit-body {
+    padding: 16px;
+  }
+  .kit-mid .kit-title {
+    font-size: 18px;
+  }
+
+  /* 页脚极简版 */
+  .kit-footer {
+    background: transparent;
+    border: none;
+    margin: 0;
+  }
+  .kit-footer .kit-body {
+    padding: 0;
+  }
+  .kit-footer .kit-title {
+    font-size: 16px;
+  }
+  .kit-footer .kit-sub {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .kit-footer .kit-privacy {
+    display: none;
+  }
+
+  @media (max-width: 520px) {
+    .kit-row input[type='email'],
+    .kit-row input[type='text'],
+    .kit-lang,
+    .kit-submit {
+      flex: 1 1 100%;
+    }
+  }
+</style>

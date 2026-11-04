@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { t } from '../../../i18n';
 import { SITE } from '../../../site.config';
+import KitForm from '../../../components/KitForm.astro';
 
 // 同一篇文章的译文靠 slug 末尾的 -{lang} 后缀归组（如 beijing-roast-duck-zh / -en / -ja / -ko）。
 // 去掉语言后缀得到 base，所有同 base 的已发布文章互为译文。
@@ -66,6 +67,10 @@ const catLabel =
     </p>
     {data.cover && <img class="post-cover" src={data.cover} alt={data.title} />}
     <div class="prose"><Content /></div>
+    {/* 文中段卡：默认隐藏，页面加载后由脚本插入正文约 40% 处，成为内联卡片 */}
+    <div id="kit-mid" class="kit-mid-slot" hidden>
+      <KitForm lang={data.lang} variant="mid" />
+    </div>
     {faqJson && (
       <script type="application/ld+json" set:html={JSON.stringify(faqJson)}></script>
     )}
@@ -80,5 +85,34 @@ const catLabel =
         ))}
       </section>
     )}
+    {/* 文末大卡：主转化位（带 id=subscribe，供顶部公告条滚动定位） */}
+    <KitForm lang={data.lang} variant="end" />
   </article>
 </BaseLayout>
+
+<script is:inline>
+  // 将文中段卡插入正文约 40% 处（Astro <Content/> 无法在渲染期切分，故客户端插入）
+  (function () {
+    function injectMid() {
+      var prose = document.querySelector('.prose');
+      var slot = document.getElementById('kit-mid');
+      if (!prose || !slot || slot.dataset.injected) return;
+      var kids = Array.prototype.slice.call(prose.children);
+      if (!kids.length) {
+        prose.appendChild(slot);
+      } else {
+        var target = kids[Math.floor(kids.length * 0.4)] || kids[kids.length - 1];
+        prose.insertBefore(slot, target);
+      }
+      slot.hidden = false;
+      slot.dataset.injected = '1';
+      // 段卡就位后重新登记曝光埋点
+      if (window.__clTrackKit) window.__clTrackKit();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', injectMid);
+    } else {
+      injectMid();
+    }
+  })();
+</script>

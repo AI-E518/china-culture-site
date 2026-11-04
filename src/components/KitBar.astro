@@ -1,0 +1,124 @@
+---
+// 全站常驻的顶部公告条（sticky）：引导访客去订阅《中国旅行锦囊》。
+// 点击「领取」滚动到订阅位（文章页为文末大卡 #subscribe，其余页为页脚订阅表单）。
+import { t } from '../i18n';
+
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+const k = t(lang).kit;
+const cta = t(lang).kit.submit; // 复用提交按钮文案作为行动词
+---
+<div class="kit-bar" id="kit-bar" role="region" aria-label={k.bar}>
+  <p class="kit-bar-text">{k.bar}</p>
+  <div class="kit-bar-actions">
+    <button type="button" class="kit-bar-cta" id="kit-bar-cta">{cta}</button>
+    <button
+      type="button"
+      class="kit-bar-close"
+      id="kit-bar-close"
+      aria-label="关闭"
+    >×</button>
+  </div>
+</div>
+
+<style>
+  .kit-bar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 16px;
+    background: linear-gradient(90deg, #d2492a, #e98a4b);
+    color: #fff;
+  }
+  .kit-bar[hidden] {
+    display: none;
+  }
+  .kit-bar-text {
+    margin: 0;
+    flex: 1;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .kit-bar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+  }
+  .kit-bar-cta {
+    border: none;
+    background: #fff;
+    color: #d2492a;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .kit-bar-cta:hover {
+    filter: brightness(0.95);
+  }
+  .kit-bar-close {
+    border: none;
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 4px;
+    opacity: 0.85;
+  }
+  .kit-bar-close:hover {
+    opacity: 1;
+  }
+  @media (max-width: 560px) {
+    .kit-bar-text {
+      font-size: 12.5px;
+    }
+    .kit-bar-cta {
+      padding: 5px 10px;
+      font-size: 12px;
+    }
+  }
+</style>
+
+<script is:inline>
+  (function () {
+    var bar = document.getElementById('kit-bar');
+    if (!bar) return;
+    // 本次会话已关闭则不再显示
+    try {
+      if (sessionStorage.getItem('kitBarDismissed') === '1') {
+        bar.hidden = true;
+        return;
+      }
+    } catch (e) {}
+    var cta = document.getElementById('kit-bar-cta');
+    var close = document.getElementById('kit-bar-close');
+    if (cta) {
+      cta.addEventListener('click', function () {
+        var target =
+          document.getElementById('subscribe') ||
+          document.querySelector('.kit-form');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    }
+    if (close) {
+      close.addEventListener('click', function () {
+        bar.hidden = true;
+        try {
+          sessionStorage.setItem('kitBarDismissed', '1');
+        } catch (e) {}
+      });
+    }
+  })();
+</script>

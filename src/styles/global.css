@@ -23,6 +23,8 @@ body {
 a { color: inherit; text-decoration: none; }
 
 .site-header { background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+/* 顶部公告条常驻时，主导航下移，避免互相遮挡 */
+.kit-bar:not([hidden]) + .site-header { top: 42px; }
 .header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 .brand { font-weight: 600; font-size: 16px; }
 .nav { display: flex; gap: 18px; align-items: center; }
@@ -172,17 +174,6 @@ main.container { padding-top: 32px; padding-bottom: 48px; min-height: 60vh; }
 .footer-news { flex: 1 1 280px; }
 .footer-meta { flex: 1 1 240px; }
 .site-footer a { color: var(--accent2); }
-
-/* ===== 邮件订阅 ===== */
-.newsletter { margin-top: 0.4rem; }
-.nl-title { font-size: 1.05rem; margin: 0 0 0.6rem; color: var(--ink); }
-.nl-row { display: flex; gap: 8px; max-width: 360px; }
-.newsletter.compact .nl-row { max-width: 320px; }
-.newsletter input[type='email'] {
-  flex: 1; min-width: 0; padding: 9px 12px; border: 1px solid var(--line);
-  border-radius: 10px; font-size: 14px; background: #fff; color: var(--ink);
-}
-.newsletter input[type='email']:focus { outline: none; border-color: var(--accent2); }
 
 /* ===== 表单通用 ===== */
 .btn-primary {

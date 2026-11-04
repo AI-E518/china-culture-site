@@ -47,6 +47,23 @@ interface UIStrings {
   };
   newsletter: { title: string; placeholder: string; button: string; success: string; error: string };
   privacy: { title: string; heading: string; paragraphs: string[] };
+  // 《中国旅行锦囊》订阅漏斗文案（顶栏 / 文中段卡 / 文末大卡 / 表单，四语）
+  kit: {
+    bar: string; // 全站 sticky 顶栏文案
+    midTitle: string; // 文中段卡标题
+    midSub: string; // 文中段卡副文案
+    endTitle: string; // 文末大卡标题
+    endSub: string; // 文末大卡副文案
+    hooks: string[]; // 三条价值钩子
+    emailPlaceholder: string;
+    namePlaceholder: string;
+    langLabel: string; // 语言偏好标签
+    submit: string; // 提交按钮（领锦囊 / Get the Kit / 受け取る / 받기）
+    success: string; // 成功提示
+    error: string; // 失败提示
+    privacyBefore: string; // 隐私说明（链接前）
+    privacyAfter: string; // 隐私说明（链接后，处理语序）
+  };
 }
 
 export const ui: Record<Lang, UIStrings> = {
@@ -126,6 +143,22 @@ export const ui: Record<Lang, UIStrings> = {
         'You may request access to or deletion of your data at any time by emailing 56861701@qq.com.',
       ],
     },
+    kit: {
+      bar: '📩 Free China Travel Kit (PDF) — Lao Ai’s avoid-the-pitfalls checklist for visiting China',
+      midTitle: 'You should subscribe by now',
+      midSub: 'Let me send my private routes straight to your inbox.',
+      endTitle: 'Get the China Travel Kit — free PDF',
+      endSub: 'Lao Ai’s on-arrival checklist: SIM & internet, payments, etiquette, scams, insurance, best seasons.',
+      hooks: ['Packing & arrival checklist', 'SIM, payments & etiquette red lines', 'Scams to avoid + best seasons'],
+      emailPlaceholder: 'you@email.com',
+      namePlaceholder: 'Your name (optional)',
+      langLabel: 'Preferred language',
+      submit: 'Get the Kit',
+      success: 'Sent! Check your inbox to confirm and grab the Kit.',
+      error: 'Something went wrong. Please try again.',
+      privacyBefore: 'We respect your privacy. Unsubscribe anytime. See our ',
+      privacyAfter: '.',
+    },
   },
 
   zh: {
@@ -203,6 +236,22 @@ export const ui: Record<Lang, UIStrings> = {
         '除上面的处理方（Web3Forms 负责邮件投递）之外，你的数据不会与任何第三方共享。',
         '你可以随时发邮件到 56861701@qq.com，要求查看或删除你的数据。',
       ],
+    },
+    kit: {
+      bar: '📩 免费领《中国旅行锦囊》PDF — 老艾的来华避坑清单',
+      midTitle: '看到这儿你该订阅了',
+      midSub: '把老艾私房路线发到你邮箱。',
+      endTitle: '领《中国旅行锦囊》— 免费 PDF',
+      endSub: '老艾的来华清单：行李、上网办卡、支付设置、礼仪红绿灯、防坑、保险、最佳季节。',
+      hooks: ['来华行李与落地清单', '上网办卡 / 支付 / 礼仪红线', '防坑提醒 + 最佳出行季节'],
+      emailPlaceholder: '你的邮箱',
+      namePlaceholder: '你的称呼（选填）',
+      langLabel: '语言偏好',
+      submit: '领锦囊',
+      success: '已发送！去邮箱确认一下，就能拿到锦囊。',
+      error: '提交失败了，请重试。',
+      privacyBefore: '我们尊重你的隐私，随时可退订。详见',
+      privacyAfter: '。',
     },
   },
 
@@ -282,6 +331,22 @@ export const ui: Record<Lang, UIStrings> = {
         'データの開示や削除をご希望の場合は、56861701@qq.com までメールでいつでもご請求いただけます。',
       ],
     },
+    kit: {
+      bar: '📩 無料『中国旅行キット』PDF — ラオ・アイの「失敗しない中国渡航」チェックリスト',
+      midTitle: 'ここまで読んだら、そろそろ登録を',
+      midSub: 'ラオ・アイの私費ルートをメールでお届けします。',
+      endTitle: '中国旅行キットを無料ゲット（PDF）',
+      endSub: 'ラオ・アイの渡航前チェックリスト：荷物・SIM・決済・マナー・詐欺防止・保険・ベストシーズン。',
+      hooks: ['荷物と到着直後のチェックリスト', 'SIM・決済・マナーの雷線', '詐欺回避＋ベストシーズン'],
+      emailPlaceholder: 'メールアドレス',
+      namePlaceholder: 'お名前（任意）',
+      langLabel: '希望言語',
+      submit: '受け取る',
+      success: '送信しました！受信箱で確認するとキットをゲットできます。',
+      error: '送信に失敗しました。もう一度お試しください。',
+      privacyBefore: 'プライバシーを尊重し、いつでも配信停止できます。',
+      privacyAfter: 'をご覧ください。',
+    },
   },
 
   ko: {
@@ -359,6 +424,22 @@ export const ui: Record<Lang, UIStrings> = {
         '위 처리자(이메일 발송용 Web3Forms) 외에 여러분의 데이터를 제3자와 공유하지 않습니다.',
         '언제든 이메일(56861701@qq.com)로 요청하시면 데이터 열람이나 삭제를 도와드립니다.',
       ],
+    },
+    kit: {
+      bar: '📩 무료 『중국 여행 키트』 PDF — 라오아이의 중국 방문 실패 방지 체크리스트',
+      midTitle: '여기까지 읽었으면, 이제 구독할 차례',
+      midSub: '라오아이의 비밀 코스를 메일로 보내드립니다.',
+      endTitle: '중국 여행 키트 받기 — 무료 PDF',
+      endSub: '라오아이의 입국 전 체크리스트: 짐·SIM·결제·예절·사기 방지·보험·추천 시즌.',
+      hooks: ['짐 싸기와 도착 직후 체크리스트', 'SIM·결제·예절 금지선', '사기 방지 + 추천 시즌'],
+      emailPlaceholder: '이메일 주소',
+      namePlaceholder: '성함 (선택)',
+      langLabel: '선호 언어',
+      submit: '받기',
+      success: '전송 완료! 받은편지함에서 확인하시면 키트를 받으실 수 있어요.',
+      error: '전송에 실패했어요. 다시 시도해 주세요.',
+      privacyBefore: '개인정보를 존중하며 언제든 구독을 취소할 수 있습니다. ',
+      privacyAfter: '를 확인하세요.',
     },
   },
 };

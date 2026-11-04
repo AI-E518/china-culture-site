@@ -1,6 +1,6 @@
 ---
 import { t } from '../i18n';
-import Newsletter from './Newsletter.astro';
+import KitForm from './KitForm.astro';
 interface Props {
   lang: string;
 }
@@ -11,7 +11,7 @@ const nav = t(lang).nav;
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-news">
-      <Newsletter lang={lang} />
+      <KitForm lang={lang} variant="footer" />
     </div>
     <div class="footer-meta">
       <p>{text}</p>
