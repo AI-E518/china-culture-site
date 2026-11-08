@@ -12,9 +12,13 @@ export const SITE = {
   //   「Add a site / Set up」→ 选 Manual setup → 复制 beacon 里的 token（形如 9xxxxxxx 的一串）填这里。
   // 留空则不高载分析脚本（不影响网站运行）。
   analyticsToken: 'bbbf6f9d5db134467a5960b41d0081e3e',
-  // 《中国旅行锦囊》订阅漏斗：本站 /api/subscribe（functions/api/subscribe.js）作为服务端代理转发到 Brevo。
-  // 下列值不在前端暴露，需到 Cloudflare Pages 项目 Settings → Variables and Secrets 配置：
-  //   BREVO_API_KEY    Brevo 账号 API Key（Settings → SMTP & API → API Keys → 新建/复制，选 V3）
-  //   BREVO_LIST_ID    接收订阅者的列表 ID（Contacts → Lists → 新建列表后看地址栏数字）
-  //   BREVO_LANG_ATTR  （可选）Brevo 自定义属性名，用于写入语言偏好；不配则忽略
+  // 《中国旅行锦囊》订阅漏斗：本站 /api/subscribe（functions/api/subscribe.js）作为服务端代理：
+  // 写联系人进 Brevo 列表 + 当场发欢迎信（含 PDF 直链）。下列值不暴露给前端，
+  // 需到 Cloudflare Pages 项目 Settings → Variables and Secrets 配置：
+  //   BREVO_API_KEY        API Key；权限需 Contacts = All 且 Transactional email = All
+  //   BREVO_LIST_ID        接收订阅者的列表 ID（纯数字）
+  //   BREVO_SENDER_EMAIL   已在 Brevo Senders 里 Verified 的发件邮箱（必填，缺了就不发信）
+  //   BREVO_SENDER_NAME    可选，默认 'Lao Ai · China Living'
+  //   BREVO_REPLY_TO       可选，默认 56861701@qq.com
+  //   BREVO_LANG_ATTR      可选，Brevo 自定义属性名，用于写入语言偏好；不配则忽略
 };

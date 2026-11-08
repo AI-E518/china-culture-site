@@ -36,6 +36,10 @@
         if (res.ok && json.ok) {
           form.reset();
           showStatus(form, form.dataset.ok || 'Thank you!', 'success');
+          // 成功即刻给出两份 PDF 直链，不依赖欢迎邮件是否送达
+          const section = form.closest('.kit') as HTMLElement | null;
+          const downloads = section?.querySelector('[data-downloads]') as HTMLElement | null;
+          if (downloads) downloads.hidden = false;
         } else {
           throw new Error(json.error || 'failed');
         }

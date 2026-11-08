@@ -60,6 +60,8 @@ interface UIStrings {
     langLabel: string; // 语言偏好标签
     submit: string; // 提交按钮（领锦囊 / Get the Kit / 受け取る / 받기）
     success: string; // 成功提示
+    downloadEn: string; // 成功态下载按钮（英文版 PDF）
+    downloadZh: string; // 成功态下载按钮（中文版 PDF）
     error: string; // 失败提示
     privacyBefore: string; // 隐私说明（链接前）
     privacyAfter: string; // 隐私说明（链接后，处理语序）
@@ -154,7 +156,9 @@ export const ui: Record<Lang, UIStrings> = {
       namePlaceholder: 'Your name (optional)',
       langLabel: 'Preferred language',
       submit: 'Get the Kit',
-      success: 'Sent! Check your inbox to confirm and grab the Kit.',
+      success: 'You are in! Grab your Kit right below.',
+      downloadEn: 'Download English PDF',
+      downloadZh: 'Download Chinese PDF',
       error: 'Something went wrong. Please try again.',
       privacyBefore: 'We respect your privacy. Unsubscribe anytime. See our ',
       privacyAfter: '.',
@@ -248,7 +252,9 @@ export const ui: Record<Lang, UIStrings> = {
       namePlaceholder: '你的称呼（选填）',
       langLabel: '语言偏好',
       submit: '领锦囊',
-      success: '已发送！去邮箱确认一下，就能拿到锦囊。',
+      success: '订阅成功！锦囊就在下面，直接下载。',
+      downloadEn: '下载英文版 PDF',
+      downloadZh: '下载中文版 PDF',
       error: '提交失败了，请重试。',
       privacyBefore: '我们尊重你的隐私，随时可退订。详见',
       privacyAfter: '。',
@@ -342,7 +348,9 @@ export const ui: Record<Lang, UIStrings> = {
       namePlaceholder: 'お名前（任意）',
       langLabel: '希望言語',
       submit: '受け取る',
-      success: '送信しました！受信箱で確認するとキットをゲットできます。',
+      success: '登録完了！キットは下のリンクから今すぐダウンロードできます。',
+      downloadEn: '英語版 PDF をダウンロード',
+      downloadZh: '中国語版 PDF をダウンロード',
       error: '送信に失敗しました。もう一度お試しください。',
       privacyBefore: 'プライバシーを尊重し、いつでも配信停止できます。',
       privacyAfter: 'をご覧ください。',
@@ -436,7 +444,9 @@ export const ui: Record<Lang, UIStrings> = {
       namePlaceholder: '성함 (선택)',
       langLabel: '선호 언어',
       submit: '받기',
-      success: '전송 완료! 받은편지함에서 확인하시면 키트를 받으실 수 있어요.',
+      success: '구독 완료! 아래 링크에서 키트를 바로 다운로드하세요.',
+      downloadEn: '영문 PDF 다운로드',
+      downloadZh: '중문 PDF 다운로드',
       error: '전송에 실패했어요. 다시 시도해 주세요.',
       privacyBefore: '개인정보를 존중하며 언제든 구독을 취소할 수 있습니다. ',
       privacyAfter: '를 확인하세요.',

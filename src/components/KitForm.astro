@@ -38,7 +38,14 @@ const langOptions: Lang[] = ['en', 'ja', 'ko', 'zh'];
       </ul>
     )}
 
-    <form class="kit-form" data-form="kit" data-ok={k.success} data-err={k.error}>
+    <form
+      class="kit-form"
+      data-form="kit"
+      data-ok={k.success}
+      data-err={k.error}
+      data-dl-en={k.downloadEn}
+      data-dl-zh={k.downloadZh}
+    >
       <div class="kit-row">
         <input
           type="email"
@@ -69,6 +76,16 @@ const langOptions: Lang[] = ['en', 'ja', 'ko', 'zh'];
       </div>
       <p class="form-status" data-status hidden></p>
     </form>
+
+    <!-- 订阅成功后立即显示：无论欢迎邮件是否发出，访客当场就能拿到锦囊 -->
+    <div class="kit-downloads" data-downloads hidden>
+      <a href="/kit/china-travel-kit.pdf" target="_blank" rel="noopener">
+        {k.downloadEn}
+      </a>
+      <a href="/kit/china-travel-kit-zh.pdf" target="_blank" rel="noopener">
+        {k.downloadZh}
+      </a>
+    </div>
 
     <p class="kit-privacy">
       {k.privacyBefore}<a href={privacyLink}>{nav.privacy}</a>{k.privacyAfter}
@@ -166,6 +183,24 @@ const langOptions: Lang[] = ['en', 'ja', 'ko', 'zh'];
   .kit-submit:hover {
     filter: brightness(0.95);
   }
+  .kit-downloads {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .kit-downloads a {
+    flex: 1 1 190px;
+    text-align: center;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background: var(--brand, #d2492a);
+  }
+  .kit-downloads a:hover { filter: brightness(0.95); }
   .kit-privacy {
     margin: 6px 0 0;
     font-size: 12px;
