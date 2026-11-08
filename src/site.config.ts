@@ -17,8 +17,7 @@ export const SITE = {
   // 需到 Cloudflare Pages 项目 Settings → Variables and Secrets 配置：
   //   BREVO_API_KEY        API Key；权限需 Contacts = All 且 Transactional email = All
   //   BREVO_LIST_ID        接收订阅者的列表 ID（纯数字）
-  //   BREVO_SENDER_EMAIL   已在 Brevo Senders 里 Verified 的发件邮箱（必填，缺了就不发信）
-  //   BREVO_SENDER_NAME    可选，默认 'Lao Ai · China Living'
-  //   BREVO_REPLY_TO       可选，默认 56861701@qq.com
   //   BREVO_LANG_ATTR      可选，Brevo 自定义属性名，用于写入语言偏好；不配则忽略
+  // 发件人三项（BREVO_SENDER_EMAIL / NAME / REPLY_TO）已有内置默认值，无需配置变量；
+  // 但 56861701@qq.com 必须先在 Brevo Senders 里验证通过，否则 Brevo 会拒绝发信。
 };
