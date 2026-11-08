@@ -18,6 +18,8 @@ export const SITE = {
   //   BREVO_API_KEY        API Key；权限需 Contacts = All 且 Transactional email = All
   //   BREVO_LIST_ID        接收订阅者的列表 ID（纯数字）
   //   BREVO_LANG_ATTR      可选，Brevo 自定义属性名，用于写入语言偏好；不配则忽略
-  // 发件人三项（BREVO_SENDER_EMAIL / NAME / REPLY_TO）已有内置默认值，无需配置变量；
-  // 但 56861701@qq.com 必须先在 Brevo Senders 里验证通过，否则 Brevo 会拒绝发信。
+  // 发件人三项（BREVO_SENDER_EMAIL / NAME / REPLY_TO）已有内置默认值，无需配置变量。
+  // 默认发件人 hello@askoldai.com：QQ/Gmail 等免费邮箱因 DMARC 策略不能作为 Brevo 发件人，
+  // 需先在 Brevo「Domains」认证 askoldai.com（Cloudflare DNS 加 Brevo code / DKIM / DMARC），
+  // 再到 Brevo「Senders」添加该地址。回信仍走 56861701@qq.com。
 };

@@ -13,12 +13,16 @@
 //                        ⚠ 权限要求：Contacts = All，Transactional email = All
 //                          （Transactional email 只有 None/Read/All 三档，Read 不能发信）
 //   BREVO_LIST_ID        接收订阅者的列表 ID（Contacts → Lists，纯数字）
-//   BREVO_SENDER_EMAIL   （可选，默认 56861701@qq.com）发件邮箱，需先在 Brevo「Senders」验证
+//   BREVO_SENDER_EMAIL   （可选，默认 hello@askoldai.com）发件邮箱
 //   BREVO_SENDER_NAME    （可选，默认 'Lao Ai · China Living'）发件人显示名
 //   BREVO_REPLY_TO       （可选，默认 56861701@qq.com）回信地址，锦囊「回信四行」钩子
 //   BREVO_LANG_ATTR      （可选）Brevo 自定义属性名，用于写入语言偏好；不配则忽略
-// 注：发件人三项都有内置默认值，Cloudflare 里不需要额外添加变量；
-//     但发件邮箱本身必须先在 Brevo 后台验证通过，否则 Brevo 会拒绝发信。
+// 注 1：发件人三项都有内置默认值，Cloudflare 里不需要额外添加变量。
+// 注 2：发件邮箱不能用 QQ / Gmail / Outlook 等免费公共邮箱——这些域名的 DMARC 策略
+//       不允许第三方代发，Brevo 会报「Your domain is not authenticated」并拒绝添加该发件人。
+//       必须先在 Brevo「Senders, Domains, IPs → Domains」认证自有域名 askoldai.com
+//       （在 Cloudflare DNS 加 Brevo code / DKIM / DMARC 记录），再到 Senders 添加
+//       hello@askoldai.com。回信仍走 replyTo 的 QQ 邮箱，读者回复照常收得到。
 //
 // 合规说明：前端表单已含「同意 + 隐私链接」，此处为 single opt-in，符合 GDPR 对「可证明同意」的要求。
 //
@@ -121,8 +125,9 @@ export async function onRequestPost(context) {
 // 欢迎信：事务邮件（免费档含 300 封/天，不依赖营销自动化档位）。
 // 内部吞掉所有异常，保证永远不会 reject（waitUntil 里抛错会污染 Worker 日志）。
 async function sendWelcomeEmail({ apiKey, email, name, lang, env }) {
-  // 三项均有内置默认值，Cloudflare 无需额外配变量；只需该邮箱在 Brevo 已 Verified
-  const senderEmail = (env.BREVO_SENDER_EMAIL || '56861701@qq.com').trim();
+  // 三项均有内置默认值，Cloudflare 无需额外配变量。
+  // 发件人必须用已认证的自有域名；QQ/Gmail 等免费邮箱因 DMARC 策略会被 Brevo 拒绝。
+  const senderEmail = (env.BREVO_SENDER_EMAIL || 'hello@askoldai.com').trim();
   const senderName = (env.BREVO_SENDER_NAME || 'Lao Ai · China Living').trim();
   const replyTo = (env.BREVO_REPLY_TO || '56861701@qq.com').trim();
   const subject = SUBJECTS[lang] || SUBJECTS.en;
