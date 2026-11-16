@@ -1,22 +1,18 @@
 ---
-title: "在中国保持联网：eSIM、本地卡与那些用不了的应用"
-summary: "落地就能上网的办法、为什么 Google/WhatsApp/Instagram 没有工具就用不了，以及一份保持联络的现实方案。"
-lang: "zh"
-category: "travel"
-tags: ["上网", "eSIM", "漫游", "VPN"]
-pubDate: 2026-10-10
-faq:
-  - q: "我平时的手机卡在中国能用吗？"
-    a: "漫游通常可以打电话和上网，但可能又慢又贵。多数旅客会在出发前或落地后买国际 eSIM 或本地流量卡，更便宜也更快。"
-  - q: "为什么打不开 Google、Gmail、WhatsApp、Instagram？"
-    a: "这些服务在中国大陆没有相应工具时无法访问。建议改用本地同类应用（微信聊天、高德地图导航），如需使用请提前安排。"
-  - q: "落地后最省事的上网方式是什么？"
-    a: "在家买好并装好的 eSIM，落地瞬间就能联网——不用找柜台、不用复印护照。机场柜台和便利店也卖本地卡。"
-  - q: "我需要 VPN 吗？"
-    a: "如果你用的是把流量路由到中国境外的国际 eSIM，就不需要 VPN——Google、WhatsApp、Gmail 等直接能用。本地 SIM 拿到的是中国 IP，要用法务外的应用才需要 VPN。"
-  - q: "怎么和国外的家人保持联系？"
-    a: "微信在中国大陆可用，也能国际收发消息。若要用被限制的应用，最好在出发前而不是落地后再解决——那时你可能已经断网了。"
 draft: false
+title: 在中国保持联网：eSIM、本地卡与那些用不了的应用
+lang: zh
+category: travel
+summary: 落地就能上网的办法、为什么 Google/WhatsApp/Instagram 没有工具就用不了，以及一份保持联络的现实方案。
+cover: /media/uploads/wifi01.jpg
+tags:
+  - 上网
+  - eSIM
+  - 漫游
+  - VPN
+faq: []
+pinned: false
+pubDate: 2026-10-10
 ---
 
 首次来华游客最容易出现的"我手机坏了吗"时刻，就是**防火长城**。在机场你会发现 5G 又快又便宜——但 Google、Gmail、WhatsApp、Instagram、Facebook、YouTube、X/Twitter 没有工具就打不开。解决办法很简单，前提是你**出发前就规划好**；没规划，落地就是头疼。
