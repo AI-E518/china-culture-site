@@ -1,28 +1,20 @@
 ---
-category: travel
-pubDate: 2026-10-10
-tags:
-- 支付
-- 支付宝
-- 微信支付
-- 外卡
-faq:
-- q: 我可以用 Visa 或 Mastercard 在中国付款吗？
-  a: 很多地方可以。支付宝和微信支付都支持绑定国际卡（Visa、Mastercard、美国运通、JCB、Discover、大来卡），所以商店、餐厅、地铁、滴滴打车都能扫码。少数小摊仍收现金。
-- q: 用移动支付需要中国手机号或银行卡吗？
-  a: 不需要。用你本国的手机号注册，再用护照照片完成实名验证即可。基础的外卡绑定不需要中国手机号或银行卡。
-- q: 外卡的手续费和限额是多少？
-  a: 单笔 200 元及以下免手续费；超过 200 元的部分按整笔金额的 3% 收取。外卡消费上限约为单笔 5000 美元、每年 5 万美元。
-- q: 哪里用不了移动支付？
-  a: 个人之间的转账、红包，以及大多数金融服务，外卡都用不了。部分政务缴费和少数只走银行通道的服务也可能拒外卡。备一点现金更稳妥。
-- q: 绑定主信用卡安全吗？
-  a: 每年有上千万游客这样用。若想更谨慎，可用银行的旅行卡或设了限额的虚拟卡，并在银行 App 里留意交易。
-title: 'Paying in China Without a Chinese Bank Account: Alipay & WeChat Pay for Foreigners'
-summary: How to bind an international card to Alipay and WeChat Pay, where QR payment
-  works, what the limits and fees are, and the fallback options when a foreign card
-  won't bind.
+title: "Paying in China Without a Chinese Bank Account: Alipay & WeChat Pay for
+  Foreigners"
 lang: en
 draft: false
+category: travel
+summary: How to bind an international card to Alipay and WeChat Pay, where QR
+  payment works, what the limits and fees are, and the fallback options when a
+  foreign card won't bind.
+cover: /media/uploads/How to Pay in China.jpg
+tags:
+  - 支付
+  - 支付宝
+  - 微信支付
+  - 外卡
+faq: []
+pubDate: 2026-10-10
 ---
 
 China is one of the most cashless societies on earth. Walk into a downtown restaurant, scan a code, and you're done — no wallet, no card swipe. For visitors, the good news is that **since 2023 you no longer need a Chinese bank account**: both Alipay and WeChat Pay now bind international cards directly.
