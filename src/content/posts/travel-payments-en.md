@@ -9,7 +9,6 @@ summary: How to bind an international card to Alipay and WeChat Pay, where QR
   foreign card won't bind.
 cover: /media/uploads/How to Pay in China.jpg
 tags:
-  - 支付
   - 支付宝
   - 微信支付
   - 外卡
