@@ -8,7 +8,7 @@ summary: A Chinese traveler who has explored the entire country personally
   China exhibition on B1, highlights of must-see national treasures, how to plan
   your visit chronologically, how to book tickets and avoid crowds, and how to
   minimize detours.
-cover: ""
+cover: /media/uploads/guobo01.jpg
 location: 北京
 pubDate: 2026-10-16T13:29:00.000+08:00
 ---
@@ -25,7 +25,7 @@ pubDate: 2026-10-16T13:29:00.000+08:00
 * **Must-see artifacts**: Houmuwu Ding (the largest ancient bronze vessel), Four-Goat Square Zun, Jade Burial Suit with Gold Threads, Tang Sancai (Tang tri-color glazed pottery), and the Nine-Dragon Nine-Phoenix Crown  
 * **One crucial tip**: Wear comfortable shoes—this is *not* a joke  
 
-![](/media/uploads/guobo01.jpg)
+![]()
 
 ## First things first: The NMC isn’t just *any* museum
 
