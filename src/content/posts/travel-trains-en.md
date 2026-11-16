@@ -1,28 +1,19 @@
 ---
-category: travel
-pubDate: 2026-10-10
-tags:
-- 高铁
-- '12306'
-- 火车
-- 交通
-faq:
-- q: 外国人能在中国买火车票吗？
-  a: 可以。可用官方 12306 App/网站（需护照验证），也可通过 Trip.com 预订——它支持外卡和英文界面，对游客通常更简单。
-- q: 上车要带护照吗？
-  a: 一定要。车票与护照号绑定，进站和车上都可能查。请携带购票时使用的同一本护照。
-- q: 为什么 12306 总说我的名字不对？
-  a: 姓名必须与护照完全一致，有时对姓/名的顺序有要求。若反复失败，Trip.com 或车站窗口是最稳的备选。
-- q: 需要提前买吗？
-  a: 节假日和热门线路要提前买，票很快售罄；平峰期通常当天也能买到。
-- q: 车票提前多久开售？
-  a: 通常为开车前 15 天。热门线路（如北京—上海）要尽早规划，尤其中国法定假期前后。
-title: 'Booking China''s High-Speed Trains: 12306, Trip.com & Foreign Passport Tips'
-summary: How to buy bullet-train tickets as a foreigner — the official 12306 app,
-  the easier Trip.com route, passport verification, and what to do when a name won't
-  match.
+title: "Booking China's High-Speed Trains: 12306, Trip.com & Foreign Passport Tips"
 lang: en
 draft: false
+category: travel
+summary: How to buy bullet-train tickets as a foreigner — the official 12306
+  app, the easier Trip.com route, passport verification, and what to do when a
+  name won't match.
+cover: /media/uploads/gaotie.jpg
+tags:
+  - 高铁
+  - "12306"
+  - 火车
+  - 交通
+faq: []
+pubDate: 2026-10-10
 ---
 
 China's high-speed rail is the best way to travel between cities — clean, punctual, and faster than flying once you count airport time. The network spans the country, and **foreign passport holders can book it entirely online**. The only wrinkle is the real-name system, which is easier than it sounds if you set it up right.
