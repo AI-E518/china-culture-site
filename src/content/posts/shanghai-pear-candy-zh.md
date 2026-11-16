@@ -1,12 +1,18 @@
 ---
-title: "梨膏糖：上海人从小含到大的润喉甜，出了城就难找了"
-summary: "老城隍庙传了百年的梨膏糖，用梨汁和草本熬成，是上海人记忆里的润喉糖。海外几乎见不到正宗的。"
-lang: "zh"
-category: "food"
-tags: ["上海", "梨膏糖", "零食", "好物"]
-pubDate: 2026-09-10
-location: "上海"
 draft: false
+title: 梨膏糖：上海人从小含到大的润喉甜，出了城就难找了
+lang: zh
+category: food
+summary: 老城隍庙传了百年的梨膏糖，用梨汁和草本熬成，是上海人记忆里的润喉糖。海外几乎见不到正宗的。
+cover: /media/uploads/waitan01.jpg
+tags:
+  - 上海
+  - 梨膏糖
+  - 零食
+  - 好物
+location: 上海
+pinned: false
+pubDate: 2026-09-10
 ---
 
 很多外国人知道上海的小笼、生煎，但很少人知道：上海人小时候嗓子不舒服，含的不是西药，是一颗甜甜的梨膏糖。
