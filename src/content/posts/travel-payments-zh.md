@@ -9,7 +9,6 @@ tags:
   - 支付
   - 支付宝
   - 微信支付
-  - 外卡
 faq: []
 pinned: false
 pubDate: 2026-10-10
