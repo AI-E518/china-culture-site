@@ -1,14 +1,14 @@
 ---
 title: "Shanghainese Breakfast: 6 AM and 9 AM Are Two Different Cities"
 lang: en
+draft: false
 category: food
 summary: Shanghai Itinerary, Things to Do in Shanghai, Shanghai Local Guide
 cover: /media/uploads/waitan01.jpg
 tags: []
 location: 上海
-pinned: false
 pubDate: 2026-11-18T13:01:00.000+08:00
-draft: true
+pinned: false
 ---
 Taking foreign friends around Shanghai, I have a slightly unscrupulous habit: dragging them out the door at 6 a.m. on Day One.
 
