@@ -2,13 +2,13 @@
 title: "Shanghai Cuisine Is Not Sweet: Order the Wrong Dish, and You’ll Blame
   Benbang Cuisine"
 lang: en
+draft: false
 category: food
 summary: “Shanghai cuisine is like dessert.”
 cover: /media/uploads/上海老爸冬日家常菜～罗宋汤绝啦_1_echo_来自小红书网页版.jpg
 location: 上海
-pinned: false
 pubDate: 2026-11-18T13:21:00.000+08:00
-draft: true
+pinned: false
 ---
 A German friend finished an entire table of dishes and politely remarked: “Shanghai cuisine is sweet!” I glanced at the menu and laughed—Sweet-and-Sour Spare Ribs, Eight-Treasure Duck, and Osmanthus-Scented Lotus Root. He’d ordered the three *sweetest*-named dishes on the menu.
 
