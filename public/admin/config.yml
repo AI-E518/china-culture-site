@@ -49,12 +49,9 @@ collections:
         label: "常见问题 FAQ（可选，用于 AI 搜索引用）"
         widget: list
         required: false
-        field:
-          name: item
-          widget: object
-          fields:
-            - { name: q, label: "问题", widget: string }
-            - { name: a, label: "答案", widget: text }
+        fields:
+          - { name: q, label: "问题", widget: string }
+          - { name: a, label: "答案", widget: text }
       - { name: pinned, label: "置顶（勾选=始终排在最前）", widget: boolean, default: false }
       - { name: order, label: "排序序号（数字越小越靠前，同序号按发布日期）", widget: number, required: false }
       - { name: pubDate, label: "发布日期", widget: datetime }
@@ -89,12 +86,9 @@ collections:
         label: "FAQ (optional, for AI search)"
         widget: list
         required: false
-        field:
-          name: item
-          widget: object
-          fields:
-            - { name: q, label: "Question", widget: string }
-            - { name: a, label: "Answer", widget: text }
+        fields:
+          - { name: q, label: "Question", widget: string }
+          - { name: a, label: "Answer", widget: text }
       - { name: pubDate, label: "Publish date", widget: datetime }
       - { name: body, label: "Body", widget: markdown }
 
@@ -127,12 +121,9 @@ collections:
         label: "FAQ（任意、AI検索用）"
         widget: list
         required: false
-        field:
-          name: item
-          widget: object
-          fields:
-            - { name: q, label: "質問", widget: string }
-            - { name: a, label: "回答", widget: text }
+        fields:
+          - { name: q, label: "質問", widget: string }
+          - { name: a, label: "回答", widget: text }
       - { name: pubDate, label: "公開日", widget: datetime }
       - { name: body, label: "本文", widget: markdown }
 
@@ -165,11 +156,8 @@ collections:
         label: "FAQ (선택, AI 검색용)"
         widget: list
         required: false
-        field:
-          name: item
-          widget: object
-          fields:
-            - { name: q, label: "질문", widget: string }
-            - { name: a, label: "답변", widget: text }
+        fields:
+          - { name: q, label: "질문", widget: string }
+          - { name: a, label: "답변", widget: text }
       - { name: pubDate, label: "공개일", widget: datetime }
       - { name: body, label: "본문", widget: markdown }
