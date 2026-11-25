@@ -2,6 +2,7 @@
 title: Taking a piece of fabric home is not as good as taking home a garment
   tailored to your measurements.
 lang: en
+draft: false
 category: shopping
 summary: How many days will you stay? Do you want to get a Western-style suit, a
   cheongsam (qipao), or prescription eyeglasses? Do you have any particular
@@ -12,9 +13,8 @@ cover: /media/uploads/caifengjie-2.jpg
 tags:
   - 定制
 location: 上海
-pinned: false
 pubDate: 2026-11-25T14:07:00.000+08:00
-draft: true
+pinned: false
 ---
 An Italian friend spent four days in Shanghai. On the morning of Day Three, he suddenly asked me: “Can I get a suit made here?”
 
