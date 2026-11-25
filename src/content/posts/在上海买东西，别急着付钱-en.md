@@ -1,68 +1,55 @@
 ---
 title: Don’t Rush to Pay When Shopping in Shanghai
 lang: en
+draft: false
 category: travel
 summary: >-
   How Does “Immediate Purchase & Refund” Actually Work?  
 
 
-  First, check whether you’re eligible. According to the Shanghai Municipal Tax
-  Bureau’s official Q&A (August 2026), the following conditions must *all* be
-  met:  
+  First, check whether you’re eligible. According to the Shanghai Municipal Tax Bureau’s official Q&A (August 2026), the following conditions must *all* be met:  
 
 
-  - The same foreign traveler makes purchases on the same day, at the same
-  tax-free shop, totaling between ¥200 and ¥222,200 (yes—that upper limit looks
-  odd at first glance; it’s quoted verbatim from the official document).  
+  - The same foreign traveler makes purchases on the same day, at the same tax-free shop, totaling between ¥200 and ¥222,200 (yes—that upper limit looks odd at first glance; it’s quoted verbatim from the official document).  
 
   - The purchased goods remain unopened and unused.  
 
-  - You commit to carrying the goods *personally* or checking them as
-  accompanied baggage when departing from a Shanghai port within **28 days** of
-  the invoice date—and your departure date must fall within **183 days** of your
-  entry into China.  
+  - You commit to carrying the goods *personally* or checking them as accompanied baggage when departing from a Shanghai port within **28 days** of the invoice date—and your departure date must fall within **183 days** of your entry into China.  
 
-  - You have already obtained both the official invoice and the *Application
-  Form for Departure Tax Refund*.  
+  - You have already obtained both the official invoice and the *Application Form for Departure Tax Refund*.  
 
-  - You hold a credit card capable of processing a pre-authorization
-  guarantee.  
+  - You hold a credit card capable of processing a pre-authorization guarantee.  
 
 
   Here’s how the process works in plain terms:  
 
-  At the store, you sign an agreement and complete a credit card
-  pre-authorization; the shop then immediately pays you the equivalent amount in
-  RMB as an advance refund. Upon departure, bring your goods, all documents
-  (including passport), and proceed to Customs for verification—then head to the
-  tax-refund agent located inside the airport’s secured departure area for final
-  review. If you depart as committed, the pre-authorization is released and the
-  advance payment becomes your official tax refund. If you fail to depart as
-  promised, the amount will be automatically deducted from your pre-authorized
-  credit card balance.  
+  At the store, you sign an agreement and complete a credit card pre-authorization; the shop then immediately pays you the equivalent amount in RMB as an advance refund. Upon departure, bring your goods, all documents (including passport), and proceed to Customs for verification—then head to the tax-refund agent located inside the airport’s secured departure area for final review. If you depart as committed, the pre-authorization is released and the advance payment becomes your official tax refund. If you fail to depart as promised, the amount will be automatically deducted from your pre-authorized credit card balance.  
 
 
-  So—don’t max out that card; ensure sufficient available credit. And don’t open
-  the goods: once opened, they can no longer pass Customs verification.
+  So—don’t max out that card; ensure sufficient available credit. And don’t open the goods: once opened, they can no longer pass Customs verification.
 cover: /media/uploads/song-02.jpg
 tags:
   - 山下有松 Songmont
 location: 上海
 faq:
   - q: 山下有松Songmont在哪里买
-    a: |-
-      ① 淮海中路「山间有邻」——就是上面那家旗舰店 扩完之后，包袋、成衣、香氛分成三个区，还专门腾出一块室内等候区——因为门口老在排队。货最全、空间最值得看，人也最多。第一次来、只想逛一家，就这家。
+    a: >-
+      ① 淮海中路「山间有邻」——就是上面那家旗舰店
+      扩完之后，包袋、成衣、香氛分成三个区，还专门腾出一块室内等候区——因为门口老在排队。货最全、空间最值得看，人也最多。第一次来、只想逛一家，就这家。
+
 
       ② 外滩源「听松阁」（黄浦区圆明园路 149 号哈密大楼 101 室） 在外滩背后那片老建筑里，逛完外滩往回走两步就到。比旗舰店安静得多，我私心最推荐给不爱挤的人——名字叫「听松阁」，进去确实能慢下来。顺路，不占半天。
 
+
       ③ 上海国金中心 IFC（浦东新区世纪大道 8 号，商场 LG1） 陆家嘴那家商场店，逛浦东、或者去机场前顺手试背最方便。多说一句：国金中心这个商场本身，就在上海税务部门公布过的「即买即退」集中退付点名单上。但退付点管的是退钱，开单还得看店里有没有备案——所以还是那句话，进门先问，别默认在这儿买就一定能退。名单会增会减，出发前再核一次。
+
 
       ④ 前滩太古里「四水归堂」（浦东新区东育路 500 弄 1–9 号，石区 L3 层 S-L3-34） 空间取的是江南天井的意象，围合柜体当墙，顶上挂一片天光。在浦东住、或者带孩子在太古里泡一天的，这家最不折腾，人也比淮海路少。
 
+
       ⑤ 西岸中环（徐汇区西岸中环二期 1 层 B 区-01，靠小木桥路） 五家里最晚开的一家，挨着徐汇滨江那一串美术馆。看展那半天顺路拐进去，比专门跑一趟划算。
-pinned: true
 pubDate: 2026-11-25T11:48:00.000+08:00
-draft: true
+pinned: true
 ---
 A while ago, I accompanied a French friend shopping for silk scarves along Nanjing West Road in Shanghai. After he paid, he neatly folded his tax-free refund form and tucked it into his bag, saying, “I’ll queue up for that at the airport.”
 
