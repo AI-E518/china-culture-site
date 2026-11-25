@@ -1,6 +1,7 @@
 ---
 title: The Bund is not a shoreline—it’s two rivers.
 lang: en
+draft: false
 category: travel
 summary: "First-time visitors all stand on this side of the Huangpu River,
   facing Lujiazui to take a photo—then assume they’ve “seen” Shanghai. In
@@ -9,9 +10,8 @@ summary: "First-time visitors all stand on this side of the Huangpu River,
   life."
 cover: /media/uploads/hangpujiang01.jpg
 location: 上海
-pinned: false
 pubDate: 2026-11-25T14:11:00.000+08:00
-draft: true
+pinned: false
 ---
 When writing about Beijing, I organized the itinerary by day—six days, one continuous route. For Shanghai, I don’t organize by day—I organize by *river*.
 
