@@ -39,7 +39,7 @@ collections:
     fields:
       - { name: title, label: "标题", widget: string }
       - { name: lang, label: "语言", widget: hidden, default: "zh" }
-      - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
+      - { name: category, label: "分类", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }, { label: "购物 Shopping", value: "shopping" }], default: "heritage" }
       - { name: summary, label: "摘要", widget: text }
       - { name: cover, label: "封面图", widget: image, required: false }
       - { name: tags, label: "标签", widget: list, field: { name: tag, widget: string } }
@@ -77,7 +77,7 @@ collections:
       - { name: title, label: "Title", widget: string }
       - { name: lang, label: "Language", widget: hidden, default: "en" }
       - { name: draft, label: "Draft (check=hide from site; uncheck=publish)", widget: boolean, default: true }
-      - { name: category, label: "Category", widget: select, options: [{ label: "Heritage", value: "heritage" }, { label: "Food", value: "food" }, { label: "Travel", value: "travel" }], default: "heritage" }
+      - { name: category, label: "Category", widget: select, options: [{ label: "Heritage", value: "heritage" }, { label: "Food", value: "food" }, { label: "Travel", value: "travel" }, { label: "Shopping", value: "shopping" }], default: "heritage" }
       - { name: summary, label: "Summary", widget: text }
       - { name: cover, label: "Cover image", widget: image, required: false }
       - { name: tags, label: "Tags", widget: list, field: { name: tag, widget: string } }
@@ -112,7 +112,7 @@ collections:
       - { name: title, label: "タイトル", widget: string }
       - { name: lang, label: "言語", widget: hidden, default: "ja" }
       - { name: draft, label: "草稿（チェック=公開しない; 外す=公開）", widget: boolean, default: true }
-      - { name: category, label: "分類", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
+      - { name: category, label: "分類", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }, { label: "购物 Shopping", value: "shopping" }], default: "heritage" }
       - { name: summary, label: "概要", widget: text }
       - { name: cover, label: "カバー画像", widget: image, required: false }
       - { name: tags, label: "タグ", widget: list, field: { name: tag, widget: string } }
@@ -147,7 +147,7 @@ collections:
       - { name: title, label: "제목", widget: string }
       - { name: lang, label: "언어", widget: hidden, default: "ko" }
       - { name: draft, label: "초안(체크=공개되지 않음; 해제=공개)", widget: boolean, default: true }
-      - { name: category, label: "분류", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }], default: "heritage" }
+      - { name: category, label: "분류", widget: select, options: [{ label: "非遗 Heritage", value: "heritage" }, { label: "美食 Food", value: "food" }, { label: "旅游 Travel", value: "travel" }, { label: "购物 Shopping", value: "shopping" }], default: "heritage" }
       - { name: summary, label: "요약", widget: text }
       - { name: cover, label: "표지 이미지", widget: image, required: false }
       - { name: tags, label: "태그", widget: list, field: { name: tag, widget: string } }

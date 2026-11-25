@@ -1,18 +1,12 @@
 ---
-import { t } from '../i18n';
+import { categoryLabel } from '../i18n';
 interface Props {
   post: any;
 }
 const { post } = Astro.props;
 const { data, slug } = post;
 const href = `/${data.lang}/posts/${slug}`;
-const ui = t(data.lang);
-const catLabel =
-  data.category === 'heritage'
-    ? ui.post.catHeritage
-    : data.category === 'food'
-    ? ui.post.catFood
-    : ui.post.catTravel;
+const catLabel = categoryLabel(data.lang, data.category);
 ---
 <article class="card">
   <a class="card-link" href={href}>

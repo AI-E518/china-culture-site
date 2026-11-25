@@ -1,7 +1,7 @@
 ---
 title: Don’t Rush to Pay When Shopping in Shanghai
 lang: en
-category: travel
+category: shopping
 summary: >-
   How Does “Immediate Purchase & Refund” Actually Work?  
 

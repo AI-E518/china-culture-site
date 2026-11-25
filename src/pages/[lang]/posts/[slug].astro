@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { t } from '../../../i18n';
+import { t, categoryLabel } from '../../../i18n';
 import { SITE } from '../../../site.config';
 import KitForm from '../../../components/KitForm.astro';
 
@@ -43,12 +43,8 @@ const faqJson =
     : null;
 const faqTitle = t(data.lang).post.faq;
 
-const catLabel =
-  data.category === 'heritage'
-    ? t(data.lang).post.catHeritage
-    : data.category === 'food'
-    ? t(data.lang).post.catFood
-    : t(data.lang).post.catTravel;
+// 分类标签与返回链接：分类值同时就是栏目路径（/zh/shopping），新增分类无需改这里
+const catLabel = categoryLabel(data.lang, data.category);
 ---
 <BaseLayout
   title={`${data.title} · China Living`}

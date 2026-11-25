@@ -1,7 +1,7 @@
 ---
 title: 上海で買い物をするときは、すぐに支払わないでください。
 lang: ja
-category: travel
+category: shopping
 summary: |-
   「即買即退」は実際にどのように還付されるのか？
 

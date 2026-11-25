@@ -14,16 +14,17 @@ export const LOCALE_LABELS: Record<Lang, string> = {
 
 interface UIStrings {
   brand: string;
-  nav: { home: string; heritage: string; food: string; travel: string; cities: string; about: string; contact: string; privacy: string };
+  nav: { home: string; heritage: string; food: string; travel: string; shopping: string; cities: string; about: string; contact: string; privacy: string };
   footer: string;
   home: { heroTitle: string; heroSub: string; latest: string; introTitle: string; intro: string[]; mapTitle: string; mapSub: string; mapLink: string };
   heritage: { title: string; sub: string };
   food: { title: string; sub: string };
   travel: { title: string; sub: string };
+  shopping: { title: string; sub: string };
   cities: { hero: string; sub: string; soon: string; stories: string };
   city: { crumb: string; sub: string };
   about: { title: string; heading: string; paragraphs: string[]; sign: string };
-  post: { faq: string; catHeritage: string; catFood: string; catTravel: string };
+  post: { faq: string; catHeritage: string; catFood: string; catTravel: string; catShopping: string };
   contact: {
     title: string;
     heading: string;
@@ -71,7 +72,7 @@ interface UIStrings {
 export const ui: Record<Lang, UIStrings> = {
   en: {
     brand: 'China Living · Food & Heritage',
-    nav: { home: 'Home', heritage: 'Heritage', food: 'Food', travel: 'Travel', cities: 'Cities', about: 'About', contact: 'Contact', privacy: 'Privacy' },
+    nav: { home: 'Home', heritage: 'Heritage', food: 'Food', travel: 'Travel', shopping: 'Shopping', cities: 'Cities', about: 'About', contact: 'Contact', privacy: 'Privacy' },
     footer: '© 2026 China Living · Sharing real China through food and craft.',
     home: {
       heroTitle: 'Real China, one dish and one craft at a time',
@@ -90,6 +91,7 @@ export const ui: Record<Lang, UIStrings> = {
     heritage: { title: 'Intangible Cultural Heritage', sub: 'Centuries-old crafts, alive in Chinese hands today.' },
     food: { title: 'Chinese Food', sub: 'From street snacks to banquet craft, every bowl tells a story.' },
     travel: { title: 'Travel Essentials', sub: 'Visa, payments, connectivity, transit — read these before you fly.' },
+    shopping: { title: 'Shopping in China', sub: 'From wet markets to time-honoured brands — what to buy, how to haggle, and what is actually worth taking home.' },
     cities: { hero: 'China, city by city — one understanding at a time', sub: 'Lit cities have my real recommendations. Tap one to step inside.', soon: 'Soon', stories: 'stories' },
     city: { crumb: 'Cities', sub: 'I’ve walked {name}. Here’s what I most want you to know.' },
     about: {
@@ -104,7 +106,7 @@ export const ui: Record<Lang, UIStrings> = {
       ],
       sign: '— Lao Ai',
     },
-    post: { faq: 'FAQ', catHeritage: 'Heritage', catFood: 'Food', catTravel: 'Travel' },
+    post: { faq: 'FAQ', catHeritage: 'Heritage', catFood: 'Food', catTravel: 'Travel', catShopping: 'Shopping' },
     contact: {
       title: 'Contact',
       heading: 'Plan your China trip with me',
@@ -167,7 +169,7 @@ export const ui: Record<Lang, UIStrings> = {
 
   zh: {
     brand: '中国生活 · 美食与非遗',
-    nav: { home: '首页', heritage: '非遗', food: '美食', travel: '旅游', cities: '城市', about: '关于', contact: '咨询', privacy: '隐私' },
+    nav: { home: '首页', heritage: '非遗', food: '美食', travel: '旅游', shopping: '购物', cities: '城市', about: '关于', contact: '咨询', privacy: '隐私' },
     footer: '© 2026 中国生活 · 用美食与手作，让世界看见真实的中国。',
     home: {
       heroTitle: '真实的中国，从一碗饭、一门手艺开始',
@@ -186,6 +188,7 @@ export const ui: Record<Lang, UIStrings> = {
     heritage: { title: '非物质文化遗产', sub: '千年手艺，活在当下的中国人手里。' },
     food: { title: '地道美食', sub: '从街边小吃到宴席功夫，一碗一筷都是中国。' },
     travel: { title: '实用旅游信息', sub: '签证、支付、上网、交通——来中国之前，先把这几篇读一遍。' },
+    shopping: { title: '在中国购物', sub: '从菜市场到老字号，买什么、怎么砍价、怎么退税——把真正值得带回家的挑出来。' },
     cities: { hero: '我走过的中国，一座城一个理解', sub: '点亮的城市都有我的真实推荐。点一下，跟我走进那座城。', soon: '筹备中', stories: '篇' },
     city: { crumb: '城市', sub: '我走过{name}，这是我最想让你知道的几样。' },
     about: {
@@ -200,7 +203,7 @@ export const ui: Record<Lang, UIStrings> = {
       ],
       sign: '—— 老艾',
     },
-    post: { faq: '常见问题', catHeritage: '非遗', catFood: '美食', catTravel: '旅游' },
+    post: { faq: '常见问题', catHeritage: '非遗', catFood: '美食', catTravel: '旅游', catShopping: '购物' },
     contact: {
       title: '咨询',
       heading: '让我帮你规划中国之行',
@@ -263,7 +266,7 @@ export const ui: Record<Lang, UIStrings> = {
 
   ja: {
     brand: 'チャイナ・リビング｜食と無形文化遺産',
-    nav: { home: 'ホーム', heritage: '無形文化遺産', food: '食', travel: '旅の準備', cities: '都市', about: '紹介', contact: 'お問い合わせ', privacy: 'プライバシー' },
+    nav: { home: 'ホーム', heritage: '無形文化遺産', food: '食', travel: '旅の準備', shopping: '買い物', cities: '都市', about: '紹介', contact: 'お問い合わせ', privacy: 'プライバシー' },
     footer: '© 2026 China Living｜食と工芸を通じて、真の中国を世界へ。',
     home: {
       heroTitle: '本当の中国を、一皿の料理と一つの技から',
@@ -282,6 +285,7 @@ export const ui: Record<Lang, UIStrings> = {
     heritage: { title: '無形文化遺産', sub: '数百年の技が、今も中国人の手の中で生きている。' },
     food: { title: '中国料理', sub: '屋台の軽食から宴会の技まで、一碗一箸に中国が宿る。' },
     travel: { title: '旅の準備', sub: 'ビザ・決済・通信・移動——渡航前にまず読んでおいて。' },
+    shopping: { title: '中国で買い物', sub: '市場から老舗まで——何を買うか、どう値切るか、何を本当に持ち帰るべきか。' },
     cities: { hero: '中国を都市ごとに——ひとつずつ理解していく', sub: '点灯した都市には私の本当のおすすめがあります。タップして中へ。', soon: '準備中', stories: '記事' },
     city: { crumb: '都市', sub: '{name}を歩き尽くしました。一番伝えたいことを紹介します。' },
     about: {
@@ -296,7 +300,7 @@ export const ui: Record<Lang, UIStrings> = {
       ],
       sign: '——ラオ・アイ',
     },
-    post: { faq: 'よくある質問', catHeritage: '無形文化遺産', catFood: '食', catTravel: '旅の準備' },
+    post: { faq: 'よくある質問', catHeritage: '無形文化遺産', catFood: '食', catTravel: '旅の準備', catShopping: '買い物' },
     contact: {
       title: 'お問い合わせ',
       heading: '中国旅行を一緒に計画しましょう',
@@ -359,7 +363,7 @@ export const ui: Record<Lang, UIStrings> = {
 
   ko: {
     brand: '차이나 리빙｜음식과 무형문화유산',
-    nav: { home: '홈', heritage: '무형문화유산', food: '음식', travel: '여행 준비', cities: '도시', about: '소개', contact: '문의', privacy: '개인정보' },
+    nav: { home: '홈', heritage: '무형문화유산', food: '음식', travel: '여행 준비', shopping: '쇼핑', cities: '도시', about: '소개', contact: '문의', privacy: '개인정보' },
     footer: '© 2026 차이나 리빙｜음식과 공예로 진짜 중국을 세상에.',
     home: {
       heroTitle: '진짜 중국을, 한 그릇의 요리와 하나의 기술로',
@@ -378,6 +382,7 @@ export const ui: Record<Lang, UIStrings> = {
     heritage: { title: '무형문화유산', sub: '수백 년 된 기술이 지금도 중국인의 손끝에서 살아있습니다.' },
     food: { title: '중국 음식', sub: '길거리 간식부터 연회 요리까지, 한 그릇 한 젓가락에 중국이 담깁니다.' },
     travel: { title: '여행 준비', sub: '비자·결제·인터넷·교통——중국 오기 전에 먼저 읽어보세요.' },
+    shopping: { title: '중국에서 쇼핑하기', sub: '재래시장부터 오래된 가게까지——무엇을 살지, 어떻게 흥정할지, 무엇을 꼭 가져갈지.' },
     cities: { hero: '도시별로 보는 중국——하나씩 이해해 가기', sub: '불이 켜진 도시에는 제 진짜 추천이 있습니다. 눌러 안으로 들어가 보세요.', soon: '준비 중', stories: '편' },
     city: { crumb: '도시', sub: '{name}를 다 걸어봤습니다. 가장 알려주고 싶은 것들을 소개할게요.' },
     about: {
@@ -392,7 +397,7 @@ export const ui: Record<Lang, UIStrings> = {
       ],
       sign: '—— 라오아이',
     },
-    post: { faq: '자주 묻는 질문', catHeritage: '무형문화유산', catFood: '음식', catTravel: '여행 준비' },
+    post: { faq: '자주 묻는 질문', catHeritage: '무형문화유산', catFood: '음식', catTravel: '여행 준비', catShopping: '쇼핑' },
     contact: {
       title: '문의',
       heading: '중국 여행을 함께 계획해요',
@@ -457,4 +462,17 @@ export const ui: Record<Lang, UIStrings> = {
 // 取文案：找不到该语言时回退英文，避免页面崩
 export function t(lang: string): UIStrings {
   return ui[(lang as Lang)] ?? ui.en;
+}
+
+// 分类标签统一取用：文章页 / 文章卡片 / 任何需要显示分类名的地方都调这里。
+// 以后再新增分类，只需在 content.config.ts 的 enum、本文件各语言的 ui.post、以及这里各补一项。
+export function categoryLabel(lang: string, category: string): string {
+  const p = t(lang).post;
+  const labels: Record<string, string> = {
+    heritage: p.catHeritage,
+    food: p.catFood,
+    travel: p.catTravel,
+    shopping: p.catShopping,
+  };
+  return labels[category] ?? p.catTravel; // 未知分类兜底，避免页面报错
 }

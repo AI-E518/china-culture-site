@@ -7,7 +7,7 @@ const posts = defineCollection({
     title: z.string(),
     summary: z.string(),
     lang: z.enum(['en', 'zh', 'ja', 'ko']),
-    category: z.enum(['heritage', 'food', 'travel']), // heritage=非遗, food=美食, travel=旅游实用信息
+    category: z.enum(['heritage', 'food', 'travel', 'shopping']), // heritage=非遗, food=美食, travel=旅游实用信息, shopping=购物指南
     cover: z.string().optional(), // 封面图路径，可空（空则显示占位色块）
     tags: z.array(z.string()).default([]),
     pubDate: z.coerce.date(),

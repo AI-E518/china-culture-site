@@ -1,7 +1,7 @@
 ---
 title: 상하이에서 물건을 살 때는 서두르지 말고 먼저 돈을 지불하지 마세요.
 lang: ko
-category: travel
+category: shopping
 summary: >-
   **‘즉시 구매 즉시 환급’ 제도는 정확히 어떻게 환급받는가?**
 
