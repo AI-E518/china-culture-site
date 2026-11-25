@@ -4,29 +4,9 @@ lang: en
 draft: false
 category: travel
 summary: >-
-  How Does “Immediate Purchase & Refund” Actually Work?  
-
-
-  First, check whether you’re eligible. According to the Shanghai Municipal Tax Bureau’s official Q&A (August 2026), the following conditions must *all* be met:  
-
-
-  - The same foreign traveler makes purchases on the same day, at the same tax-free shop, totaling between ¥200 and ¥222,200 (yes—that upper limit looks odd at first glance; it’s quoted verbatim from the official document).  
-
-  - The purchased goods remain unopened and unused.  
-
-  - You commit to carrying the goods *personally* or checking them as accompanied baggage when departing from a Shanghai port within **28 days** of the invoice date—and your departure date must fall within **183 days** of your entry into China.  
-
-  - You have already obtained both the official invoice and the *Application Form for Departure Tax Refund*.  
-
-  - You hold a credit card capable of processing a pre-authorization guarantee.  
-
-
   Here’s how the process works in plain terms:  
 
   At the store, you sign an agreement and complete a credit card pre-authorization; the shop then immediately pays you the equivalent amount in RMB as an advance refund. Upon departure, bring your goods, all documents (including passport), and proceed to Customs for verification—then head to the tax-refund agent located inside the airport’s secured departure area for final review. If you depart as committed, the pre-authorization is released and the advance payment becomes your official tax refund. If you fail to depart as promised, the amount will be automatically deducted from your pre-authorized credit card balance.  
-
-
-  So—don’t max out that card; ensure sufficient available credit. And don’t open the goods: once opened, they can no longer pass Customs verification.
 cover: /media/uploads/song-02.jpg
 tags:
   - 山下有松 Songmont
