@@ -1,20 +1,18 @@
 ---
-title: "在中国真正用得上的 8 个 App（以及哪些可以卸了）"
-summary: "给首次来华游客的极简 App 清单：支付、地图、打车、翻译、订票——以及别再依赖的那些西方应用。"
-lang: "zh"
-category: "travel"
-tags: ["App", "应用", "必备", "工具"]
-pubDate: 2026-10-10
-faq:
-  - q: "第一次来中国哪些 App 是必装的？"
-    a: "支付宝（付款+交通）、微信（聊天+小程序）、高德或百度地图（导航）、滴滴（打车）、Trip.com（酒店/火车/机票），再加 Pleco 或离线翻译包。"
-  - q: "为什么不能直接用 Google 地图？"
-    a: "Google 地图在中国大陆并不可靠。高德（或百度）地图的路线、地铁、步行导航都更准确，出发前先下载好。"
-  - q: "用这些 App 需要中国手机号吗？"
-    a: "多数用国际号即可，但部分功能（某些小程序、小城市的打车）有本地卡更顺。旅行 eSIM 也能让核心 App 正常使用。"
-  - q: "哪些西方 App 别太依赖？"
-    a: "Google、Gmail、WhatsApp、Instagram、Facebook、YouTube 在大陆没有工具时无法访问，别拿它们安排日常行程。"
 draft: false
+title: 在中国真正用得上的 8 个 App（以及哪些可以卸了）
+lang: zh
+category: travel
+summary: 给首次来华游客的极简 App 清单：支付、地图、打车、翻译、订票——以及别再依赖的那些西方应用。
+cover: /media/uploads/app01.jpg
+tags:
+  - App
+  - 应用
+  - 必备
+  - 工具
+faq: []
+pinned: false
+pubDate: 2026-10-10
 ---
 
 装对这 8 个 App，中国之行会顺畅得不像在外国；指望在家用的那套西方应用，第一天就会撞墙。下面是一份真正要紧的清单——以及该放下什么。

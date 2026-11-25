@@ -1,17 +1,19 @@
 ---
-category: food
-location: 上海
-pubDate: 2026-09-10
-tags:
-- 上海
-- 梨膏糖
-- 零食
-- 好物
-title: "Lihua Tang (Pear Syrup Candy): A Throat-Soother Sweet That Shanghainese Have\n\
-  \  Sucked on Since Childhood—Hard to Find Outside the City"
-summary: The
+title: |-
+  Lihua Tang (Pear Syrup Candy): A Throat-Soother Sweet That Shanghainese Have
+    Sucked on Since Childhood—Hard to Find Outside the City
 lang: en
 draft: false
+category: food
+summary: The
+cover: /media/uploads/waitan01.jpg
+tags:
+  - 上海
+  - 梨膏糖
+  - 零食
+  - 好物
+location: 上海
+pubDate: 2026-09-10
 ---
 Many foreigners know Shanghai’s xiaolongbao (soup dumplings) and shengjian bao (pan-fried buns), but few realize: when Shanghainese children had sore throats, they didn’t suck Western lozenges—they dissolved a sweet piece of *Ligao Tang* (pear-syrup candy).
 

@@ -1,23 +1,28 @@
 ---
-category: food
-location: 北京
-pubDate: 2026-09-10
-tags:
-- 北京
-- 羊蝎子
-- 美食
-- 好物
-title: "Lamb Spine Stew: The Endlessly Savory Lamb Vertebrae Pot That Beijing Residents\n\
-  \  Savor Late into the Night"
-summary: Roast
+title: >-
+  Lamb Spine Stew: The Endlessly Savory Lamb Vertebrae Pot That Beijing
+  Residents
+    Savor Late into the Night
 lang: en
 draft: false
+category: food
+summary: Roast
+cover: /media/uploads/yangxiezi-01.jpg
+tags:
+  - 北京
+  - 羊蝎子
+  - 美食
+  - 好物
+location: 北京
+pubDate: 2026-09-10
 ---
 If you ask a Beijinger, “What do you eat in winter?” eight out of ten won’t say *Peking duck*—they’ll say: *yang xie zi* (lamb spine hotpot). Peking duck is for show—impressing guests. *Yang xie zi* is what insiders share late at night: a steaming, soul-warming pot.
 
 ## What Is It?
 
 *Yang xie zi* refers to lamb spinal bones—the vertebrae with marrow and clinging meat. Simmered slowly in clear or red broth, served with napa cabbage, wide rice noodles, and frozen tofu, it’s all about gnawing the bones and sucking out the rich marrow. Originating as a northern Chinese halal meat preparation, it evolved into Beijing’s most ubiquitous autumn–winter restaurant dish—hotpot shops serving *yang xie zi* line nearly every street.
+
+![](/media/uploads/yangxiezi-02.jpg)
 
 ## My Take
 
@@ -33,6 +38,6 @@ Ever since, no trip to Beijing feels complete without seeking out a good *yang x
 
 In Beijing’s autumn or winter, simply walk into any *yang xie zi* hotpot restaurant—whether a time-honored name like *Man Peng Xuan* or *Xie Zi Li*, or a bustling local favorite on any corner—and order a pot, plus some baked flatbreads (*shao bing*). Skip the formality—go for the most down-to-earth spot you can find. On your first visit, start by sucking the marrow—it’s the soul of the whole pot.
 
----
+- - -
 
 A city’s finest flavor rarely sits atop the menu. It lives instead in the steaming pot of lamb spine that locals guard fiercely late at night—no sharing allowed.
