@@ -89,6 +89,8 @@ collections:
         fields:
           - { name: q, label: "Question", widget: string }
           - { name: a, label: "Answer", widget: text }
+      - { name: pinned, label: "Pinned (check = always show first)", widget: boolean, default: false }
+      - { name: order, label: "Sort order (smaller number = higher; ties by publish date)", widget: number, required: false }
       - { name: pubDate, label: "Publish date", widget: datetime }
       - { name: body, label: "Body", widget: markdown }
 
@@ -124,6 +126,8 @@ collections:
         fields:
           - { name: q, label: "質問", widget: string }
           - { name: a, label: "回答", widget: text }
+      - { name: pinned, label: "ピン留め（チェック=常に先頭に表示）", widget: boolean, default: false }
+      - { name: order, label: "表示順（数値が小さいほど前、同値は公開日順）", widget: number, required: false }
       - { name: pubDate, label: "公開日", widget: datetime }
       - { name: body, label: "本文", widget: markdown }
 
@@ -159,5 +163,7 @@ collections:
         fields:
           - { name: q, label: "질문", widget: string }
           - { name: a, label: "답변", widget: text }
+      - { name: pinned, label: "상단 고정(체크=항상 맨 앞에 표시)", widget: boolean, default: false }
+      - { name: order, label: "정렬 순서(작은 숫자가 앞, 동일하면 공개일 순)", widget: number, required: false }
       - { name: pubDate, label: "공개일", widget: datetime }
       - { name: body, label: "본문", widget: markdown }
