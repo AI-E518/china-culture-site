@@ -44,7 +44,6 @@ interface UIStrings {
     submit: string;
     success: string;
     error: string;
-    setupNote: string;
   };
   newsletter: { title: string; placeholder: string; button: string; success: string; error: string };
   privacy: { title: string; heading: string; paragraphs: string[] };
@@ -60,9 +59,7 @@ interface UIStrings {
     namePlaceholder: string;
     langLabel: string; // 语言偏好标签
     submit: string; // 提交按钮（领锦囊 / Get the Kit / 受け取る / 받기）
-    success: string; // 成功提示
-    downloadEn: string; // 成功态下载按钮（英文版 PDF）
-    downloadZh: string; // 成功态下载按钮（中文版 PDF）
+    success: string; // 成功提示（引导去邮箱收附件）
     error: string; // 失败提示
     privacyBefore: string; // 隐私说明（链接前）
     privacyAfter: string; // 隐私说明（链接后，处理语序）
@@ -126,7 +123,6 @@ export const ui: Record<Lang, UIStrings> = {
       submit: 'Send my request',
       success: 'Thanks! Your request is in. I’ll reply by email soon.',
       error: 'Something went wrong. Please email me directly.',
-      setupNote: 'Form not configured yet — add your Web3Forms key in site.config.ts.',
     },
     newsletter: {
       title: 'Get China travel notes in your inbox',
@@ -140,10 +136,10 @@ export const ui: Record<Lang, UIStrings> = {
       heading: 'Your privacy',
       paragraphs: [
         'This site is operated by China Living. We collect only what you choose to share, and we never sell or trade it.',
-        '<strong>Contact form.</strong> When you message us, we receive your name, email, travel dates, interests, and message. It is delivered by Web3Forms to our inbox (56861701@qq.com) and used only to reply to you.',
-        '<strong>Newsletter.</strong> If you subscribe, we store your email to send China travel notes. You can unsubscribe anytime from the footer link or by replying to a message.',
+        '<strong>Contact form.</strong> When you message us, we receive your name, email, travel dates, interests, and message. It is delivered to our inbox (56861701@qq.com) through Brevo transactional email and used only to reply to you.',
+        '<strong>Travel Kit &amp; newsletter.</strong> If you request the free China Travel Kit, we store your email (and your first name if you choose to give it) in Brevo to email you the PDF and occasional China travel notes. We also record which page, language and form position you came from, so we know which articles are useful. We do not use this for advertising or profiling. The Kit PDFs are sent only as email attachments — there is no public download link on this site. You can unsubscribe anytime by replying to a message.',
         '<strong>Analytics.</strong> We use Cloudflare Web Analytics — a privacy-first service that does <strong>not</strong> use cookies and does <strong>not</strong> collect personally identifiable information. It shows us only aggregate stats: visitor country, popular pages, and referrers.',
-        'Beyond the processors above (Web3Forms for email delivery), your data is not shared with any third party.',
+        'Beyond the processor above (Brevo, which stores subscribers and delivers email), your data is not shared with any third party.',
         'You may request access to or deletion of your data at any time by emailing 56861701@qq.com.',
       ],
     },
@@ -158,9 +154,7 @@ export const ui: Record<Lang, UIStrings> = {
       namePlaceholder: 'Your name (optional)',
       langLabel: 'Preferred language',
       submit: 'Get the Kit',
-      success: 'You are in! Grab your Kit right below.',
-      downloadEn: 'Download English PDF',
-      downloadZh: 'Download Chinese PDF',
+      success: 'You’re in! Your Kit is on its way — check your inbox (and the spam folder) for the two PDF attachments.',
       error: 'Something went wrong. Please try again.',
       privacyBefore: 'We respect your privacy. Unsubscribe anytime. See our ',
       privacyAfter: '.',
@@ -223,7 +217,6 @@ export const ui: Record<Lang, UIStrings> = {
       submit: '发送咨询',
       success: '谢谢！已收到你的咨询，我会尽快邮件回复你。',
       error: '提交失败了，请直接给我发邮件。',
-      setupNote: '表单尚未配置——请在 site.config.ts 填入 Web3Forms 密钥。',
     },
     newsletter: {
       title: '把中国旅行笔记寄到你的邮箱',
@@ -237,10 +230,10 @@ export const ui: Record<Lang, UIStrings> = {
       heading: '你的隐私',
       paragraphs: [
         '本网站由「中国生活」运营。我们只收集你主动分享的信息，绝不出售或交换。',
-        '<strong>咨询表单。</strong> 当你给我们留言，我们会收到你的姓名、邮箱、预计出行时间、关注方向和留言内容，由 Web3Forms 发到我们的邮箱（56861701@qq.com），仅用于回复你。',
-        '<strong>邮件订阅。</strong> 如果你订阅，我们会保存你的邮箱以发送中国旅行笔记。你可以随时通过页脚链接或回复邮件取消订阅。',
+        '<strong>咨询表单。</strong> 当你给我们留言，我们会收到你的姓名、邮箱、预计出行时间、关注方向和留言内容，通过 Brevo 事务邮件发到我们的邮箱（56861701@qq.com），仅用于回复你。',
+        '<strong>锦囊与邮件订阅。</strong> 领取《中国旅行锦囊》时，我们会把你的邮箱（以及你主动填写的称呼）保存在 Brevo，用于把 PDF 作为邮件附件发给你，并偶尔寄送中国旅行笔记。同时会记录你来自哪个页面、哪种语言和哪个表单位置，用来判断哪些文章有用，不用于广告投放或用户画像。锦囊 PDF 只随邮件发送，站内没有公开下载链接。你可以随时回复邮件取消订阅。',
         '<strong>访问分析。</strong> 我们使用 Cloudflare Web Analytics——这是一款隐私优先的服务，<strong>不使用 Cookie</strong>，也<strong>不收集任何可识别个人身份的信息</strong>。它只向我们展示汇总数据：访客国家、热门页面和来源。',
-        '除上面的处理方（Web3Forms 负责邮件投递）之外，你的数据不会与任何第三方共享。',
+        '除上述处理方（Brevo 负责名单存储与邮件投递）之外，你的数据不会与任何第三方共享。',
         '你可以随时发邮件到 56861701@qq.com，要求查看或删除你的数据。',
       ],
     },
@@ -255,9 +248,7 @@ export const ui: Record<Lang, UIStrings> = {
       namePlaceholder: '你的称呼（选填）',
       langLabel: '语言偏好',
       submit: '领锦囊',
-      success: '订阅成功！锦囊就在下面，直接下载。',
-      downloadEn: '下载英文版 PDF',
-      downloadZh: '下载中文版 PDF',
+      success: '订阅成功！锦囊已发到你的邮箱，请查收（含垃圾箱），两本 PDF 都在附件里。',
       error: '提交失败了，请重试。',
       privacyBefore: '我们尊重你的隐私，随时可退订。详见',
       privacyAfter: '。',
@@ -320,7 +311,6 @@ export const ui: Record<Lang, UIStrings> = {
       submit: '送信する',
       success: 'ありがとうございます！リクエストを受け付けました。メールで折り返しご連絡します。',
       error: '送信に失敗しました。直接メールでご連絡ください。',
-      setupNote: 'フォーム未設定：site.config.ts に Web3Forms キーを設定してください。',
     },
     newsletter: {
       title: '中国旅行の便りをメールで',
@@ -334,10 +324,10 @@ export const ui: Record<Lang, UIStrings> = {
       heading: 'あなたのプライバシー',
       paragraphs: [
         '本サイトは China Living が運営しています。私たちはあなたが自ら共有した情報だけを集め、決して売ったり交換したりすることはありません。',
-        '<strong>お問い合わせフォーム。</strong> メッセージを送ると、お名前・メールアドレス・予定旅行時期・ご関心事・本文を受け取ります。これは Web3Forms 経由で当方の受信箱（56861701@qq.com）に届き、返信のみに使用します。',
-        '<strong>メールマガジン。</strong> 登録いただいた場合、中国旅行の便りを送るためにメールアドレスを保存します。フッターリンクまたは返信でいつでも配信停止できます。',
+        '<strong>お問い合わせフォーム。</strong> メッセージを送ると、お名前・メールアドレス・予定旅行時期・ご関心事・本文を受け取ります。Brevo のトランザクションメールで当方の受信箱（56861701@qq.com）に届き、返信のみに使用します。',
+        '<strong>旅行キットとメールマガジン。</strong> 無料キットを請求すると、PDF を添付してお送りするため、また時々中国旅行の便りを送るために、メールアドレス（任意でお名前）を Brevo に保存します。どのページ・言語・フォーム位置から来たかも記録しますが、広告やプロファイリングには使いません。キット PDF はメール添付のみで、サイトに公開ダウンロードリンクはありません。返信でいつでも配信停止できます。',
         '<strong>アクセス解析。</strong> 当サイトは Cloudflare Web Analytics を使用しています。これはプライバシー優先のサービスで、<strong>Cookie を使わず</strong>、<strong>個人を特定できる情報も収集しません</strong>。表示されるのは国・人気ページ・参照元などの集計データのみです。',
-        '上記の処理者（メール配信の Web3Forms）以外に、あなたのデータを第三者と共有することはありません。',
+        '上記の処理者（購読者管理とメール配信を行う Brevo）以外に、あなたのデータを第三者と共有することはありません。',
         'データの開示や削除をご希望の場合は、56861701@qq.com までメールでいつでもご請求いただけます。',
       ],
     },
@@ -352,9 +342,7 @@ export const ui: Record<Lang, UIStrings> = {
       namePlaceholder: 'お名前（任意）',
       langLabel: '希望言語',
       submit: '受け取る',
-      success: '登録完了！キットは下のリンクから今すぐダウンロードできます。',
-      downloadEn: '英語版 PDF をダウンロード',
-      downloadZh: '中国語版 PDF をダウンロード',
+      success: '登録完了！キットをメールでお送りしました。受信箱（迷惑メールフォルダも）をご確認ください。PDF 2 ファイルを添付しています。',
       error: '送信に失敗しました。もう一度お試しください。',
       privacyBefore: 'プライバシーを尊重し、いつでも配信停止できます。',
       privacyAfter: 'をご覧ください。',
@@ -417,7 +405,6 @@ export const ui: Record<Lang, UIStrings> = {
       submit: '문의 보내기',
       success: '감사합니다! 문의를 접수했어요. 곧 메일로 답장드리겠습니다.',
       error: '전송에 실패했습니다. 직접 메일 주세요.',
-      setupNote: '폼 미설정: site.config.ts에 Web3Forms 키를 넣어주세요.',
     },
     newsletter: {
       title: '중국 여행 편지를 메일로',
@@ -431,10 +418,10 @@ export const ui: Record<Lang, UIStrings> = {
       heading: '당신의 개인정보',
       paragraphs: [
         '이 사이트는 China Living이 운영합니다. 우리는 여러분이 직접 공유한 정보만 수집하며, 절대 판매하거나 거래하지 않습니다.',
-        '<strong>문의 양식.</strong> 메시지를 보내면 이름·이메일·예상 여행 시기·관심 분야·내용을 받습니다. 이는 Web3Forms를 통해 당사 수신함(56861701@qq.com)으로 전달되며, 답장 목적으로만 사용합니다.',
-        '<strong>뉴스레터.</strong> 구독하시면 중국 여행 편지를 보내기 위해 이메일을 저장합니다. 푸터 링크나 답장으로 언제든 구독을 취소할 수 있습니다.',
+        '<strong>문의 양식.</strong> 메시지를 보내면 이름·이메일·예상 여행 시기·관심 분야·내용을 받습니다. Brevo 트랜잭션 메일로 당사 수신함(56861701@qq.com)에 전달되며, 답장 목적으로만 사용합니다.',
+        '<strong>여행 키트와 뉴스레터.</strong> 무료 키트를 요청하면 PDF를 첨부로 보내드리고 가끔 중국 여행 편지를 드리기 위해 이메일(선택 입력한 성함 포함)을 Brevo에 저장합니다. 어떤 페이지·언어·양식 위치에서 왔는지도 기록하지만 광고나 프로파일링에는 사용하지 않습니다. 키트 PDF는 메일 첨부로만 발송되며 사이트에는 공개 다운로드 링크가 없습니다. 답장으로 언제든 구독을 취소할 수 있습니다.',
         '<strong>분석.</strong> 우리는 Cloudflare Web Analytics를 사용합니다. 이는 프라이버시 우선 서비스로 <strong>쿠키를 사용하지 않으며</strong>, <strong>개인을 식별할 수 있는 정보도 수집하지 않습니다</strong>. 표시되는 것은 방문 국가·인기 페이지·유입 경로 등 집계 데이터뿐입니다.',
-        '위 처리자(이메일 발송용 Web3Forms) 외에 여러분의 데이터를 제3자와 공유하지 않습니다.',
+        '위 처리자(구독자 관리와 메일 발송을 담당하는 Brevo) 외에 여러분의 데이터를 제3자와 공유하지 않습니다.',
         '언제든 이메일(56861701@qq.com)로 요청하시면 데이터 열람이나 삭제를 도와드립니다.',
       ],
     },
@@ -449,9 +436,7 @@ export const ui: Record<Lang, UIStrings> = {
       namePlaceholder: '성함 (선택)',
       langLabel: '선호 언어',
       submit: '받기',
-      success: '구독 완료! 아래 링크에서 키트를 바로 다운로드하세요.',
-      downloadEn: '영문 PDF 다운로드',
-      downloadZh: '중문 PDF 다운로드',
+      success: '구독 완료! 키트를 메일로 보냈어요. 받은편지함(스팸함 포함)을 확인해 주세요. PDF 2개가 첨부되어 있습니다.',
       error: '전송에 실패했어요. 다시 시도해 주세요.',
       privacyBefore: '개인정보를 존중하며 언제든 구독을 취소할 수 있습니다. ',
       privacyAfter: '를 확인하세요.',

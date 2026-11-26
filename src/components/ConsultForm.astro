@@ -1,16 +1,14 @@
 ---
 import { t } from '../i18n';
-import { SITE } from '../site.config';
 interface Props {
   lang: string;
 }
 const { lang } = Astro.props;
 const f = t(lang).contact;
 ---
-<form class="consult-form" data-form="consult" data-ok={f.success} data-err={f.error} data-setup={f.setupNote}>
-  <input type="hidden" name="access_key" value={SITE.formAccessKey} />
-  <input type="hidden" name="subject" value="China Living · 新咨询请求 / New consultation request" />
-  <input type="hidden" name="from_name" value="China Living" />
+<!-- 统一提交到本站 /api/submit，前端不含任何第三方密钥 -->
+<form class="consult-form" data-form="consult" data-slot="contact" data-ok={f.success} data-err={f.error}>
+  <!-- 蜜罐：正常访客看不到；服务端会静默丢弃填了它的机器人 -->
   <input type="hidden" name="botcheck" style="display:none" />
 
   <div class="field">
