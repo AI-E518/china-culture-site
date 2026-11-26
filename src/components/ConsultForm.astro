@@ -5,6 +5,7 @@ interface Props {
 }
 const { lang } = Astro.props;
 const f = t(lang).contact;
+const privacyLink = `/${lang}/privacy`;
 ---
 <!-- 统一提交到本站 /api/submit，前端不含任何第三方密钥 -->
 <form class="consult-form" data-form="consult" data-slot="contact" data-ok={f.success} data-err={f.error}>
@@ -42,6 +43,37 @@ const f = t(lang).contact;
     <textarea id="cf-msg" name="message" rows="4" placeholder={f.msgPlaceholder} required></textarea>
   </div>
 
+  <!-- 合规：显式同意 + 隐私政策链接。前端 required 拦截，服务端 /api/submit 再校验一次 -->
+  <div class="consent">
+    <label class="consent-check">
+      <input type="checkbox" name="consent" value="yes" required />
+      <span>{f.consentBefore}<a href={privacyLink}>{f.privacyLabel}</a>{f.consentAfter}</span>
+    </label>
+  </div>
+
   <button type="submit" class="btn-primary">{f.submit}</button>
   <p class="form-status" data-status hidden></p>
 </form>
+
+<style>
+  .consent {
+    margin: 4px 0 14px;
+  }
+  .consent-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted, #6b5a4d);
+    cursor: pointer;
+  }
+  .consent-check input {
+    margin-top: 4px;
+    flex: 0 0 auto;
+  }
+  .consent-check a {
+    color: #b5603a;
+    text-decoration: underline;
+  }
+</style>

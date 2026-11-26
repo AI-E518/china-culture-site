@@ -5,8 +5,9 @@
 export const SITE = {
   name: 'China Living',
   url: 'https://askoldai.com', // 真实域名
-  // 接收咨询邮件的邮箱（页脚/联系页展示用；实际收件地址在 /api/submit 里，默认同下）
-  contactEmail: '56861701@qq.com',
+  // 对外公布的联络邮箱（联系页 mailto 用）。由 Cloudflare Email Routing 转发到 QQ 收件箱，
+  // 因此启用前必须先在 Cloudflare 配好 Email Routing 并用另一邮箱测试收信成功。
+  contactEmail: 'hello@askoldai.com',
   // Cloudflare Web Analytics 令牌（隐私友好、无需 Cookie 同意）。
   // 获取路径：Cloudflare 控制台 → 你的站点 askoldai.com → Analytics & Logs → Web Analytics →
   //   「Add a site / Set up」→ 选 Manual setup → 复制 beacon 里的 token（形如 9xxxxxxx 的一串）填这里。
@@ -18,7 +19,8 @@ export const SITE = {
   // 可选（都有内置默认值，不必配置）：
   //   BREVO_SENDER_EMAIL / BREVO_SENDER_NAME / BREVO_REPLY_TO / CONSULT_TO_EMAIL / BREVO_LANG_ATTR
   // 发件人必须是 Brevo 已认证的自有域名（默认 hello@askoldai.com）：QQ/Gmail 等免费邮箱
-  // 因 DMARC 策略不能作为 Brevo 发件人。回信仍走 56861701@qq.com。
+  // 因 DMARC 策略不能作为 Brevo 发件人。访客回信地址同为 hello@askoldai.com，由 Cloudflare
+  // Email Routing 转发到 QQ 收件箱；咨询通知邮件则直接投递到 QQ，不绕转发。
   //
   // 《中国旅行锦囊》PDF 只作为邮件附件发送，站内无公开下载链接。
   // 源 PDF 放在 assets/kit/（不会被输出到网站），换 PDF 后执行

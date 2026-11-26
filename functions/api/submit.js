@@ -21,7 +21,7 @@
 //   BREVO_SENDER_EMAIL / BREVO_SENDER_NAME / BREVO_REPLY_TO / CONSULT_TO_EMAIL
 //   BREVO_LANG_ATTR   兼容旧版：额外写入语言偏好的自定义属性名，不配则忽略
 //
-// 合规：前端表单已含「同意 + 隐私链接」，此处为 single opt-in。
+// 合规：前端表单已含「同意 + 隐私链接」，服务端对 consult 校验 consent，此处为 single opt-in。
 // GET /api/submit?imp=1 仅用于 CTA 曝光埋点（返回 204，不落库）。
 
 import { KIT_ATTACHMENTS } from '../_kit-data.js';
@@ -86,10 +86,14 @@ export async function onRequestPost({ request, env }) {
   if (type === 'consult' && (!name || !message)) {
     return json({ ok: false, error: 'missing_fields' }, 400);
   }
+  // 合规：咨询表单必须显式勾选同意（前端 required 也会拦截，这里做双保险）
+  if (type === 'consult' && body.consent !== 'yes') {
+    return json({ ok: false, error: 'consent_required' }, 400);
+  }
 
   const senderEmail = (env.BREVO_SENDER_EMAIL || 'hello@askoldai.com').trim();
   const senderName = (env.BREVO_SENDER_NAME || 'Lao Ai · China Living').trim();
-  const replyTo = (env.BREVO_REPLY_TO || '56861701@qq.com').trim();
+  const replyTo = (env.BREVO_REPLY_TO || 'hello@askoldai.com').trim();
   const ownerEmail = (env.CONSULT_TO_EMAIL || '56861701@qq.com').trim();
   const langAttr = (env.BREVO_LANG_ATTR || '').trim();
 

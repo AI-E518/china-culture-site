@@ -44,6 +44,10 @@ interface UIStrings {
     submit: string;
     success: string;
     error: string;
+    directLabel: string; // 联系页「也可以直接写邮件到」引导语
+    consentBefore: string; // 咨询表单同意勾选（隐私链接前）
+    privacyLabel: string; // 隐私政策链接文字
+    consentAfter: string; // 同意勾选（隐私链接后，兼容各语语序）
   };
   newsletter: { title: string; placeholder: string; button: string; success: string; error: string };
   privacy: { title: string; heading: string; paragraphs: string[] };
@@ -123,6 +127,10 @@ export const ui: Record<Lang, UIStrings> = {
       submit: 'Send my request',
       success: 'Thanks! Your request is in. I’ll reply by email soon.',
       error: 'Something went wrong. Please email me directly.',
+      directLabel: 'Prefer email? Write to us directly at ',
+      consentBefore: 'I have read and agree to the ',
+      privacyLabel: 'Privacy policy',
+      consentAfter: '.',
     },
     newsletter: {
       title: 'Get China travel notes in your inbox',
@@ -140,7 +148,7 @@ export const ui: Record<Lang, UIStrings> = {
         '<strong>Travel Kit &amp; newsletter.</strong> If you request the free China Travel Kit, we store your email (and your first name if you choose to give it) in Brevo to email you the PDF and occasional China travel notes. We also record which page, language and form position you came from, so we know which articles are useful. We do not use this for advertising or profiling. The Kit PDFs are sent only as email attachments — there is no public download link on this site. You can unsubscribe anytime by replying to a message.',
         '<strong>Analytics.</strong> We use Cloudflare Web Analytics — a privacy-first service that does <strong>not</strong> use cookies and does <strong>not</strong> collect personally identifiable information. It shows us only aggregate stats: visitor country, popular pages, and referrers.',
         'Beyond the processor above (Brevo, which stores subscribers and delivers email), your data is not shared with any third party.',
-        'You may request access to or deletion of your data at any time by emailing 56861701@qq.com.',
+        'You may request access to or deletion of your data at any time by emailing hello@askoldai.com.',
       ],
     },
     kit: {
@@ -217,6 +225,10 @@ export const ui: Record<Lang, UIStrings> = {
       submit: '发送咨询',
       success: '谢谢！已收到你的咨询，我会尽快邮件回复你。',
       error: '提交失败了，请直接给我发邮件。',
+      directLabel: '也可以直接写邮件到 ',
+      consentBefore: '我已阅读并同意',
+      privacyLabel: '《隐私政策》',
+      consentAfter: '。',
     },
     newsletter: {
       title: '把中国旅行笔记寄到你的邮箱',
@@ -234,7 +246,7 @@ export const ui: Record<Lang, UIStrings> = {
         '<strong>锦囊与邮件订阅。</strong> 领取《中国旅行锦囊》时，我们会把你的邮箱（以及你主动填写的称呼）保存在 Brevo，用于把 PDF 作为邮件附件发给你，并偶尔寄送中国旅行笔记。同时会记录你来自哪个页面、哪种语言和哪个表单位置，用来判断哪些文章有用，不用于广告投放或用户画像。锦囊 PDF 只随邮件发送，站内没有公开下载链接。你可以随时回复邮件取消订阅。',
         '<strong>访问分析。</strong> 我们使用 Cloudflare Web Analytics——这是一款隐私优先的服务，<strong>不使用 Cookie</strong>，也<strong>不收集任何可识别个人身份的信息</strong>。它只向我们展示汇总数据：访客国家、热门页面和来源。',
         '除上述处理方（Brevo 负责名单存储与邮件投递）之外，你的数据不会与任何第三方共享。',
-        '你可以随时发邮件到 56861701@qq.com，要求查看或删除你的数据。',
+        '你可以随时发邮件到 hello@askoldai.com，要求查看或删除你的数据。',
       ],
     },
     kit: {
@@ -311,6 +323,10 @@ export const ui: Record<Lang, UIStrings> = {
       submit: '送信する',
       success: 'ありがとうございます！リクエストを受け付けました。メールで折り返しご連絡します。',
       error: '送信に失敗しました。直接メールでご連絡ください。',
+      directLabel: 'メールで直接ご連絡の方は ',
+      consentBefore: '',
+      privacyLabel: 'プライバシーポリシー',
+      consentAfter: 'に同意します',
     },
     newsletter: {
       title: '中国旅行の便りをメールで',
@@ -328,7 +344,7 @@ export const ui: Record<Lang, UIStrings> = {
         '<strong>旅行キットとメールマガジン。</strong> 無料キットを請求すると、PDF を添付してお送りするため、また時々中国旅行の便りを送るために、メールアドレス（任意でお名前）を Brevo に保存します。どのページ・言語・フォーム位置から来たかも記録しますが、広告やプロファイリングには使いません。キット PDF はメール添付のみで、サイトに公開ダウンロードリンクはありません。返信でいつでも配信停止できます。',
         '<strong>アクセス解析。</strong> 当サイトは Cloudflare Web Analytics を使用しています。これはプライバシー優先のサービスで、<strong>Cookie を使わず</strong>、<strong>個人を特定できる情報も収集しません</strong>。表示されるのは国・人気ページ・参照元などの集計データのみです。',
         '上記の処理者（購読者管理とメール配信を行う Brevo）以外に、あなたのデータを第三者と共有することはありません。',
-        'データの開示や削除をご希望の場合は、56861701@qq.com までメールでいつでもご請求いただけます。',
+        'データの開示や削除をご希望の場合は、hello@askoldai.com までメールでいつでもご請求いただけます。',
       ],
     },
     kit: {
@@ -405,6 +421,10 @@ export const ui: Record<Lang, UIStrings> = {
       submit: '문의 보내기',
       success: '감사합니다! 문의를 접수했어요. 곧 메일로 답장드리겠습니다.',
       error: '전송에 실패했습니다. 직접 메일 주세요.',
+      directLabel: '이메일로 직접 문의하시려면 ',
+      consentBefore: '',
+      privacyLabel: '개인정보 처리방침',
+      consentAfter: '에 동의합니다',
     },
     newsletter: {
       title: '중국 여행 편지를 메일로',
@@ -422,7 +442,7 @@ export const ui: Record<Lang, UIStrings> = {
         '<strong>여행 키트와 뉴스레터.</strong> 무료 키트를 요청하면 PDF를 첨부로 보내드리고 가끔 중국 여행 편지를 드리기 위해 이메일(선택 입력한 성함 포함)을 Brevo에 저장합니다. 어떤 페이지·언어·양식 위치에서 왔는지도 기록하지만 광고나 프로파일링에는 사용하지 않습니다. 키트 PDF는 메일 첨부로만 발송되며 사이트에는 공개 다운로드 링크가 없습니다. 답장으로 언제든 구독을 취소할 수 있습니다.',
         '<strong>분석.</strong> 우리는 Cloudflare Web Analytics를 사용합니다. 이는 프라이버시 우선 서비스로 <strong>쿠키를 사용하지 않으며</strong>, <strong>개인을 식별할 수 있는 정보도 수집하지 않습니다</strong>. 표시되는 것은 방문 국가·인기 페이지·유입 경로 등 집계 데이터뿐입니다.',
         '위 처리자(구독자 관리와 메일 발송을 담당하는 Brevo) 외에 여러분의 데이터를 제3자와 공유하지 않습니다.',
-        '언제든 이메일(56861701@qq.com)로 요청하시면 데이터 열람이나 삭제를 도와드립니다.',
+        '언제든 이메일(hello@askoldai.com)로 요청하시면 데이터 열람이나 삭제를 도와드립니다.',
       ],
     },
     kit: {
